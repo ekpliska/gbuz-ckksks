@@ -12,7 +12,6 @@
   ],
   "plugins": [
     "react",
-    "prettier",
     "@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
@@ -26,9 +25,9 @@
   "rules": {
     "react/prop-types": 0,
     "react/display-name": 0,
+    "indent": ["error", 2],
     "no-var": "error",
     "semi": "error",
-    "indent": "error",
     "no-multi-spaces": "error",
     "no-multiple-empty-lines": "error",
     "prefer-const": "error",

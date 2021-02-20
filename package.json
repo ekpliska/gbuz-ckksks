@@ -14,7 +14,8 @@
     "eject": "react-scripts eject",
     "prettier": "prettier --config ./.prettierrc --write \"src/**/*.{ts,tsx}\"",
     "lint": "eslint --config ./.eslintrc src --ext .ts,.tsx --max-warnings 0",
-    "lint:fix": "eslint --config ./.eslintrc src --ext .ts,.tsx --fix --quiet"
+    "lint:fix": "eslint --config ./.eslintrc src --ext .ts,.tsx --fix --quiet",
+    "precommit": "npm run lint"
   },
   "eslintConfig": {
     "extends": [
@@ -48,12 +49,12 @@
     "prettier": "^2.2.1",
     "node-sass": "^5.0.0"
   },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": "npm run lint:fix"
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged --debug --verbose"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": ["npm run precommit", "git add"]
   }
 }
