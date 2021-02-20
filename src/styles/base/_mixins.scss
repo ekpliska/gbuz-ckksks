@@ -1,0 +1,32 @@
+@mixin flexbox() {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($flex-value) {
+  -webkit-box-flex: $flex-value;
+  -moz-box-flex: $flex-value;
+  -webkit-flex: $flex-value;
+  -ms-flex: $flex-value;
+  flex: $flex-value;
+}
+
+@mixin flex-aling($align-value, $content-value) {
+  align-items: $align-value;
+  justify-content: $content-value;
+}
+
+@mixin transition($prop, $duration, $type, $delay) {
+  -webkit-transform: $prop, $duration, $type, $delay;
+  -moz-transform: $prop, $duration, $type, $delay;
+  -ms-transform: $prop, $duration, $type, $delay;
+  -o-transform: $prop, $duration, $type, $delay;
+  transform: $prop, $duration, $type, $delay;
+}
+
+@mixin border-radius($value) {
+  border-radius: $value;
+}

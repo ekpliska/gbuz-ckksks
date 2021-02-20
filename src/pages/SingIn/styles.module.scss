@@ -1,0 +1,27 @@
+@import '../../styles/base/colors.scss';
+@import '../../styles/base/mixins';
+
+.container {
+  @include flexbox;
+  @include flex-aling(center, center);
+  background-image: linear-gradient(90deg, $color_deep_blue, #fff);
+  height: 100vh;
+}
+
+.container__auth {
+  width: 420px;
+  margin: 0 auto;
+}
+
+.container__auth__title {
+  font-size: 36px;
+  color: #FFF;
+  font-weight: 100;
+  text-align: center;
+}
+
+.container__auth__form {
+  height: 328px;
+  background-color: #FFF;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
