@@ -1,12 +1,14 @@
 import * as path from "path";
 import * as webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import { WebpackManifestPlugin } from "webpack-manifest-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const config: webpack.Configuration = {
-  mode: 'development',
+  mode: "development",
+  target: "web",
   entry: {
     index: [
       "./src/index.tsx"
@@ -33,11 +35,12 @@ const config: webpack.Configuration = {
   devtool: "inline-source-map",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    compress: true,
     port: 3000,
-    watchContentBase: true,
+    compress: true,
+    inline: true,
     hot: true,
     open: true,
+    watchContentBase: true,
     historyApiFallback: true,
   },
   module: {
@@ -59,12 +62,12 @@ const config: webpack.Configuration = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          "style-loader",
           {
             loader: MiniCssExtractPlugin.loader,
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               esModule: false,
             }
@@ -78,31 +81,31 @@ const config: webpack.Configuration = {
             loader: MiniCssExtractPlugin.loader,
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               sourceMap: true,
               modules: true,
             }
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
               sourceMap: true,
             }
           },
           {
-            loader: 'sass-resources-loader',
+            loader: "sass-resources-loader",
             options: {
-              resources: ['./src/styles/base/mixins.scss', './src/styles/base/colors.scss']
+              resources: ["./src/styles/base/mixins.scss", "./src/styles/base/colors.scss"]
             }
           },
         ],
       },
       {
         test: /\.(otf|ttf|woff|woff2)(\?.*)?$/,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          name: './fonts/[name].[ext]',
+          name: "./fonts/[name].[ext]",
           esModule: false,
         }
       },
@@ -117,6 +120,8 @@ const config: webpack.Configuration = {
       filename: "app.[name].[contenthash].css",
     }),
     new ForkTsCheckerWebpackPlugin(),
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
   ]
 };
 
