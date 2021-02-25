@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "target": "es5",
+    "module": "commonjs",
     "lib": [
       "dom",
       "dom.iterable",
@@ -14,7 +15,6 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -27,7 +27,8 @@
     "typeRoots": [
       "node_modules/@types",
       "src/@types"
-    ]
+    ],
+    "sourceMap": true
   },
   "include": [
     "src/**/*.ts",

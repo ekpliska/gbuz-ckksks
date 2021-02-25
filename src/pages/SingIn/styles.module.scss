@@ -1,6 +1,3 @@
-@import '../../styles/base/colors.scss';
-@import '../../styles/base/mixins';
-
 .container {
   @include flexbox;
   @include flex-aling(center, center);
@@ -14,14 +11,14 @@
 }
 
 .container__auth__title {
-  font-size: 36px;
+  font-size: 32px;
   color: #FFF;
-  font-weight: 100;
+  font-weight: inherit;
   text-align: center;
 }
 
 .container__auth__form {
   height: 328px;
   background-color: #FFF;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .2);
 }
