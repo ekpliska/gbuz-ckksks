@@ -1,15 +1,43 @@
 import React from 'react';
-import styles from './styles.module.scss';
+import { InputText } from 'ui/Inputs';
+import Button from 'ui/Button';
+import { LockIcon, UserIcon } from 'ui/IconsSvg';
+import sts from './styles.module.scss';
 
 const SingIn: React.FC = (): React.ReactElement => {
   return (
-    <div className={styles.container}>
-      <div className={styles.container__auth}>
-        <h1 className={styles.container__auth__title}>
+    <div className={sts.authPage}>
+      <div className={sts.container}>
+        <h1 className={sts.container__title}>
           Центр контроля качества и сертификации лекарственных средств
         </h1>
-        <div className={styles.container__auth__form}>
-
+        <div className={sts.container__formWrapper}>
+          <h3 className={sts.container__formWrapper_title}>Вход</h3>
+          <form className={sts.authForm}>
+            <InputText
+              name='login'
+              placeholder='Логин'
+              value=''
+              type='text'
+              startIcon={<UserIcon />}
+              сontainerClassName={sts.authForm__input}
+            />
+            <InputText
+              name='password'
+              placeholder='Пароль'
+              value=''
+              type='password'
+              startIcon={<LockIcon />}
+              сontainerClassName={sts.authForm__input}
+            />
+            <Button
+              type='submit'
+              variant='filled'
+              classNameButton={sts.authForm__button}
+            >
+              Вход
+            </Button>
+          </form>
         </div>
       </div>
     </div>

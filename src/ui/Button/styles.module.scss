@@ -1,0 +1,123 @@
+.container {
+  width: 100%;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-width: 96px;
+  height: 32px;
+  padding: 0 37px;
+  font-size: 12px;
+  color: $color_light_blue;
+  font-weight: 400;
+  border-radius: 15px;
+  border: 1px solid $color_light_blue;
+  cursor: pointer;
+  transition: ease-in-out 0.5s;
+
+  & svg path {
+    fill: $color_light_blue;
+    transition: fill ease-in-out 0.5s;
+  }
+
+  &_outlined {
+    text-transform: uppercase;
+    background-color: #FFF;
+    border-color: $color_light_blue;
+    box-shadow: none;    
+
+    &:hover {
+      color: #FFF;
+      background-color: $color_deep_blue;
+      box-shadow: 0px 2px 3px $color_placeholder;
+
+      & svg path {
+        fill: #FFF;
+      }
+
+    }
+
+    &:active,
+    &:focus {
+      color: #FFF;
+      background-color: $color_medium_blue;
+      border-color: $color_medium_blue;
+      box-shadow: 0px 2px 3px $color_placeholder;
+    }
+
+  }
+
+  &_filled {
+    text-transform: uppercase;
+    color: #FFF;
+    background-color: $color_medium_blue;
+    border-color: $color_medium_blue;
+    box-shadow: 0px 2px 3px $color_placeholder;
+
+    & svg path {
+      fill: #FFF;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+
+  }
+
+  &_text {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+
+    &:hover {
+      color: $color_deep_blue;
+      & svg path {
+        fill: $color_deep_blue;
+      }
+    }
+
+    &:active,
+    &:focus {
+      color: $color_medium_blue;
+    }
+
+    &.disabled {
+      color: $color_disabled;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      cursor: default;
+
+      & svg path {
+        fill: $color_disabled;
+      }
+
+    }
+
+  }
+
+  &__icon {
+    display: flex;
+    margin: 0 8px;
+  }
+
+}
+
+.disabled {
+  color: $color_light_grey;
+  border-color: transparent;
+  background-color: $color_disabled;
+  pointer-events: none;
+  box-shadow: 0px 2px 3px $color_placeholder;
+  cursor: default;
+
+  & svg path {
+    fill: $color_light_grey;
+  }
+
+}

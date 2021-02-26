@@ -73,16 +73,13 @@ textarea {
   font-size: inherit;
   line-height: inherit;
   margin: 0;
+  outline: none;
 }
 
 button,
 html [type="button"],
 [type="reset"],
 [type="submit"] {
-  border: unset;
-  background-color: unset;
-  padding: 0;
-  outline: none;
   -webkit-appearance: button;
 }
 

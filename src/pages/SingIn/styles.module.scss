@@ -1,16 +1,16 @@
-.container {
+.authPage {
   @include flexbox;
   @include flex-aling(center, center);
-  background-image: linear-gradient(90deg, $color_deep_blue, #fff);
+  background-image: linear-gradient(90deg, $color_medium_blue, $color_light_blue);
   height: 100vh;
 }
 
-.container__auth {
+.container {
   width: 420px;
   margin: 0 auto;
 }
 
-.container__auth__title {
+.container__title {
   font-size: 36px;
   line-height: 42px;
   margin-bottom: 34px;
@@ -19,8 +19,33 @@
   text-align: center;
 }
 
-.container__auth__form {
+.container__formWrapper {
   height: 328px;
+  padding: 27px 45px;
+  border-top: 5px solid $color_dark_blue;
+  border-bottom: 2px solid $color_dark_blue;
   background-color: #FFF;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .2);
+
+  &_title {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 400;
+    margin-bottom: 45px;
+    color: $color_dark_blue;
+  }
+
+}
+
+.authForm {
+  box-sizing: border-box;
+
+  &__input {
+    margin: 24px 0;
+  }
+
+  &__button {
+    margin-top: 25px;
+  }
+
 }

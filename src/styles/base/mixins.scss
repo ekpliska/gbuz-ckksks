@@ -20,11 +20,7 @@
 }
 
 @mixin transition($prop, $duration, $type, $delay) {
-  -webkit-transform: $prop, $duration, $type, $delay;
-  -moz-transform: $prop, $duration, $type, $delay;
-  -ms-transform: $prop, $duration, $type, $delay;
-  -o-transform: $prop, $duration, $type, $delay;
-  transform: $prop, $duration, $type, $delay;
+  transition: $prop $duration $type $delay;
 }
 
 @mixin border-radius($value) {
