@@ -11,22 +11,12 @@
   
   &__home {
     flex-basis: 120px;
-    background-color: green;
-  }
-    
-  &__menu {
-    flex-grow: 1;
-    background-color: hotpink;
-  }
+    cursor: pointer;
 
-  &__notifications {
-    flex-basis: 42px;
-    background-color: indigo;
-  }
+    &:hover svg path {
+      fill: $color_dark_blue;
+    }
 
-  &__userBar {
-    flex-basis: 42px;
-    background-color: lightblue;
   }
 
 }
