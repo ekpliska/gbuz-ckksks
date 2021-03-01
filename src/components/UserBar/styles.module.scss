@@ -1,4 +1,4 @@
-.container {
+.userBar {
   width: 42px;
   height: 42px;
   display: flex;
@@ -16,7 +16,7 @@
     background-color: #FFF;
   }
 
-  &__username {
+  &__icon {
     font-size: 18px;
     color: $color_medium_blue;
     font-weight: 700;

@@ -4,9 +4,11 @@ import NotificationItem from './NotificationItem';
 import { NotificationDropdownProps } from './types';
 import sts from './styles.module.scss';
 
-const NotificationDropdown: React.FC<NotificationDropdownProps> = (): React.ReactElement => {
+const NotificationDropdown: React.FC<NotificationDropdownProps> = ({ isVisible }): React.ReactElement => {
   return (
-    <div className={sts.notificationWrapper}>
+    <div className={clsn(sts.notificationWrapper, {
+      [sts.visible]: isVisible,
+    })}>
       <div className={sts.notificationDropdown}>
         <div
           className={clsn(

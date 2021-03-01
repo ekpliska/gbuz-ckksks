@@ -32,7 +32,14 @@
 
 }
 
-.notificationWrapper {}
+.notificationWrapper {
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+
+}
 
 .notificationDropdown {
   width: 240px;

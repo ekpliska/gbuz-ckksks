@@ -26,13 +26,13 @@ const UserBar: React.FC<UserBarProps> = ({ userInfo }): React.ReactElement => {
   }, []);
 
   return (
-    <div ref={divContainerRef} className={sts.container} onClick={handleClick}>
-      <div className={sts.container__username}>
+    <div ref={divContainerRef} className={sts.userBar} onClick={handleClick}>
+      <div className={sts.userBar__icon}>
         {String(userInfo.lastname).charAt(0) ?? 'N/'}
         {String(userInfo.firstname).charAt(0) ?? 'A'}
       </div>
       <div
-        className={clsn(sts.container__dropdown, {
+        className={clsn(sts.userBar__dropdown, {
           [sts.visible]: isVisible,
         })}
       >
