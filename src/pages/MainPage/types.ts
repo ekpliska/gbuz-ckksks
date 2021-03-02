@@ -1,2 +1,5 @@
 // eslint-disable-next-line
-export interface MainPageProps {};
+export interface MainPageProps {
+  title?: string;
+  icon?: React.ReactNode;
+};

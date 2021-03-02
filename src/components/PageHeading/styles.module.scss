@@ -1,0 +1,46 @@
+.pageHeading {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1 1 50%;
+  padding: 24px 40px 24px 0;
+  border-bottom: 1px solid rgba($color_dark_blue, 0.3);
+  margin-right: -40px;
+
+  &__title {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+
+    & h2 {
+      font-size: 24px;
+      font-weight: 400;
+      color: $color_dark_blue;
+    }
+
+    &_icon {
+      width: 30px;
+      height: 30px;
+      background-color: #034769;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+
+      & svg {
+        width: 24px;
+      }
+
+    }
+
+
+  }
+
+  &__buttons {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+}
