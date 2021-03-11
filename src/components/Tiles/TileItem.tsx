@@ -1,20 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TileItemProps } from './types';
 import sts from './styles.module.scss';
+import { IRouteItem } from 'route/types';
 
-const TileItem: React.FC<TileItemProps> = ({
-  label,
-  icon,
-  route,
-  firstChildRoute,
+const TileItem: React.FC<IRouteItem> = ({
+  id,
+  path,
+  headingSettings: { heading, fullHeading, iconHeading },
 }): React.ReactElement => {
   return (
-    <Link to={`${route}${firstChildRoute}`}>
+    <Link to={path} key={id}>
       <div className={sts.tile}>
-        <div className={sts.tile__icon}>{icon}</div>
+        <div className={sts.tile__icon}>{iconHeading ?? null}</div>
         <div className={sts.tile__title}>
-          <h3>{label}</h3>
+          <h3>{fullHeading ?? heading}</h3>
         </div>
       </div>
     </Link>

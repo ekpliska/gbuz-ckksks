@@ -1,22 +1,24 @@
 import React from 'react';
 import Submenu from './Submenu';
-import { menuItems } from 'shared/menuConfig';
-import { MenuProps } from './types';
+import { appRoutes } from 'route/Routes';
 import sts from './styles.module.scss';
 
-const Menu: React.FC<MenuProps> = (): React.ReactElement => {
+const Menu: React.FC = (): React.ReactElement => {
   return (
     <div className={sts.menuWrapper}>
       <ul className={sts.menu}>
-        {menuItems.map(({ id, label, icon, mainRoute, children }) => {
+        {appRoutes.map(({ id, headingSettings, childRoutes }, index) => {
+          if (index === 0) {
+            return null;
+          }
           return (
             <li key={id} className={sts.menu__item}>
               <div className={sts.menu__item_label}>
-                <span className={sts.icon}>{icon}</span>
-                <span className={sts.labelText}>{label}</span>
+                <span className={sts.icon}>{headingSettings.iconHeading}</span>
+                <span className={sts.labelText}>{headingSettings.heading}</span>
               </div>
-              {children?.length && (
-                <Submenu mainRoute={mainRoute} childrenItems={children} />
+              {childRoutes?.length && (
+                <Submenu childrenItems={childRoutes} />
               )}
             </li>
           );

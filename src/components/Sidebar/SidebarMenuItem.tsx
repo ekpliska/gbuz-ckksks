@@ -5,8 +5,7 @@ import { SidebarMenuItemProps } from './types';
 import sts from './styles.module.scss';
 
 const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
-  mainRoute,
-  menuValues: { icon, label, fullLabel, route },
+  menuValues: { path, headingSettings },
   isCollapsed,
 }): React.ReactElement => {
 
@@ -16,16 +15,16 @@ const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
         [sts.active]: false,
       })}
     >
-      <Link to={`${mainRoute}${route}`} className={sts.link}>
+      <Link to={path} className={sts.link}>
         <span className={sts.link__icon}>
-          {icon}
+          {headingSettings.iconHeading}
         </span>
         <span
           className={clsn(sts.link__label, {
             [sts.showing]: isCollapsed,
           })}
         >
-          {fullLabel ?? label}
+          {headingSettings.fullHeading ?? headingSettings.heading}
         </span>
       </Link>
     </li>

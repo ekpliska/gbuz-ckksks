@@ -1,5 +1,5 @@
-import { IMenuItem } from 'shared/menuConfig';
+import * as H from 'history';
 
-export interface TileItemProps extends IMenuItem {
-  firstChildRoute: string | null;
+export interface TilesProps {
+  location: H.Location;
 };

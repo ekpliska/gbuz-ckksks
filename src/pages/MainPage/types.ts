@@ -1,5 +1,7 @@
-// eslint-disable-next-line
+import { IRouteItem, IRoutes } from 'route/types';
+
 export interface MainPageProps {
-  title?: string;
-  icon?: React.ReactNode;
+  parentRoute?: IRoutes;
+  childRoutes?: IRouteItem[] | undefined;
+  children?: React.ReactNode;
 };

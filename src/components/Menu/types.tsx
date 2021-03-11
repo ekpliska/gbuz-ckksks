@@ -1,9 +1,5 @@
-import { IMenuItem } from 'shared/menuConfig';
-
-// eslint-disable-next-line
-export interface MenuProps {}
+import { IRouteItem } from 'route/types';
 
 export interface SubmenuProps {
-  childrenItems: IMenuItem[];
-  mainRoute: string;
+  childrenItems: IRouteItem[];
 };

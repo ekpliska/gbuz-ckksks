@@ -4,7 +4,7 @@ import Button from 'ui/Button';
 import { LockIcon, UserIcon } from 'ui/IconsSvg';
 import sts from './styles.module.scss';
 
-const SingIn: React.FC = (): React.ReactElement => {
+const SignIn: React.FC = (): React.ReactElement => {
   return (
     <div className={sts.authPage}>
       <div className={sts.container}>
@@ -44,4 +44,4 @@ const SingIn: React.FC = (): React.ReactElement => {
   );
 };
 
-export default SingIn;
+export default SignIn;

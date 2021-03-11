@@ -13,10 +13,16 @@ const PageHeading: React.FC<PageHeadingProps> = ({ title, titleIcon }): React.Re
         )}
         <h2>{title}</h2>
       </div>
-      {/* <div className={sts.pageHeading__buttons}>
+      <div className={sts.pageHeading__tooltips}>
+        tooltips
+      </div>
+      <div className={sts.pageHeading__exports}>
+        <button>buttons</button>
+      </div>
+      <div className={sts.pageHeading__actions}>
         <button>buttons</button>
         <button>buttons</button>
-      </div> */}
+      </div>
     </div>
   );
 };

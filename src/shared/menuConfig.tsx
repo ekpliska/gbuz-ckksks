@@ -32,6 +32,14 @@ const iconProps: IconsSvgProps = {
   fill: '#FFF',
 };
 
+export enum ParentPages {
+  DOCUMENTS = 'documents',
+  EQUIPMENTS = 'equipments',
+  USERS_ALL = 'users_all',
+  DICTIONARIES = 'dictionaries',
+  SETTINGS = 'settings',
+};
+
 export interface IMenuItem {
   id: string;
   label: string;
@@ -50,7 +58,7 @@ export interface IMenuItems {
 
 export const menuItems: IMenuItems[] = [
   {
-    id: 'documents',
+    id: ParentPages.DOCUMENTS,
     label: 'Программы',
     icon: <ProgrammIcon {...iconProps} />,
     mainRoute: '/documents',
@@ -79,7 +87,7 @@ export const menuItems: IMenuItems[] = [
     ],
   },
   {
-    id: 'equipments',
+    id: ParentPages.EQUIPMENTS,
     label: 'Оборудование',
     icon: <EquipmentsIcon {...iconProps} />,
     mainRoute: '/equipments',
@@ -125,7 +133,7 @@ export const menuItems: IMenuItems[] = [
     ],
   },
   {
-    id: 'users_all',
+    id: ParentPages.USERS_ALL,
     label: 'Пользователи',
     icon: <UserProfileIcon {...iconProps} />,
     mainRoute: '/users-all',
@@ -145,7 +153,7 @@ export const menuItems: IMenuItems[] = [
     ],
   },
   {
-    id: 'dictionaries',
+    id: ParentPages.DICTIONARIES,
     label: 'Справочники',
     icon: <DictionariesIcon {...iconProps} />,
     mainRoute: '/dictionaries',
@@ -189,7 +197,7 @@ export const menuItems: IMenuItems[] = [
     ],
   },
   {
-    id: 'settings',
+    id: ParentPages.SETTINGS,
     label: 'Настройки',
     icon: <SettingsIcon {...iconProps} />,
     mainRoute: '/settings',

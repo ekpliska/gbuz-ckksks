@@ -35,7 +35,10 @@
     "comma-dangle": ["error", "always-multiline"],
     "no-console": "error",
     "no-debugger": "error",
-    "no-alert": "error"
+    "no-alert": "error",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "settings": {
     "react": {

@@ -1,19 +1,16 @@
-import { IMenuItem, IMenuItems } from 'shared/menuConfig';
+import { IRouteItem } from 'route/types';
 
 export interface SidebarProps {
-  menu: IMenuItems;
   collapsed: boolean;
   onCollapsed: () => void;
 }
 
 export interface SidebarMenuProps {
-  mainRoute: string;
-  subMenuItems: IMenuItem[];
+  subMenuItems: IRouteItem[];
   isCollapsed: boolean;
 }
 
 export interface SidebarMenuItemProps {
-  mainRoute: string;
-  menuValues: IMenuItem;
+  menuValues: IRouteItem;
   isCollapsed: boolean;
 }

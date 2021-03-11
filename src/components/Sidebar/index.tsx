@@ -1,18 +1,29 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import clsn from 'classnames';
-import { RightOutlinedArrow } from 'ui/IconsSvg';
 import SidebarMenu from './SidebarMenu';
+import { RightOutlinedArrow } from 'ui/IconsSvg';
+import { appRoutes } from 'route/Routes';
 import { SidebarProps } from './types';
 import sts from './styles.module.scss';
-import { Layout } from 'antd';
 
-const { Sider } = Layout;
+const Sidebar: React.FC<SidebarProps> = ({ collapsed, onCollapsed }): React.ReactElement | null => {
+  const location = useLocation();
 
-const Sidebar: React.FC<SidebarProps> = ({
-  menu,
-  collapsed,
-  onCollapsed,
-}): React.ReactElement => {
+  const menuItems = React.useMemo(() => {
+    const { pathname } = location;
+    const paths: string[] = pathname.substring(1).split('/');
+    const mainRoute: string = paths[0];
+    if (!mainRoute) {
+      return null;
+    }
+    return appRoutes.find((item) => String(item.id) === String(mainRoute))?.childRoutes;
+  }, [location.pathname]);
+
+  if (!menuItems) {
+    return null;
+  }
+
   return (
     <div
       className={clsn(sts.sidebar, sts.sidebar__wrapper, {
@@ -20,7 +31,6 @@ const Sidebar: React.FC<SidebarProps> = ({
       })}
       onClick={onCollapsed}
     >
-      <Sider />
       <div
         className={clsn(sts.sidebar__toggleButton, {
           [sts.collapsed]: collapsed,
@@ -28,13 +38,14 @@ const Sidebar: React.FC<SidebarProps> = ({
       >
         <RightOutlinedArrow width="12" height="12" fill="#FFF" />
       </div>
-      {menu?.children?.length && (
+      <SidebarMenu isCollapsed={collapsed} subMenuItems={menuItems} />
+      {/* {menuItems?.length && (
         <SidebarMenu
-          mainRoute={menu.mainRoute}
-          subMenuItems={menu.children}
+          mainRoute={menu.path}
+          subMenuItems={menu.childRoutes}
           isCollapsed={collapsed}
         />
-      )}
+      )} */}
     </div>
   );
 };

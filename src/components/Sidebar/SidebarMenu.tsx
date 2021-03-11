@@ -4,7 +4,6 @@ import sts from './styles.module.scss';
 import SidebarMenuItem from './SidebarMenuItem';
 
 const SidebarMenu: React.FC<SidebarMenuProps> = ({
-  mainRoute,
   subMenuItems,
   isCollapsed,
 }): React.ReactElement => {
@@ -14,7 +13,6 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({
         {subMenuItems.map((item) => (
           <SidebarMenuItem
             key={item.id}
-            mainRoute={mainRoute}
             menuValues={item}
             isCollapsed={isCollapsed}
           />

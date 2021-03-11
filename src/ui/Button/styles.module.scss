@@ -17,11 +17,11 @@
   border-radius: 15px;
   border: 1px solid $color_light_blue;
   cursor: pointer;
-  transition: ease-in-out 0.5s;
+  transition: background-color ease-in-out 0.5s;
 
   & svg path {
     fill: $color_light_blue;
-    transition: fill ease-in-out 0.5s;
+    transition: ease-in-out 0.5s;
   }
 
   &_outlined {
