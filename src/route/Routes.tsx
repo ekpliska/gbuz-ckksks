@@ -1,4 +1,3 @@
-// @ts-ignore
 import React from 'react';
 import {
   ProgrammIcon,
@@ -27,6 +26,9 @@ import {
 } from 'ui/IconsSvg';
 import Tiles from 'components/Tiles';
 import { ChildPages, IRoutes, ParentPages, iconProps } from './types';
+import { MeasuringInstruments } from 'pageComponents/equipments/main';
+
+export const tempProps: React.ReactNode = null;
 
 export const appRoutes: IRoutes[] = [
   {
@@ -97,10 +99,13 @@ export const appRoutes: IRoutes[] = [
         id: ChildPages.MEASURING_INSTRUMENTS,
         path: `/${ParentPages.EQUIPMENTS}/${ChildPages.MEASURING_INSTRUMENTS}`,
         exact: true,
-        Component: () => <div>Программы</div>,
+        Component: MeasuringInstruments,
         headingSettings: {
           heading: 'Средства измерения',
           iconHeading: <MeasuringInstrumentsIcon {...iconProps} />,
+          isExportPdf: true,
+          isExportExcel: true,
+          isCreate: true,
         },
       },
       {

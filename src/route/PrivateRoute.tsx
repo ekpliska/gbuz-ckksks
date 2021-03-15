@@ -12,7 +12,7 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({
         {...routeProps}
         render={(props) =>
           isAuthenticated ? (
-            <routeProps.Component {...props} />
+            <routeProps.Component headingSettings={routeProps.headingSettings} {...props} />
           ) : (
             <Redirect to="/sign-in" />
           )
@@ -20,7 +20,7 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({
       />
       {routeProps.childRoutes?.length &&
         routeProps.childRoutes.map((childRoute) => (
-          <PrivateRoute key={childRoute.id} isAuthenticated={isAuthenticated} {...childRoute} />
+          <PrivateRoute key={childRoute.id} isAuthenticated={isAuthenticated} Component={childRoute.Component} {...childRoute} />
         ))}
     </React.Fragment>
   );

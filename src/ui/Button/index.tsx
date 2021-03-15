@@ -7,6 +7,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   variant,
   type,
+  color,
   classNameContainer,
   classNameButton,
   disabled,
@@ -16,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   const buttonClassName = clsn(
     sts.button,
     sts[`button_${variant || 'outlined'}`],
+    sts[`${color ?? 'default'}`],
     classNameButton,
     {
       [sts.disabled]: disabled,

@@ -4,7 +4,7 @@ export enum KeyPage {
   ROOT = 'root',
   APP_ROOT = 'app_root',
   APP_PAGE = 'app_page',
-}
+};
 
 export enum ParentPages {
   ROOT = '/',
@@ -14,7 +14,7 @@ export enum ParentPages {
   USERS_ALL = 'users-all',
   DICTIONARIES = 'dictionaries',
   SETTINGS = 'settings',
-}
+};
 
 export enum ChildPages {
   PROGRAMMS = 'programms',
@@ -36,32 +36,34 @@ export enum ChildPages {
   ORGANIZATIONS = 'organizations',
   LABORATORY = 'laboratory',
   TYPICAL_FORMS = 'typical_forms',
-}
+};
 
-export interface IPageSettings {
+export interface IHeadingSettings {
   heading: string;
   fullHeading?: string;
   iconHeading?: React.ReactNode;
-  isExport?: boolean;
+  isExportPdf?: boolean;
+  isExportExcel?: boolean;
   isCreate?: boolean;
   isTooltips?: boolean;
-}
+};
 
 export interface IRouteItem {
   id: ParentPages | ChildPages;
   path: string;
   exact?: boolean;
+  // eslint-disable-next-line
   Component?: any;
-  headingSettings: IPageSettings;
-}
+  headingSettings: IHeadingSettings;
+};
 
 export interface IRoutes extends IRouteItem {
   childRoutes?: IRouteItem[];
-}
+};
 
 export interface PrivateRouteProps extends IRoutes {
   isAuthenticated: boolean;
-}
+};
 
 export const iconProps: IconsSvgProps = {
   width: '14',

@@ -1,11 +1,10 @@
-export interface PageHeadingProps {
-  title?: string;
-  titleIcon?: React.ReactNode;
-  buttonActionLabel?: string;
-  buttonActionIcon?: React.ReactNode;
-  buttonActionMethod?: () => void;
-  exportToPdfMethod?: () => void;
-  exportToXlsx?: () => void;
+import { IHeadingSettings } from 'route/types';
+
+export interface PageHeadingProps extends IHeadingSettings {
+  buttonCreateLabel?: string;
+  buttonCreateMethod?: () => void;
+  exportPdfMethod?: () => void;
+  exportExcelMethod?: () => void;
   tooltips?: React.ReactNode[];
   classNameContainer?: string;
 };

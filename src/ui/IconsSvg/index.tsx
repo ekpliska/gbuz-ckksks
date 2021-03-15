@@ -30,3 +30,6 @@ export { UnitsIcon } from './icon-svg/UnitsIcon';
 export { OrganizationsIcon } from './icon-svg/OrganizationsIcon';
 export { InfoIcon } from './icon-svg/InfoIcon';
 export { TypicalFormsIcon } from './icon-svg/TypicalFormsIcon';
+export { ExcelIcon } from './icon-svg/ExcelIcon';
+export { PdfIcon } from './icon-svg/PdfIcon';
+export { PlusIcon } from './icon-svg/PlusIcon';

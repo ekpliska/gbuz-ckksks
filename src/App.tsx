@@ -20,7 +20,6 @@ const App: React.FC = (): React.ReactElement => {
         {appRoutes.map((routeProps) => (
           <PrivateRoute
             key={routeProps.id}
-            Component={routeProps.Component}
             isAuthenticated={isAuthenticated}
             {...routeProps}
           />

@@ -8,38 +8,28 @@
   justify-content: center;
   position: relative;
   width: 100%;
-  min-width: 96px;
+  // min-width: 46px;
+  min-width: max-content;
   height: 32px;
-  padding: 0 37px;
+  padding: 0 10px;
   font-size: 12px;
   color: $color_light_blue;
   font-weight: 400;
   border-radius: 15px;
   border: 1px solid $color_light_blue;
   cursor: pointer;
-  transition: background-color ease-in-out 0.5s;
+  transition: background-color ease-in-out 0.3s;
 
   & svg path {
     fill: $color_light_blue;
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.2s;
   }
 
   &_outlined {
     text-transform: uppercase;
-    background-color: #FFF;
-    border-color: $color_light_blue;
-    box-shadow: none;    
-
-    &:hover {
-      color: #FFF;
-      background-color: $color_deep_blue;
-      box-shadow: 0px 2px 3px $color_placeholder;
-
-      & svg path {
-        fill: #FFF;
-      }
-
-    }
+    // background-color: #FFF;
+    // border-color: $color_light_blue;
+    // box-shadow: none;
 
     &:active,
     &:focus {
@@ -49,22 +39,58 @@
       box-shadow: 0px 2px 3px $color_placeholder;
     }
 
+    &.default,
+    &.light {
+      background-color: #FFF;
+      border-color: $color_light_blue;
+      box-shadow: none;
+
+      &:hover {
+        color: #FFF;
+        background-color: $color_deep_blue;
+        box-shadow: 0px 2px 3px $color_placeholder;
+
+        & svg path {
+          fill: #FFF;
+        }
+
+      }
+
+    }
+
   }
 
   &_filled {
     text-transform: uppercase;
     color: #FFF;
-    background-color: $color_medium_blue;
-    border-color: $color_medium_blue;
-    box-shadow: 0px 2px 3px $color_placeholder;
-
-    & svg path {
-      fill: #FFF;
-    }
+    // background-color: $color_medium_blue;
+    // border-color: $color_medium_blue;
+    // box-shadow: 0px 2px 3px $color_placeholder;
 
     &:hover,
     &:focus {
       opacity: 0.8;
+    }
+
+    &.light {
+      background-color: $color_light_blue_info;
+      border-color: transparent;
+
+      & svg path {
+        fill: $color_light_blue;
+      }
+
+    }
+
+    &.default {
+      background-color: $color_medium_blue;
+      border-color: $color_medium_blue;
+      box-shadow: 0px 2px 3px $color_placeholder;
+
+      & svg path {
+        fill: #FFF;
+      }
+
     }
 
   }
@@ -76,6 +102,7 @@
 
     &:hover {
       color: $color_deep_blue;
+
       & svg path {
         fill: $color_deep_blue;
       }
