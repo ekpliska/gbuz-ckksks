@@ -31,8 +31,7 @@
     // border-color: $color_light_blue;
     // box-shadow: none;
 
-    &:active,
-    &:focus {
+    &:active {
       color: #FFF;
       background-color: $color_medium_blue;
       border-color: $color_medium_blue;
@@ -67,8 +66,7 @@
     // border-color: $color_medium_blue;
     // box-shadow: 0px 2px 3px $color_placeholder;
 
-    &:hover,
-    &:focus {
+    &:hover {
       opacity: 0.8;
     }
 

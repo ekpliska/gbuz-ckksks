@@ -1,0 +1,25 @@
+.controlPanel {
+  margin: 17px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+
+  .search {
+    width: 100%;
+    padding: 15px 0;
+    margin-right: 33px;
+    box-shadow: 0px 1px 5px rgba($color_placeholder, .7);
+
+    &.fullWidth {
+      margin-right: 0;
+    }
+
+  }
+
+  .additional {
+    width: 343px;
+    padding: 15px 17px;
+    box-shadow: 0px 1px 5px rgba($color_placeholder, .7);
+  }
+
+}
