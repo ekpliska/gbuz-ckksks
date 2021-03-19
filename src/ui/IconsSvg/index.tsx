@@ -33,3 +33,6 @@ export { TypicalFormsIcon } from './icon-svg/TypicalFormsIcon';
 export { ExcelIcon } from './icon-svg/ExcelIcon';
 export { PdfIcon } from './icon-svg/PdfIcon';
 export { PlusIcon } from './icon-svg/PlusIcon';
+export { EmptyIcon } from './icon-svg/EmptyIcon';
+export { KebabMenuIcon } from './icon-svg/KebabMenuIcon';
+export { ClockIcon } from './icon-svg/ClockIcon';

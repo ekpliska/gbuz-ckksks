@@ -1,0 +1,15 @@
+.menuWrapper {
+  width: 100%;
+}
+
+.menuItem {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 11px;
+  cursor: default;
+
+  &:hover {
+    background-color: $color_light_blue_info;
+  }
+
+}

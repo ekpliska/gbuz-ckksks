@@ -1,0 +1,53 @@
+.verificationEquipments {
+  height: 100%;
+
+  &__heading {
+    font-size: 14px;
+    font-weight: 400;
+    color: $color_dark_blue;
+    line-height: 18px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid $color_light_blue;
+  }
+
+  &__content {
+    padding: 7px 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100% - 26px);
+  }
+
+}
+
+.verificationConteiner {
+  width: 100%;
+  margin: 5px 0;
+  padding-right: 5px;
+
+  .verification {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    &__icon {
+      line-height: 12px;
+    }
+
+    &__text {
+      width: 70%;
+      padding: 0 5px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &__label {
+      font-size: 10px;
+      color: $color_red;
+      font-style: italic;
+    }
+
+  }
+
+}

@@ -9,6 +9,6 @@ export interface MeasuringInstrumentsDataType {
 };
 
 export interface SearchFormProps<T> {
-  currentData: T;
-  setData: Dispatch<SetStateAction<T>>;
+  currentData?: T;
+  setData?: Dispatch<SetStateAction<T>>;
 };
