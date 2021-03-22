@@ -1,7 +1,26 @@
 import React from 'react';
 import PageHeading from 'components/PageHeading';
 import ControlPanel from 'components/ControlPanel';
+import { VerificationEquipmentItemProps } from 'components/VerificationEquipments/types';
 import { MeasuringInstrumentsProps } from './types';
+
+const tempData: VerificationEquipmentItemProps[] = [
+  {
+    id: 0,
+    nameEquipment: 'Анализатор жидкости “Флюорат-01-3М”',
+    dateVerification: '2021-03-17',
+  },
+  {
+    id: 1,
+    nameEquipment: 'Анализатор жидкости кондуктометрический HI98308',
+    dateVerification: '2021-03-31',
+  },
+  {
+    id: 2,
+    nameEquipment: 'Вакуумметр “ВПЗ-УУ2”',
+    dateVerification: '2021-03-10',
+  },
+];
 
 const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
   headingSettings,
@@ -27,7 +46,7 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
         buttonCreateMethod={handleClickCreate}
         {...headingSettings}
       />
-      <ControlPanel />
+      <ControlPanel verificationItems={tempData} />
     </>
   );
 };

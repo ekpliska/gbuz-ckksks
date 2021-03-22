@@ -2,34 +2,10 @@ import React from 'react';
 import Menu, { MenuItem } from 'ui/Menu';
 import EmptyLabel from 'ui/EmptyLabel';
 import VerificationEquipmentItem from './VerificationEquipmentItem';
-import {
-  VerificationEquipmentsProps,
-  VerificationEquipmentItemProps,
-} from './types';
+import { VerificationEquipmentsProps } from './types';
 import sts from './styles.module.scss';
 
-const tempData: VerificationEquipmentItemProps[] = [
-  {
-    id: 0,
-    nameEquipment: 'Анализатор жидкости “Флюорат-01-3М”',
-    dateVerification: '2021-03-17',
-  },
-  {
-    id: 1,
-    nameEquipment: 'Анализатор жидкости кондуктометрический HI98308',
-    dateVerification: '2021-03-31',
-  },
-  {
-    id: 2,
-    nameEquipment: 'Вакуумметр “ВПЗ-УУ2”',
-    dateVerification: '2021-03-10',
-  },
-];
-
-const VerificationEquipments: React.FC<VerificationEquipmentsProps> = ({
-  items = tempData,
-}): React.ReactElement => {
-
+const VerificationEquipments: React.FC<VerificationEquipmentsProps> = ({ items }): React.ReactElement => {
   const handleMenuItemClick = () => {
     return;
   };
@@ -37,8 +13,8 @@ const VerificationEquipments: React.FC<VerificationEquipmentsProps> = ({
   const menu = React.useMemo(() => {
     return (
       <Menu>
-        <MenuItem text='Просмотр' onClick={handleMenuItemClick} />
-        <MenuItem text='Бланк на поверку' onClick={handleMenuItemClick} />
+        <MenuItem text="Просмотр" onClick={handleMenuItemClick} />
+        <MenuItem text="Бланк на поверку" onClick={handleMenuItemClick} />
       </Menu>
     );
   }, []);

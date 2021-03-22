@@ -5,15 +5,19 @@ import sts from './styles.module.scss';
 import MeasuringInstrumentsFrom from 'components/searchFroms/MeasuringInstrumentsFrom';
 import VerificationEquipments from 'components/VerificationEquipments';
 
-const ControlPanel: React.FC<ControlPanelProps> = (): React.ReactElement => {
+const ControlPanel: React.FC<ControlPanelProps> = ({
+  verificationItems,
+}): React.ReactElement => {
   return (
     <div className={sts.controlPanel}>
-      <div className={clsn(sts.search, { [sts.fullWidth]: false })}>
+      <div className={clsn(sts.search, { [sts.fullWidth]: !verificationItems?.length })}>
         <MeasuringInstrumentsFrom />
       </div>
-      <div className={sts.additional}>
-        <VerificationEquipments />
-      </div>
+      {verificationItems?.length && (
+        <div className={sts.additional}>
+          <VerificationEquipments items={verificationItems} />
+        </div>
+      )}
     </div>
   );
 };

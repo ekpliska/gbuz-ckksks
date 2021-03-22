@@ -1,4 +1,5 @@
+import { VerificationEquipmentItemProps } from 'components/VerificationEquipments/types';
+
 export interface ControlPanelProps {
-  searchFormComponent?: JSX.IntrinsicElements;
-  additionalBlock?: React.ReactElement;
+  verificationItems?: VerificationEquipmentItemProps[];
 };
