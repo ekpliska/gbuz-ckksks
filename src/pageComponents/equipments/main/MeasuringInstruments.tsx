@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeading from 'components/PageHeading';
 import ControlPanel from 'components/ControlPanel';
+import GeneralTable from 'ui/GeneralTable';
 import { VerificationEquipmentItemProps } from 'components/VerificationEquipments/types';
 import { MeasuringInstrumentsProps } from './types';
 
@@ -47,6 +48,7 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
         {...headingSettings}
       />
       <ControlPanel verificationItems={tempData} />
+      <GeneralTable />
     </>
   );
 };
