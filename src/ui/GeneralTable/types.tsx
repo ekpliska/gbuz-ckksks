@@ -9,6 +9,7 @@ interface IVerificationData {
 };
 
 interface IEquipment {
+  key: string | number;
   id: string | number;
   nameEquipment: string;
   factoryNumber: string;
@@ -64,6 +65,7 @@ export const columns: ColumnsType<IEquipment> = [
 
 export const dataTable: IEquipment[] = [
   {
+    key: 1,
     id: 'СИ459-45',
     nameEquipment: 'Анализатор жидкости “Флюорат-01-3М',
     factoryNumber: '2355',
@@ -77,6 +79,7 @@ export const dataTable: IEquipment[] = [
     },
   },
   {
+    key: 2,
     id: 'СИ459-46',
     nameEquipment: 'Анализатор жидкости кондуктометрический HI98308',
     factoryNumber: '16515',
@@ -94,9 +97,9 @@ export const dataTable: IEquipment[] = [
 export interface GeneralTableProps {
   columns?: ColumnProps<ColumnsType[]>;
   // eslint-disable-next-line
-  dataSourse: object[];
+  dataSourse?: object[];
   // eslint-disable-next-line
-  rowSelection: object[];
+  rowSelection?: object[];
   // eslint-disable-next-line
   onRow?: (record: object, index?: number) => string;
   pagination?: false | TablePaginationConfig;

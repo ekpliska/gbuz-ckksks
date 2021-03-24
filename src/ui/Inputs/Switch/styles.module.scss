@@ -1,0 +1,164 @@
+.switchContainer {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  min-width: 44px;
+  height: 22px;
+  $switch: &;
+
+  &__input {
+    display: none;
+
+    &:checked + #{$switch} {
+
+      &__toggle {
+        background-color: $color_deep_blue;
+
+        &:before {
+          transform: translateX(22px);
+        }
+
+      }
+
+    }
+
+    &:disabled + #{$switch}__toggle {
+      background-color: $color_disabled;
+      cursor: not-allowed;
+
+      &:before {
+        background-color: $color_light_grey;
+      }
+
+    }
+
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50px;
+    background-color: $color_placeholder;
+    transition: .4s;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      top: 2px;
+      border-radius: 50%;
+      background-color: #FFF;
+      transition: .4s;
+    }
+
+  }
+
+}
+
+// <div className="toggle-switch">
+//         <input
+//           type="checkbox"
+//           className="toggle-switch-checkbox"
+//           name={this.props.Name}
+//           id={this.props.Name}
+//         />
+//         <label className="toggle-switch-label" htmlFor={this.props.Name}>
+//           <span className="toggle-switch-inner" />
+//           <span className="toggle-switch-switch" />
+//         </label>
+//       </div>
+
+// .toggle-switch {
+//   position: relative;
+//   width: 75px;
+//   display: inline-block;
+//   vertical-align: middle;
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   text-align: left;
+//   &-checkbox {
+//     display: none;
+//   }
+//   &-label {
+//     display: block;
+//     overflow: hidden;
+//     cursor: pointer;
+//     border: 0 solid #bbb;
+//     border-radius: 20px;
+//     margin: 0;
+//   }
+//   &-inner {
+//     display: block;
+//     width: 200%;
+//     margin-left: -100%;
+//     transition: margin 0.3s ease-in 0s;
+//     &:before,
+//     &:after {
+//       display: block;
+//       float: left;
+//       width: 50%;
+//       height: 34px;
+//       padding: 0;
+//       line-height: 34px;
+//       font-size: 14px;
+//       color: white;
+//       font-weight: bold;
+//       box-sizing: border-box;
+//     }
+//     &:before {
+//       content: "Yes";
+//       text-transform: uppercase;
+//       padding-left: 10px;
+//       background-color: #f90;
+//       color: #fff;
+//     }
+//   }
+//   &-disabled {
+//     background-color: #ddd;
+//     cursor: not-allowed;
+//     &:before {
+//       background-color: #ddd;
+//       cursor: not-allowed;
+//     }
+//   }
+//   &-inner:after {
+//     content: "No";
+//     text-transform: uppercase;
+//     padding-right: 10px;
+//     background-color: #bbb;
+//     color: #fff;
+//     text-align: right;
+//   }
+//   &-switch {
+//     display: block;
+//     width: 24px;
+//     margin: 5px;
+//     background: #fff;
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     right: 40px;
+//     border: 0 solid #bbb;
+//     border-radius: 20px;
+//     transition: all 0.3s ease-in 0s;
+//   }
+//   &-checkbox:checked + &-label {
+//     .toggle-switch-inner {
+//       margin-left: 0;
+//     }
+//     .toggle-switch-switch {
+//       right: 0px;
+//     }
+//   }
+// }

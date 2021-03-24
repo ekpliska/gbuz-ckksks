@@ -4,6 +4,7 @@ import ControlPanel from 'components/ControlPanel';
 import GeneralTable from 'ui/GeneralTable';
 import { VerificationEquipmentItemProps } from 'components/VerificationEquipments/types';
 import { MeasuringInstrumentsProps } from './types';
+import Switch from 'ui/Inputs/Switch';
 
 const tempData: VerificationEquipmentItemProps[] = [
   {
@@ -48,6 +49,7 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
         {...headingSettings}
       />
       <ControlPanel verificationItems={tempData} />
+      <Switch id='switch' name='switch' />
       <GeneralTable />
     </>
   );
