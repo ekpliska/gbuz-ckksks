@@ -1,4 +1,5 @@
 import React from 'react';
+import clsn from 'classnames';
 import { SwitchProps } from './types';
 import sts from './styles.module.scss';
 
@@ -7,6 +8,7 @@ const Switch: React.FC<SwitchProps> = ({
   name,
   checked,
   disabled,
+  classNameContainer,
   onChange,
 }): React.ReactElement => {
   
@@ -17,7 +19,7 @@ const Switch: React.FC<SwitchProps> = ({
   };
 
   return (
-    <div className={sts.switchContainer}>
+    <div className={clsn(sts.switchContainer, classNameContainer)}>
       <label htmlFor={name} className={sts.switch}>
         <input
           id={id}

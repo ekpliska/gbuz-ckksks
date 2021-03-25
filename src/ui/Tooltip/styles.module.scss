@@ -1,0 +1,61 @@
+.tooltipContainer {
+  margin: 0;
+  position: relative;
+  width: max-content;
+}
+
+.tooltipPopup {
+  min-width: 40px;
+  max-width: 320px;
+  border-radius: 8px;
+  position: absolute;
+  transform: translateX(-50%);
+  background-color: #FFF;
+  animation: visibled .3s ease-in-out;
+  box-shadow: 0 3px 6px -4px rgba($color_placeholder, .8), 0 6px 16px 0 rgba($color_placeholder, .5), 0 9px 28px 8px rgba($color_placeholder, .3);
+
+  &.top {}
+
+  &.right {}
+
+  &.bottom {}
+
+  &.left {}
+
+  &:before {
+    content: "";
+    left: 50%;
+    width: 0;
+    height: 0;
+    bottom: 100%;
+    margin-left: calc(6px * -1);
+    position: absolute;
+    border: solid transparent;
+    border-top-color: #FFF;
+    border-width: 6px;
+    transform: rotateX(180deg);
+  }
+
+  &__content {
+    padding: 8px;
+    color: $default_font_color;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+  }
+
+  @keyframes visibled {
+    0% {
+      opacity: .1;
+    }
+
+    50% {
+      opacity: .4;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+}
