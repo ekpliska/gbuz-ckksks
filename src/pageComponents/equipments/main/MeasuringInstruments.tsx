@@ -4,9 +4,9 @@ import ControlPanel from 'components/ControlPanel';
 import GeneralTable from 'ui/GeneralTable';
 import { VerificationEquipmentItemProps } from 'components/VerificationEquipments/types';
 import { MeasuringInstrumentsProps } from './types';
-import Switch from 'ui/Inputs/Switch';
 import Tooltip from 'ui/Tooltip';
 import { PlacementTypes } from 'ui/Tooltip/types';
+import { Switch, Checkbox, Radio } from 'ui/Inputs';
 
 const tempData: VerificationEquipmentItemProps[] = [
   {
@@ -55,6 +55,11 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
       <Tooltip title='Анализатор Анализатор Анализатор' placement={PlacementTypes.BOTTOM}>
         <button>Button</button>
       </Tooltip>
+      <div style={{ margin: '0 120px' }}>
+        <Checkbox name='check' value={true} label='Check value' />
+        <Radio name='radio' label='Radio value 1' value='radio1' radioValue='radio1' />
+        <Radio name='radio' label='Radio value 2' value='radio1' radioValue='radio2' />
+      </div>
       <GeneralTable />
     </>
   );
