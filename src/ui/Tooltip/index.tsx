@@ -19,20 +19,29 @@ const Tooltip: React.FC<TooltipProps> = ({
   const handleMouseEnter = () => {
     const position = divContainerRef.current?.getBoundingClientRect();
     if (position) {
-      setStylePopup(() => {
-        // const left = (position.left + (position.width / 2)) - dimensions.width / 2;
-        const left = position.left + position.width / 2;
-        const keyPosition: 'top' | 'bottom' =
-          position.top < window.innerHeight / 2 ? 'top' : 'bottom';
-
-        return {
-          left: left,
-          [keyPosition]:
-            keyPosition === 'top'
-              ? position.top + position.height + 10
-              : window.innerHeight - position.top + 10,
+      let initialCoords: Partial<ITooltipPopupStyle> = {};
+      if (placement === PlacementTypes.TOP) {
+        initialCoords = {
+          bottom: window.innerHeight - position.top + 10,
+          left: position.left + position.width / 2,
         };
-      });
+      } else if (placement === PlacementTypes.RIGTH) {
+        initialCoords = {
+          top: position.top - position.height + 10,
+          left: position.right + position.width,
+        };
+      } else if (placement === PlacementTypes.LEFT) {
+        initialCoords = {
+          top: position.top - position.height + 10,
+          left: position.left - position.width,
+        };
+      } else {
+        initialCoords = {
+          top: position.top + position.height + 10,
+          left: position.left + position.width / 2,
+        };
+      }
+      setStylePopup(initialCoords);
       setIsVisible(true);
     }
   };

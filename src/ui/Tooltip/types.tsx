@@ -4,7 +4,7 @@ export enum PlacementTypes {
   TOP = 'top',
   RIGTH = 'right',
   BOTTOM = 'bottom',
-  LEFT = 'LEFT',
+  LEFT = 'left',
 };
 
 export interface TooltipProps {

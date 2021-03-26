@@ -6,6 +6,7 @@ import { VerificationEquipmentItemProps } from 'components/VerificationEquipment
 import { MeasuringInstrumentsProps } from './types';
 import Switch from 'ui/Inputs/Switch';
 import Tooltip from 'ui/Tooltip';
+import { PlacementTypes } from 'ui/Tooltip/types';
 
 const tempData: VerificationEquipmentItemProps[] = [
   {
@@ -51,7 +52,7 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
       />
       <ControlPanel verificationItems={tempData} />
       <Switch id='switch' name='switch' />
-      <Tooltip title='Tooltip text...'>
+      <Tooltip title='Анализатор Анализатор Анализатор' placement={PlacementTypes.BOTTOM}>
         <button>Button</button>
       </Tooltip>
       <GeneralTable />
