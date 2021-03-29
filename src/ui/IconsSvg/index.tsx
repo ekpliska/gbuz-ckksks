@@ -36,3 +36,5 @@ export { PlusIcon } from './icon-svg/PlusIcon';
 export { EmptyIcon } from './icon-svg/EmptyIcon';
 export { KebabMenuIcon } from './icon-svg/KebabMenuIcon';
 export { ClockIcon } from './icon-svg/ClockIcon';
+export { UpArrowIcon } from './icon-svg/ArrowIcon';
+export { DownArrowIcon } from './icon-svg/ArrowIcon';

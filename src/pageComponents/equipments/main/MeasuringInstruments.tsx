@@ -6,7 +6,8 @@ import { VerificationEquipmentItemProps } from 'components/VerificationEquipment
 import { MeasuringInstrumentsProps } from './types';
 import Tooltip from 'ui/Tooltip';
 import { PlacementTypes } from 'ui/Tooltip/types';
-import { Switch, Checkbox, Radio } from 'ui/Inputs';
+import { Switch, Checkbox, Radio, Select } from 'ui/Inputs';
+import { IOptionType } from 'ui/Inputs/Select/types';
 
 const tempData: VerificationEquipmentItemProps[] = [
   {
@@ -26,9 +27,26 @@ const tempData: VerificationEquipmentItemProps[] = [
   },
 ];
 
+const selectValues: IOptionType[] = [
+  {
+    id: 1,
+    value: 'Value 1',
+  },
+  {
+    id: 2,
+    value: 'Value 2',
+  },
+  {
+    id: 3,
+    value: 'Value 3',
+  },
+];
+
 const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
   headingSettings,
 }): React.ReactElement => {
+  const [value, setValue] = React.useState<IOptionType | null>(null);
+
   const handleClickExportToPdf = (): void => {
     return;
   };
@@ -59,6 +77,7 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
         <Checkbox name='check' value={true} label='Check value' />
         <Radio name='radio' label='Radio value 1' value='radio1' radioValue='radio1' />
         <Radio name='radio' label='Radio value 2' value='radio1' radioValue='radio2' />
+        <Select label='Статус' options={selectValues} value={value} onSelect={setValue} />
       </div>
       <GeneralTable />
     </>

@@ -1,0 +1,96 @@
+.selectContainer {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  &__label {
+    font-size: 10px;
+  }
+
+  &__wrapper {
+    margin: 0;
+  }
+
+}
+
+.select {
+  width: 100%;
+  position: relative;
+
+  &__inputWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 12px;
+    width: 100%;
+    border: 1px solid rgba($color_deep_blue, 0.5);
+    border-radius: 4px;
+    padding: 6px 0;
+
+    &_input {
+      width: 100%;
+      border: none;
+      padding: 0 10px;
+
+      &::placeholder {
+        color: $color_placeholder;
+      }
+
+    }
+
+    &_arrow,
+    &_clear {
+      margin: 0 15px;
+      line-height: 0;
+      transition: transform .2s ease-in;
+      cursor: pointer;
+
+      &:hover svg > path {
+        fill: $color_deep_blue;
+      }
+
+      &.--open {
+        transform: rotate(180deg);
+      }
+
+    }
+
+    &_clear {
+      margin: 0;
+    }
+
+  }
+
+  &__popup {
+    position: absolute;
+    top: 98%;
+    left: 0;
+    width: 100%;
+    max-height: 220px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 4px;
+    border: 1px solid rgba($color_deep_blue, 0.5);
+    background-color: #FFF;
+    z-index: 1;
+
+    &_item {
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: default;
+
+      &.--selected {
+        background-color: rgba($color_light_blue_info, 0.5);
+      }
+
+      &:not(.--no-hover):hover {
+        background-color: $color_light_blue_info;
+      }
+
+    }
+
+  }
+
+}
