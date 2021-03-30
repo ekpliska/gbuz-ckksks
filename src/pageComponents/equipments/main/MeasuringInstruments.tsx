@@ -89,12 +89,13 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
       </div>
       <div>
         <button onClick={() => setIsShowNotifiaction(true)}>Show notification</button>
-        <Notification 
-          visible={isShowNotifiaction} 
+        <Notification
+          visible={isShowNotifiaction}
           heading='Программы проведения испытаний'
-          message='Ошибка обновления программы проведения испытаний. Проверьте корректность заполненных данных.' 
-          type={MessageType.INFO} 
-          onClose={() => setIsShowNotifiaction(false)} 
+          message='Ошибка обновления программы проведения испытаний. Проверьте корректность заполненных данных.'
+          type={MessageType.INFO}
+          onClose={() => setIsShowNotifiaction(false)}
+          autoClose={true}
         />
       </div>
       <GeneralTable />

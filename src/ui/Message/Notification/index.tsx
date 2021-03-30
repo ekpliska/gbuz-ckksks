@@ -39,10 +39,24 @@ const Notification: React.FC<MessageProps> = ({
     }
   };
 
+  const handleOutsideClick = (event: MouseEvent): void => {
+    if (!divContainerRef.current?.contains(event?.target as Node) && document.contains(event?.target as Node)) {
+      onClose();
+      clearTimeout(timer);
+    }
+  };
+
   React.useEffect(() => {
     startTimer();
     return () => clearTimeout(timer);
   });
+
+  React.useEffect(() => {
+    if (visible) {
+      document.body.addEventListener('click', handleOutsideClick);
+    }
+    return () => document.body.removeEventListener('click', handleOutsideClick);
+  }, [visible]);
 
   const icon: React.ReactNode = React.useMemo(() => {
     if (type === MessageType.INFO) {
@@ -73,11 +87,10 @@ const Notification: React.FC<MessageProps> = ({
         </div>
         <div className={sts.notification__close}>
           <button
-            title="Закрыть"
             className={sts.notification__close_button}
             onClick={handleClickClose}
           >
-            <CloseIcon width="12" height="12" />
+            <CloseIcon width='12' height='12' />
           </button>
         </div>
       </div>
