@@ -8,7 +8,7 @@ import Tooltip from 'ui/Tooltip';
 import { PlacementTypes } from 'ui/Tooltip/types';
 import { Switch, Checkbox, Radio, Select } from 'ui/Inputs';
 import { IOptionType } from 'ui/Inputs/Select/types';
-import { Alert } from 'ui/Message';
+import { Alert, Notification } from 'ui/Message';
 import { MessageType } from 'ui/Message/types';
 
 const tempData: VerificationEquipmentItemProps[] = [
@@ -49,6 +49,7 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
 }): React.ReactElement => {
   const [value, setValue] = React.useState<IOptionType | null>(null);
   const [isShowAlert, setIsShowAlert] = React.useState<boolean>(false);
+  const [isShowNotifiaction, setIsShowNotifiaction] = React.useState<boolean>(false);
 
   const handleClickExportToPdf = (): void => {
     return;
@@ -60,10 +61,6 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
 
   const handleClickCreate = (): void => {
     return;
-  };
-
-  const handleClickCloseAlert = () => {
-    setIsShowAlert(false);
   };
 
   return (
@@ -88,7 +85,17 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
       </div>
       <div>
         <button onClick={() => setIsShowAlert(true)}>Show</button>
-        <Alert visible={isShowAlert} message='Обратите внимание' type={MessageType.INFO} onClose={handleClickCloseAlert} />
+        <Alert visible={isShowAlert} message='Обратите внимание' type={MessageType.INFO} onClose={() => setIsShowAlert(false)} />
+      </div>
+      <div>
+        <button onClick={() => setIsShowNotifiaction(true)}>Show notification</button>
+        <Notification 
+          visible={isShowNotifiaction} 
+          heading='Программы проведения испытаний'
+          message='Ошибка обновления программы проведения испытаний. Проверьте корректность заполненных данных.' 
+          type={MessageType.INFO} 
+          onClose={() => setIsShowNotifiaction(false)} 
+        />
       </div>
       <GeneralTable />
     </>

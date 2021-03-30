@@ -26,3 +26,9 @@
 @mixin border-radius($value) {
   border-radius: $value;
 }
+
+@mixin message-icon-props($color) {
+  width: 17px;
+  height: 17px;
+  fill: $color;
+}

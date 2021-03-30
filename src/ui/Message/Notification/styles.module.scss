@@ -1,0 +1,129 @@
+.notificationContainer {
+  position: fixed;
+  top: 24px;
+  right: 0;
+  bottom: auto;
+  padding: 0;
+  margin: 0 17px 0 0;
+  box-sizing: border-box;
+  z-index: 1010;
+  animation: visibled .3s ease-in-out;
+}
+
+.notification {
+  display: flex;
+  align-items: baseline;
+  padding: 20px 30px;
+  max-width: 320px;
+  min-width: 320px;
+  background-color: #FFF;
+  box-shadow: 3px 4px 17px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  $notification: &;
+
+  &.info > #{$notification} {
+
+    &__icon svg {
+      @include message-icon-props($color_blue_info);
+    }
+
+    &__content > #{$notification}__content_heading {
+      color: $color_blue_info;
+    }
+    
+  }
+
+  &.success > #{$notification} {
+
+    &__icon svg {
+      @include message-icon-props($color_green);
+    }
+
+    &__content > #{$notification}__content_heading {
+      color: $color_green;
+    }
+
+  }
+
+  &.warning > #{$notification} {
+
+    &__icon svg {
+      @include message-icon-props($color_orange);
+    }
+
+    &__content > #{$notification}__content_heading {
+      color: $color_orange;
+    }
+
+  }
+
+  &.error > #{$notification} {
+
+    &__icon svg {
+      @include message-icon-props($color_red);
+    }
+    
+    &__content > #{$notification}__content_heading {
+      color: $color_red;
+    }
+
+  }
+
+  &__icon {
+    margin-right: 17px;
+  }
+
+  &__content {
+    flex: 1;
+    align-self: end;
+
+    &_heading {
+      font-size: 14px;
+      font-weight: 300;
+      padding-bottom: 19px;
+      line-height: 16px;
+    }
+
+    &_message {
+      font-size: 11px;
+      color: $color_disabled;
+      font-weight: 400;
+      line-height: 14px;
+    }
+
+  }
+
+  &__close {
+    align-self: end;
+
+    &_button {
+      color: rgba($default_font_color, .5);
+      margin: 0;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      cursor: pointer;
+
+      &:hover svg {
+        fill: $default_font_color;
+        transition: fill .5s ease-in;
+      }
+
+    }
+
+  }
+
+  @keyframes visibled {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: .5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+}
