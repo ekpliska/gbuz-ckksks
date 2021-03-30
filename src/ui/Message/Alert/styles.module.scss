@@ -1,0 +1,99 @@
+@mixin icon-props($color) {
+  width: 17px;
+  height: 17px;
+  fill: $color;
+}
+
+
+.alertContainer {
+  margin: 5px 0;
+  display: block;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 14px;
+  color: $default_font_color;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: default;
+
+  &.info {
+    background-color: $color_light_blue_info;
+    border-color: $color_blue_info;
+    
+    & > div:nth-of-type(1) svg {
+      @include icon-props($color_blue_info);
+    }
+
+  }
+
+  &.success {
+    background-color: $color_light_green;
+    border-color: $color_green;
+
+    & > div:nth-of-type(1) svg {
+      @include icon-props($color_green);
+    }
+
+  }
+
+  &.warning {
+    background-color: $color_light_orange;
+    border-color: $color_orange;
+
+    & > div:nth-of-type(1) svg {
+      @include icon-props($color_orange);
+    }
+
+  }
+
+  &.error {
+    background-color: $color_light_red;
+    border-color: $color_red;
+
+    & > div:nth-of-type(1) svg {
+      @include icon-props($color_red);
+    }
+
+  }
+
+  &__icon {
+    margin-right: 13px;
+    line-height: 0;
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+    font-size: 12px;
+    line-height: 14px;
+    word-wrap: break-word;
+  }
+
+  &__close {
+    align-self: baseline;
+
+    &_button {
+      color: rgba($default_font_color, .5);
+      margin: 0;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      cursor: pointer;
+
+      &:hover svg {
+        fill: $default_font_color;
+        transition: fill .5s ease-in;
+      }
+
+    }
+
+  }
+
+}

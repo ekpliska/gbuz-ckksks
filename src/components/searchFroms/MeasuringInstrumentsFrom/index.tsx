@@ -1,9 +1,21 @@
 import React from 'react';
 import clsn from 'classnames';
-import { InputText } from 'ui/Inputs';
+import { InputText, Select } from 'ui/Inputs';
 import Button from 'ui/Button';
+import { IOptionType } from 'ui/Inputs/Select/types';
 import { SearchFormProps, MeasuringInstrumentsDataType } from '../types';
 import sts from '../styles.module.scss';
+
+const statuses: IOptionType[] = [
+  {
+    id: 1,
+    value: 'На поверке',
+  },
+  {
+    id: 2,
+    value: 'В лаборатории',
+  },
+];
 
 const MeasuringInstrumentsFrom: React.FC<
   SearchFormProps<MeasuringInstrumentsDataType>
@@ -61,13 +73,9 @@ const MeasuringInstrumentsFrom: React.FC<
               />
             </div>
             <div className={clsn(sts.form__inputs_row, sts['--col_4'])}>
-              <InputText
-                id='verificationStatus'
-                name='verificationStatus'
-                value=''
-                type='text'
+              <Select
                 label='Статус поверки'
-                placeholder='Выбрать из списка'
+                options={statuses}
               />
             </div>
           </div>

@@ -91,7 +91,7 @@ const Select: React.FC<SelectProps> = ({
       className={clsn(sts.selectContainer, classNameContainer)}
     >
       {label && <div className={sts.selectContainer__label}>{label}</div>}
-      <div className={sts.selectContainer__wrapper}>
+      <div className={clsn(sts.selectContainer__wrapper, { [sts['--open']]: isOpen })}>
         <div className={sts.select}>
           <div className={sts.select__inputWrapper} onClick={handleOpenClick}>
             <input
