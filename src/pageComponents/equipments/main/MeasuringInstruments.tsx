@@ -10,6 +10,8 @@ import { Switch, Checkbox, Radio, Select } from 'ui/Inputs';
 import { IOptionType } from 'ui/Inputs/Select/types';
 import { Alert, Notification } from 'ui/Message';
 import { MessageType } from 'ui/Message/types';
+import Modal from 'ui/Modal';
+import useModal from 'hooks/useModal';
 
 const tempData: VerificationEquipmentItemProps[] = [
   {
@@ -50,6 +52,8 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
   const [value, setValue] = React.useState<IOptionType | null>(null);
   const [isShowAlert, setIsShowAlert] = React.useState<boolean>(false);
   const [isShowNotifiaction, setIsShowNotifiaction] = React.useState<boolean>(false);
+
+  const { open, onOpen, onClose } = useModal();
 
   const handleClickExportToPdf = (): void => {
     return;
@@ -96,6 +100,14 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
           type={MessageType.INFO}
           onClose={() => setIsShowNotifiaction(false)}
           autoClose={true}
+        />
+      </div>
+      <div>
+        <button onClick={onOpen}>Open</button>
+        <Modal 
+          open={open}
+          onClose={onClose}
+          render={<h1>Модальное окно</h1>}
         />
       </div>
       <GeneralTable />
