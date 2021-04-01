@@ -6,7 +6,7 @@ import { VerificationEquipmentItemProps } from 'components/VerificationEquipment
 import { MeasuringInstrumentsProps } from './types';
 import Tooltip from 'ui/Tooltip';
 import { PlacementTypes } from 'ui/Tooltip/types';
-import { Switch, Checkbox, Radio, Select } from 'ui/Inputs';
+import { Switch, Checkbox, Radio, Select, Textarea } from 'ui/Inputs';
 import { IOptionType } from 'ui/Inputs/Select/types';
 import { Alert, Notification } from 'ui/Message';
 import { MessageType } from 'ui/Message/types';
@@ -52,6 +52,7 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
   const [value, setValue] = React.useState<IOptionType | null>(null);
   const [isShowAlert, setIsShowAlert] = React.useState<boolean>(false);
   const [isShowNotifiaction, setIsShowNotifiaction] = React.useState<boolean>(false);
+  const [valueText, setValueText] = React.useState<string>('');
   const { open, onOpen, onClose } = useModal();
 
   const handleClickExportToPdf = (): void => {
@@ -64,6 +65,11 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
 
   const handleClickCreate = (): void => {
     return;
+  };
+
+  const handleChangeInput = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    const { value } = event.target;
+    setValueText(value);
   };
 
   return (
@@ -107,6 +113,15 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
           open={open}
           onClose={onClose}
           render={<h1>Модальное окно</h1>}
+        />
+      </div>
+      <div>
+        <Textarea
+          value={valueText}
+          name='description'
+          label='Дополнительная информация'
+          isCounterVisible={true}
+          onChange={handleChangeInput}
         />
       </div>
       <GeneralTable />

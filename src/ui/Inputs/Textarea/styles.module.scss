@@ -1,0 +1,56 @@
+.textarea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__labelWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 3px;
+    line-height: 12px;
+
+    &_label {
+      flex: 2;
+      color: $default_font_color;
+      font-size: 10px;
+      font-weight: 400;
+    }
+
+    &_counter {
+      flex: 1;
+      text-align: right;
+      color: $color_placeholder;
+      font-size: 9px;
+
+      &.--limit {
+        color: $color_red;
+        font-weight: 600;
+        transition: color .7s ease-in;
+      }
+
+    }
+
+  }
+
+  &__input {
+    position: relative;
+    
+    & textarea {
+      font-size: 12px;
+      color: $default_font_color;
+      width: 100%;
+      border: 1px solid rgba($color_deep_blue, 0.5);
+      border-radius: 4px;
+      padding: 6px 10px;
+      resize: none;
+
+      &::placeholder {
+        color: $color_placeholder;
+      }
+
+    }
+
+  }
+
+}

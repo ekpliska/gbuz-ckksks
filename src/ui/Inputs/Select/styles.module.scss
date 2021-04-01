@@ -5,7 +5,11 @@
   flex-flow: column nowrap;
 
   &__label {
+    color: $default_font_color;
     font-size: 10px;
+    line-height: 12px;
+    font-weight: 400;
+    margin-bottom: 3px;
   }
 
   &__wrapper {
