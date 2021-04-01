@@ -35,7 +35,7 @@
 
   &__input {
     position: relative;
-    
+
     & textarea {
       font-size: 12px;
       color: $default_font_color;
@@ -47,6 +47,13 @@
 
       &::placeholder {
         color: $color_placeholder;
+      }
+
+      &:focus,
+      .input {
+        border-color: $color_deep_blue;
+        transition: box-shadow .3s;
+        box-shadow: 0px 0px 3px rgba($color_blue_info, 0.7);
       }
 
     }
