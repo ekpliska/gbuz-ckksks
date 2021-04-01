@@ -1,0 +1,271 @@
+.dateInput {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0;
+  width: 100%;
+  color: $default_font_color;
+
+  &__label {
+    font-size: 10px;
+  }
+
+  &__container {
+
+    :global {
+
+      .ant-picker {
+        position: relative;
+        border: 1px solid rgba($color_deep_blue, 0.5);
+        border-radius: 4px;
+        padding: 6px 0;
+      }
+
+      .ant-picker-input {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        width: 100%;
+
+        & input {
+          width: 100%;
+          color: $default_font_color;
+          font-size: 12px;
+          padding: 0 10px;
+          border: none;
+
+          &::placeholder {
+            color: $color_placeholder;
+          }
+        }
+      }
+
+      .ant-picker-suffix {
+        order: 1;
+        color: rgba($color_deep_blue, 0.5);
+        margin: 0 15px;
+        line-height: 0;
+        cursor: pointer;
+
+        &:hover {
+          color: $color_deep_blue;
+        }
+
+      }
+
+      .ant-picker-clear {
+        order: 0;
+        color: $color_placeholder;
+        line-height: 0;
+        cursor: pointer;
+
+        &:hover {
+          color: $color_light_blue;
+        }
+
+        & svg {
+          width: 12px;
+          height: 12px;
+        }
+
+      }
+
+
+      .ant-picker-focused {
+        border-color: $color_deep_blue;
+        transition: box-shadow .3s;
+        box-shadow: 0px 0px 3px rgba($color_blue_info, 0.7);
+      }
+
+    }
+
+  }
+
+}
+
+.datePickerPopup {
+  pointer-events: unset !important;
+
+  :global {
+
+    .ant-picker-dropdown {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      box-sizing: border-box;
+      z-index: 1050;
+    }
+
+    .ant-picker-dropdown-hidden {
+      display: none;
+    }
+
+    .ant-picker-panel-container {
+      overflow: hidden;
+      vertical-align: top;
+      background: #FFF;
+      border-radius: 4px;
+      box-shadow: 0 3px 6px -4px rgba($color_placeholder, .12), 0 6px 16px 0 rgba($color_placeholder, .08), 0 9px 28px 8px rgba($color_placeholder, .5);
+      transition: margin .3s;
+    }
+
+    .ant-picker-panel {
+      display: inline-flex;
+      flex-direction: column;
+      text-align: center;
+      background: #fff;
+      border: 1px solid rgba($color_placeholder, .2);
+      border-radius: 2px;
+      outline: none;
+    }
+
+    .ant-picker-date-panel {
+      display: flex;
+      flex-direction: column;
+      width: 280px;
+    }
+
+    .ant-picker-header {
+      display: flex;
+      padding: 0 8px;
+      color: $default_font_color;
+      border-bottom: 1px solid rgba($color_placeholder, .2);
+
+      & button {
+        min-width: 1.6em;
+        font-size: 14px;
+        padding: 0;
+        color: rgba($default_font_color, .25);
+        line-height: 40px;
+        background-color: transparent;
+        border: none;
+        transition: color .3s;
+        cursor: pointer;
+
+        & .ant-picker-next-icon, 
+        & .ant-picker-prev-icon, 
+        & .ant-picker-super-next-icon, 
+        & .ant-picker-super-prev-icon {
+          position: relative;
+          display: inline-block;
+          width: 7px;
+          height: 7px;
+        }
+
+        & .ant-picker-prev-icon, 
+        & .ant-picker-super-prev-icon {
+          transform: rotate(-45deg);
+        }
+
+        & .ant-picker-next-icon, 
+        & .ant-picker-super-next-icon {
+          transform: rotate(135deg);
+        }
+
+        & .ant-picker-next-icon:before,
+        & .ant-picker-prev-icon:before, 
+        & .ant-picker-super-next-icon:before, 
+        & .ant-picker-super-prev-icon:before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: inline-block;
+          width: 7px;
+          height: 7px;
+          border: 0 solid;
+          border-width: 1.5px 0 0 1.5px;
+          content: "";
+        }
+
+        & .ant-picker-super-next-icon:after, 
+        & .ant-picker-super-prev-icon:after {
+          position: absolute;
+          top: 4px;
+          left: 4px;
+          display: inline-block;
+          width: 7px;
+          height: 7px;
+          border: 0 solid;
+          border-width: 1.5px 0 0 1.5px;
+          content: "";
+        }
+
+      }
+
+      & .ant-picker-header-view {
+        flex: auto;
+        font-weight: 500;
+        line-height: 40px;
+
+        & button {
+          padding: 0;
+          color: rgba($default_font_color, .7);
+          line-height: 40px;
+          background: 0 0;
+          border: none;
+          font-weight: 600;
+          text-transform: capitalize;
+          cursor: pointer;
+          transition: color .3s;
+
+          &:not(:first-child) {
+            margin-left: 8px;
+          }
+
+        }
+
+      }
+
+    }
+
+    .ant-picker-body {
+      padding: 8px 12px;
+
+      & table {
+        width: 252px;
+        table-layout: fixed;
+        border-collapse: collapse;
+
+        & > thead > tr > th {
+          width: 36px;
+          height: 30px;
+          color: $default_font_color;
+          line-height: 30px;
+          font-weight: 500;
+          text-transform: capitalize;
+        }
+
+        & > tbody > tr > td {
+          width: 36px;
+          height: 24px;
+          padding: 3px 0;
+          text-transform: capitalize;
+          color: rgba($default_font_color, .2);
+          cursor: pointer;
+
+          &.ant-picker-cell-in-view {
+            color: rgba($default_font_color, .6);
+          }
+
+          &.ant-picker-cell-selected > div:not(:hover) {
+            color: #FFF;
+            background-color: $color_blue_info;
+          }
+
+          & > div {
+            border-radius: 2px;
+
+            &:hover {
+              background-color: $color_light_blue_info;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

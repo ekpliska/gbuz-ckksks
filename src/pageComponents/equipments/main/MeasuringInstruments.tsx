@@ -52,7 +52,6 @@ const MeasuringInstruments: React.FC<MeasuringInstrumentsProps> = ({
   const [value, setValue] = React.useState<IOptionType | null>(null);
   const [isShowAlert, setIsShowAlert] = React.useState<boolean>(false);
   const [isShowNotifiaction, setIsShowNotifiaction] = React.useState<boolean>(false);
-
   const { open, onOpen, onClose } = useModal();
 
   const handleClickExportToPdf = (): void => {
