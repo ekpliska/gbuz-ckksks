@@ -1,13 +1,19 @@
 import { Moment } from 'moment';
 import { TDateTimeFormat } from 'utils/constatnts';
 
+export declare type EventValue<DateType> = DateType | null;
+export declare type RangeValue<DateType> = [EventValue<DateType>, EventValue<DateType>] | null;
+
+type TPickerCategories = 'date-picker' | 'date-range';
+
 type TPickerTypes = 'date' | 'month' | 'year';
 
 export interface DateInputProps {
-  label: string;
-  value: Moment | null;
+  value: EventValue<Moment> | RangeValue<Moment> | null;
+  label?: string;
+  category?: TPickerCategories;
   picker?: TPickerTypes;
   disabled?: boolean;
   dateFormat?: TDateTimeFormat;
-  onChange?: (value: Moment | null) => void;
+  onChange?: (value: EventValue<Moment> | RangeValue<Moment> | null) => void;
 }
