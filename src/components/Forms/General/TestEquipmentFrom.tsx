@@ -8,12 +8,12 @@ import {
   Switch,
   Textarea,
 } from 'ui/Inputs';
-import { TestEquipmentsModel } from 'models/equipments/testEquipments';
+import { TestEquipmentModel } from 'models/equipments/testEquipment';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 
 const TestEquipmentFrom: React.FC<
-  SearchFormProps<TestEquipmentsModel>
+  SearchFormProps<TestEquipmentModel>
 > = (): React.ReactElement => {
 
   const handleSubmitForm = () => {
@@ -35,7 +35,7 @@ const TestEquipmentFrom: React.FC<
                   name='name'
                   value=''
                   type='text'
-                  label='Наименование средства измерения / марка'
+                  label='Наименование средства измерения'
                   placeholder='Введите наименование средства измерения'
                 />
               </div>
@@ -164,7 +164,7 @@ const TestEquipmentFrom: React.FC<
                   value=''
                   type='text'
                   label='Наименование организации'
-                  placeholder='Наименование наименование огранизации'
+                  placeholder='Наименование огранизации производителя'
                 />
                 <InputText
                   id='country'

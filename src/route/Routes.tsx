@@ -26,8 +26,8 @@ import {
 } from 'ui/IconsSvg';
 import Tiles from 'components/Tiles';
 import { ChildPages, IRoutes, ParentPages, ActionPage, iconProps } from './types';
-import { MeasuringInstruments, TestEquipments } from 'pageComponents/equipments/main';
-import { MeasuringInstrumentsForm, TestEquipmentsForm } from 'pageComponents/equipments/form';
+import { MeasuringInstruments, TestEquipments, AuxiliaryEquipments } from 'pageComponents/equipments/main';
+import { MeasuringInstrumentsForm, TestEquipmentsForm, AuxiliaryEquipmentsForm } from 'pageComponents/equipments/form';
 
 export const tempProps: React.ReactNode = null;
 
@@ -148,11 +148,26 @@ export const appRoutes: IRoutes[] = [
         id: ChildPages.AUXILIARY_EQUIPMENT,
         path: `/${ParentPages.EQUIPMENTS}/${ChildPages.AUXILIARY_EQUIPMENT}`,
         exact: true,
-        Component: () => <div>Протоколы</div>,
+        Component: AuxiliaryEquipments,
         headingSettings: {
           heading: 'Вспом. оборудование',
+          fullHeading: 'Вспомогательное оборудование',
           iconHeading: <AuxiliaryEquipmentIcon {...iconProps} />,
+          isExportPdf: true,
+          isExportExcel: true,
+          isCreate: true,
         },
+        childRoutes: [
+          {
+            id: ActionPage.CREATE,
+            path: `/${ParentPages.EQUIPMENTS}/${ChildPages.AUXILIARY_EQUIPMENT}/${ActionPage.CREATE}`,
+            exact: true,
+            Component: AuxiliaryEquipmentsForm,
+            headingSettings: {
+              heading: 'Создание вспомогательного оборудования',
+            },
+          },
+        ],
       },
       {
         id: ChildPages.STANDARD_SAMPLES,

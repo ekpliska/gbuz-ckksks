@@ -3,7 +3,7 @@ import clsn from 'classnames';
 import { InputText, Select } from 'ui/Inputs';
 import Button from 'ui/Button';
 import { IOptionType } from 'ui/Inputs/Select/types';
-import { TestEquipmentsModel } from 'models/equipments/testEquipments';
+import { TestEquipmentModel } from 'models/equipments/testEquipment';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 
@@ -19,7 +19,7 @@ const statuses: IOptionType[] = [
 ];
 
 const TestEquipmentsSearchFrom: React.FC<
-  SearchFormProps<TestEquipmentsModel>
+  SearchFormProps<TestEquipmentModel>
 > = (): React.ReactElement => {
 
   const handleSubmitForm = () => {

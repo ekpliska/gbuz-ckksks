@@ -23,7 +23,7 @@ export enum ChildPages {
   PROTOCOLS = 'protocols',
   MEASURING_INSTRUMENTS = 'measuring-instruments',
   TEST_EQUIPMENTS = 'test-equipments',
-  AUXILIARY_EQUIPMENT = 'auxiliary-equipment',
+  AUXILIARY_EQUIPMENT = 'auxiliary-equipments',
   STANDARD_SAMPLES = 'standard-samples',
   INDUSTRIAL_PREMISES = 'industrial-premises',
   EMPLOYEES = 'employees',

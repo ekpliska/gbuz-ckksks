@@ -5,55 +5,14 @@ import {
   InputText,
   Select,
   DateInput,
-  Checkbox,
-  Switch,
   Textarea,
 } from 'ui/Inputs';
-import { IOptionType } from 'ui/Inputs/Select/types';
-import { MeasuringInstrumentModel } from 'models/equipments/measuringInstrument';
+import { AuxiliaryEquipmentModel } from 'models/equipments/auxiliaryEquipment';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 
-const appointments: IOptionType[] = [
-  {
-    id: 1,
-    value: 'Исследование флюоресценции',
-  },
-  {
-    id: 2,
-    value: 'Определение электропроводности',
-  },
-  {
-    id: 3,
-    value: 'Определение плотности',
-  },
-  {
-    id: 4,
-    value: 'Контроль разряжения вакуум-сущильного шкафа',
-  },
-  {
-    id: 5,
-    value: 'Определение массы',
-  },
-];
-
-const locations: IOptionType[] = [
-  {
-    id: 1,
-    value: 'Оптическая',
-  },
-  {
-    id: 2,
-    value: 'Сероводородная',
-  },
-  {
-    id: 3,
-    value: 'Термостатная',
-  },
-];
-
-const MeasuringInstrumentFrom: React.FC<
-  SearchFormProps<MeasuringInstrumentModel>
+const AuxiliaryEquipmentFrom: React.FC<
+  SearchFormProps<AuxiliaryEquipmentModel>
 > = (): React.ReactElement => {
 
   const handleSubmitForm = () => {
@@ -67,7 +26,7 @@ const MeasuringInstrumentFrom: React.FC<
           <div className={sts.form__inputs_row}>
             <div className={clsn(sts.form__inputs_column, sts['--col_7'])}>
               <h3 className={sts.form__inputs_heading}>
-                Основные данные о средстве измерения
+                Основные данные о вспомогательном оборудовании
               </h3>
               <div className={sts.form__inputs_column_cell}>
                 <InputText
@@ -75,14 +34,14 @@ const MeasuringInstrumentFrom: React.FC<
                   name='name'
                   value=''
                   type='text'
-                  label='Наименование средства измерения'
-                  placeholder='Введите наименование средства измерения'
+                  label='Наименование вспомогательного оборудования'
+                  placeholder='Введите наименование вспомогательного оборудования'
                 />
               </div>
               <div className={sts.form__inputs_column_cell}>
                 <Select
-                  label='Наименование определяемых характеристик'
-                  options={appointments}
+                  label='Назначение'
+                  options={[]}
                   value={null}
                 />
               </div>
@@ -135,64 +94,6 @@ const MeasuringInstrumentFrom: React.FC<
 
             <div className={clsn(sts.form__inputs_column, sts['--col_5'])}>
               <h3 className={sts.form__inputs_heading}>
-                Свидетельство о поверке
-              </h3>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='verificationCertificate'
-                  name='verificationCertificate'
-                  value=''
-                  type='text'
-                  label='Свидетельство о поверке'
-                  placeholder='Введите номер свидетельства о поверке'
-                />
-              </div>
-              <div
-                className={clsn(
-                  sts.form__inputs_column_cell,
-                  sts['--cell_4-4'],
-                )}
-              >
-                <DateInput label='Срок действия, от' value={null} />
-                <DateInput label='Срок действия, до' value={null} />
-              </div>
-              <div className={sts.form__inputs_column_cell}>
-                <Checkbox name='annually' label='Ежегодно' />
-              </div>
-              <div className={sts.form__inputs_column_cell}>
-                <Switch name='statusVerification' labels={['В эксплуатации', 'На поверке']} />
-              </div>
-            </div>
-          </div>
-
-          <div className={sts.form__inputs_row}>
-            <div className={clsn(sts.form__inputs_column, sts['--col_7'])}>
-              <h3 className={sts.form__inputs_heading}>
-                Метрологические характеристики средства измерения
-              </h3>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='measuringRange'
-                  name='measuringRange'
-                  value=''
-                  type='text'
-                  label='Диапазон измерений'
-                  placeholder='Введите диапазон измерений'
-                />
-              </div>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='accuracyClass'
-                  name='accuracyClass'
-                  value=''
-                  type='text'
-                  label='Класс точности (разряд), погрешность'
-                  placeholder='Введите класс точности (разряд), погрешность'
-                />
-              </div>
-            </div>
-            <div className={clsn(sts.form__inputs_column, sts['--col_5'])}>
-              <h3 className={sts.form__inputs_heading}>
                 Основные данные о производителе
               </h3>
               <div
@@ -215,7 +116,7 @@ const MeasuringInstrumentFrom: React.FC<
                   value=''
                   type='text'
                   label='Страна, город'
-                  placeholder='Введите страну'
+                  placeholder='Введите страну, город'
                 />
               </div>
               <div
@@ -243,12 +144,12 @@ const MeasuringInstrumentFrom: React.FC<
               >
                 <Select
                   label='Право собсвенности'
-                  options={locations}
+                  options={[]}
                   value={null}
                 />
                 <Select
                   label='Место установки или хранения'
-                  options={locations}
+                  options={[]}
                   value={null}
                 />
               </div>
@@ -278,4 +179,4 @@ const MeasuringInstrumentFrom: React.FC<
   );
 };
 
-export default MeasuringInstrumentFrom;
+export default AuxiliaryEquipmentFrom;

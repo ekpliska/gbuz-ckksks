@@ -1,11 +1,9 @@
-export interface TestEquipmentsModel {
+export interface AuxiliaryEquipmentModel {
   id: number;
   // Наименование средства измерения
   name: string;
-  // Наименование определяемых характеристик
+  // Назначение
   appointment: number;
-  // Наименование испытуемых групп объектов
-  groups: number;
   // Тип, марка
   type: string;
   // Заводской номер
@@ -14,16 +12,6 @@ export interface TestEquipmentsModel {
   commissioningYear: string;
   // Инвентарный номер
   inventoryNumber: string;
-  // Технические характеристики
-  specifications: string;
-  // Документ об аттестации, номер
-  attestationDocument: string;
-  // Срок действия (от)
-  validityDateFrom: string;
-  // Срок действия (до)
-  validityDateTo: string;
-  // Статус поверки
-  statusVerification: boolean;
   // Производитель
   manufacturer: string;
   // Страна
