@@ -49,6 +49,10 @@
         color: $color_placeholder;
       }
 
+      &:hover {
+        border-color: $color_deep_blue;
+      }
+
       &:focus,
       .input {
         border-color: $color_deep_blue;

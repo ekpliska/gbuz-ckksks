@@ -26,8 +26,8 @@ import {
 } from 'ui/IconsSvg';
 import Tiles from 'components/Tiles';
 import { ChildPages, IRoutes, ParentPages, ActionPage, iconProps } from './types';
-import { MeasuringInstruments, TestEquipments, AuxiliaryEquipments, StandardSamples } from 'pageComponents/equipments/main';
-import { MeasuringInstrumentsForm, TestEquipmentsForm, AuxiliaryEquipmentsForm, StandardSamplesForm } from 'pageComponents/equipments/form';
+import { MeasuringInstruments, TestEquipments, AuxiliaryEquipments, StandardSamples, IndustrialPremises } from 'pageComponents/equipments/main';
+import { MeasuringInstrumentsForm, TestEquipmentsForm, AuxiliaryEquipmentsForm, StandardSamplesForm, IndustrialPremisesForm } from 'pageComponents/equipments/form';
 
 export const tempProps: React.ReactNode = null;
 
@@ -197,11 +197,26 @@ export const appRoutes: IRoutes[] = [
         id: ChildPages.INDUSTRIAL_PREMISES,
         path: `/${ParentPages.EQUIPMENTS}/${ChildPages.INDUSTRIAL_PREMISES}`,
         exact: true,
-        Component: () => <div>Протоколы</div>,
+        Component: IndustrialPremises,
         headingSettings: {
           heading: 'Производ. помещения',
+          fullHeading: 'Произдводственные помещения',
           iconHeading: <IndustrialPremisesIcon {...iconProps} />,
+          isExportPdf: true,
+          isExportExcel: true,
+          isCreate: true,
         },
+        childRoutes: [
+          {
+            id: ActionPage.CREATE,
+            path: `/${ParentPages.EQUIPMENTS}/${ChildPages.INDUSTRIAL_PREMISES}/${ActionPage.CREATE}`,
+            exact: true,
+            Component: IndustrialPremisesForm,
+            headingSettings: {
+              heading: 'Создание произдводственного помещения',
+            },
+          },
+        ],
       },
       {
         id: ChildPages.EMPLOYEES,
