@@ -6,7 +6,7 @@ import { AuxiliaryEquipmentModel } from 'models/equipments/auxiliaryEquipment';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 
-const AuxiliaryEquipmentSearchFrom: React.FC<
+const AuxiliaryEquipmentsSearchFrom: React.FC<
   SearchFormProps<AuxiliaryEquipmentModel>
 > = (): React.ReactElement => {
   const handleSubmitForm = () => {
@@ -69,4 +69,4 @@ const AuxiliaryEquipmentSearchFrom: React.FC<
   );
 };
 
-export default AuxiliaryEquipmentSearchFrom;
+export default AuxiliaryEquipmentsSearchFrom;

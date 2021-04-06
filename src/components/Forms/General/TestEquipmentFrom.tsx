@@ -216,6 +216,8 @@ const TestEquipmentFrom: React.FC<
                   value=''
                   label='Примечание'
                   placeholder='Текст примечания...'
+                  maxCountLetters={500}
+                  isCounterVisible
                 />
               </div>
             </div>

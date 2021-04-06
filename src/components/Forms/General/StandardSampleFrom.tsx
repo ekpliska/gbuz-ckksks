@@ -7,12 +7,12 @@ import {
   DateInput,
   Textarea,
 } from 'ui/Inputs';
-import { AuxiliaryEquipmentModel } from 'models/equipments/auxiliaryEquipment';
+import { StandardSampleModel } from 'models/equipments/standardSample';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 
-const AuxiliaryEquipmentFrom: React.FC<
-  SearchFormProps<AuxiliaryEquipmentModel>
+const StandardSampleFrom: React.FC<
+  SearchFormProps<StandardSampleModel>
 > = (): React.ReactElement => {
 
   const handleSubmitForm = () => {
@@ -26,7 +26,7 @@ const AuxiliaryEquipmentFrom: React.FC<
           <div className={sts.form__inputs_row}>
             <div className={clsn(sts.form__inputs_column, sts['--col_7'])}>
               <h3 className={sts.form__inputs_heading}>
-                Основные данные о вспомогательном оборудовании
+                Основные данные о стандартном образце
               </h3>
               <div className={sts.form__inputs_column_cell}>
                 <InputText
@@ -38,9 +38,19 @@ const AuxiliaryEquipmentFrom: React.FC<
                   placeholder='Введите наименование вспомогательного оборудования'
                 />
               </div>
-              <div className={sts.form__inputs_column_cell}>
+              <div
+                className={clsn(
+                  sts.form__inputs_column_cell,
+                  sts['--cell_6-6'],
+                )}
+              >
                 <Select
                   label='Назначение'
+                  options={[]}
+                  value={null}
+                />
+                <Select
+                  label='Категория стандартного образца'
                   options={[]}
                   value={null}
                 />
@@ -60,34 +70,12 @@ const AuxiliaryEquipmentFrom: React.FC<
                   placeholder='Введите тип (марку)'
                 />
                 <InputText
-                  id='factoryNumber'
-                  name='factoryNumber'
+                  id='number'
+                  name='number'
                   value=''
                   type='text'
-                  label='Заводской номер'
-                  placeholder='Введите заводской номер'
-                />
-              </div>
-              <div
-                className={clsn(
-                  sts.form__inputs_column_cell,
-                  sts['--cell_5-7'],
-                )}
-              >
-                <DateInput
-                  label='Год ввода в эксплаутацию'
-                  placeholder='ГГГГ'
-                  dateFormat='YYYY'
-                  picker='year'
-                  value={null}
-                />
-                <InputText
-                  id='inventoryNumber'
-                  name='inventoryNumber'
-                  value=''
-                  type='text'
-                  label='Инвентарный номер'
-                  placeholder='Введите инвентарный номер'
+                  label='Номер'
+                  placeholder='Введите номер'
                 />
               </div>
             </div>
@@ -115,8 +103,8 @@ const AuxiliaryEquipmentFrom: React.FC<
                   name='country'
                   value=''
                   type='text'
-                  label='Страна, город'
-                  placeholder='Введите страну, город'
+                  label='Страна'
+                  placeholder='Введите страну'
                 />
               </div>
               <div
@@ -126,7 +114,7 @@ const AuxiliaryEquipmentFrom: React.FC<
                 )}
               >
                 <DateInput
-                  label='Год выпуска'
+                  label='Дата выпуска экземпляра'
                   placeholder='ГГГГ'
                   dateFormat='YYYY'
                   picker='year'
@@ -137,22 +125,79 @@ const AuxiliaryEquipmentFrom: React.FC<
           </div>
 
           <div className={sts.form__inputs_row}>
-            <div className={clsn(sts.form__inputs_column, sts['--col_12'])}>
-              <h3 className={sts.form__inputs_heading}>Дополнительно</h3>
+            <div className={clsn(sts.form__inputs_column, sts['--col_7'])}>
+              <h3 className={sts.form__inputs_heading}>
+                Метрологические характеристики стандартного образца
+              </h3>
               <div
-                className={clsn(sts.form__inputs_column_cell, sts['--cell_7-5'])}
+                className={clsn(
+                  sts.form__inputs_column_cell,
+                  sts['--cell_7-5'],
+                )}
               >
-                <Select
-                  label='Право собсвенности'
-                  options={[]}
-                  value={null}
+                <InputText
+                  id='certifiedValue'
+                  name='certifiedValue'
+                  value=''
+                  type='text'
+                  label='Наименование и аттестованное значение'
+                  placeholder='Введите наименование и аттестованное значение'
                 />
-                <Select
-                  label='Место установки или хранения'
-                  options={[]}
-                  value={null}
+                <InputText
+                  id='infelicity'
+                  name='infelicity'
+                  value=''
+                  type='text'
+                  label='Погрешность аттестованного значения'
+                  placeholder='Введите погрешность аттестованного значения'
                 />
               </div>
+              <div className={sts.form__inputs_column_cell}>
+                <Textarea
+                  id='additionalInfo'
+                  name='additionalInfo'
+                  value=''
+                  label='Дополнительные сведения'
+                  placeholder='Введите дополнительные сведения...'
+                  maxCountLetters={250}
+                  isCounterVisible
+                />
+              </div>
+            </div>
+            <div className={clsn(sts.form__inputs_column, sts['--col_5'])}>
+              <h3 className={sts.form__inputs_heading}>
+                Информация о нормативном документе и сроке годности
+              </h3>
+              <div className={sts.form__inputs_column_cell}>
+                <InputText
+                  id='normativeDocument'
+                  name='normativeDocument'
+                  value=''
+                  type='text'
+                  label='Нормативный документа'
+                  placeholder='Введите номер нормативного документа'
+                />
+              </div>
+              <div
+                className={clsn(
+                  sts.form__inputs_column_cell,
+                  sts['--cell_4-4'],
+                )}
+              >
+                <DateInput
+                  value={null}
+                  picker='month'
+                  label='Срок годности'
+                  dateFormat='MM.YYYY'
+                  placeholder='мм.гггг'
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className={sts.form__inputs_row}>
+            <div className={clsn(sts.form__inputs_column, sts['--col_12'])}>
+              <h3 className={sts.form__inputs_heading}>Дополнительно</h3>
               <div className={sts.form__inputs_column_cell}>
                 <Textarea
                   id='note'
@@ -181,4 +226,4 @@ const AuxiliaryEquipmentFrom: React.FC<
   );
 };
 
-export default AuxiliaryEquipmentFrom;
+export default StandardSampleFrom;

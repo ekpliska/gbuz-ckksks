@@ -15,7 +15,7 @@ export interface StandardSampleModel {
   // Погрешность аттестованного значения
   infelicity: string;
   // Дополнительные сведения
-  additionalInfor: string;
+  additionalInfo: string;
   // Нормативный документ
   normativeDocument: string;
   // Производитель
@@ -25,7 +25,7 @@ export interface StandardSampleModel {
   // Дата выпуска экземпляра
   yearOfIssue: string;
   // Срок годности
-  ownership: number;
+  shelfLife: string;
   // Примечание
   note: string;
   // Архив

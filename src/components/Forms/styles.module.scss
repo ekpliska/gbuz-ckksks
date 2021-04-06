@@ -105,6 +105,9 @@
             & > div:nth-of-type(2) {
               width: 33.33333%;
             }
+            & > div:nth-of-type(3) {
+              width: 33.33333%;
+            }
             @include paddings();
           }
 

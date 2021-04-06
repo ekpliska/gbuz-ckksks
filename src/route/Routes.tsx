@@ -26,8 +26,8 @@ import {
 } from 'ui/IconsSvg';
 import Tiles from 'components/Tiles';
 import { ChildPages, IRoutes, ParentPages, ActionPage, iconProps } from './types';
-import { MeasuringInstruments, TestEquipments, AuxiliaryEquipments } from 'pageComponents/equipments/main';
-import { MeasuringInstrumentsForm, TestEquipmentsForm, AuxiliaryEquipmentsForm } from 'pageComponents/equipments/form';
+import { MeasuringInstruments, TestEquipments, AuxiliaryEquipments, StandardSamples } from 'pageComponents/equipments/main';
+import { MeasuringInstrumentsForm, TestEquipmentsForm, AuxiliaryEquipmentsForm, StandardSamplesForm } from 'pageComponents/equipments/form';
 
 export const tempProps: React.ReactNode = null;
 
@@ -173,11 +173,25 @@ export const appRoutes: IRoutes[] = [
         id: ChildPages.STANDARD_SAMPLES,
         path: `/${ParentPages.EQUIPMENTS}/${ChildPages.STANDARD_SAMPLES}`,
         exact: true,
-        Component: () => <div>Протоколы</div>,
+        Component: StandardSamples,
         headingSettings: {
           heading: 'Стандартные образцы',
           iconHeading: <StandardSamplesIcon {...iconProps} />,
+          isExportPdf: true,
+          isExportExcel: true,
+          isCreate: true,
         },
+        childRoutes: [
+          {
+            id: ActionPage.CREATE,
+            path: `/${ParentPages.EQUIPMENTS}/${ChildPages.STANDARD_SAMPLES}/${ActionPage.CREATE}`,
+            exact: true,
+            Component: StandardSamplesForm,
+            headingSettings: {
+              heading: 'Создание стандартного образца',
+            },
+          },
+        ],
       },
       {
         id: ChildPages.INDUSTRIAL_PREMISES,
