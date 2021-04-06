@@ -29,23 +29,16 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onCollapsed }): React.Reac
       className={clsn(sts.sidebar, sts.sidebar__wrapper, {
         [sts.collapsed]: collapsed,
       })}
-      onClick={onCollapsed}
     >
       <div
         className={clsn(sts.sidebar__toggleButton, {
           [sts.collapsed]: collapsed,
         })}
+        onClick={onCollapsed}
       >
-        <RightOutlinedArrow width="12" height="12" fill="#FFF" />
+        <RightOutlinedArrow width='12' height='12' fill='#FFF' />
       </div>
       <SidebarMenu isCollapsed={collapsed} subMenuItems={menuItems} />
-      {/* {menuItems?.length && (
-        <SidebarMenu
-          mainRoute={menu.path}
-          subMenuItems={menu.childRoutes}
-          isCollapsed={collapsed}
-        />
-      )} */}
     </div>
   );
 };

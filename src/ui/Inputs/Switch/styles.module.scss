@@ -1,13 +1,37 @@
 .switchContainer {
   margin: 0;
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
+
+  &__label {
+    color: $default_font_color;
+    font-size: 12px;
+    line-height: 14px;
+    cursor: default;
+
+    &.--on {
+      opacity: .5;
+      transition: opacity .4s ease-in-out;
+    }
+    
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      margin-left: 10px;
+    }
+    
+  }
+
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  min-width: 44px;
-  height: 22px;
+  min-width: 40px;
+  height: 18px;
   $switch: &;
 
   &__input {
@@ -52,8 +76,8 @@
     &:before {
       content: "";
       position: absolute;
-      height: 18px;
-      width: 18px;
+      height: 14px;
+      width: 14px;
       left: 2px;
       top: 2px;
       border-radius: 50%;
@@ -64,101 +88,3 @@
   }
 
 }
-
-// <div className="toggle-switch">
-//         <input
-//           type="checkbox"
-//           className="toggle-switch-checkbox"
-//           name={this.props.Name}
-//           id={this.props.Name}
-//         />
-//         <label className="toggle-switch-label" htmlFor={this.props.Name}>
-//           <span className="toggle-switch-inner" />
-//           <span className="toggle-switch-switch" />
-//         </label>
-//       </div>
-
-// .toggle-switch {
-//   position: relative;
-//   width: 75px;
-//   display: inline-block;
-//   vertical-align: middle;
-//   -webkit-user-select: none;
-//   -moz-user-select: none;
-//   -ms-user-select: none;
-//   text-align: left;
-//   &-checkbox {
-//     display: none;
-//   }
-//   &-label {
-//     display: block;
-//     overflow: hidden;
-//     cursor: pointer;
-//     border: 0 solid #bbb;
-//     border-radius: 20px;
-//     margin: 0;
-//   }
-//   &-inner {
-//     display: block;
-//     width: 200%;
-//     margin-left: -100%;
-//     transition: margin 0.3s ease-in 0s;
-//     &:before,
-//     &:after {
-//       display: block;
-//       float: left;
-//       width: 50%;
-//       height: 34px;
-//       padding: 0;
-//       line-height: 34px;
-//       font-size: 14px;
-//       color: white;
-//       font-weight: bold;
-//       box-sizing: border-box;
-//     }
-//     &:before {
-//       content: "Yes";
-//       text-transform: uppercase;
-//       padding-left: 10px;
-//       background-color: #f90;
-//       color: #fff;
-//     }
-//   }
-//   &-disabled {
-//     background-color: #ddd;
-//     cursor: not-allowed;
-//     &:before {
-//       background-color: #ddd;
-//       cursor: not-allowed;
-//     }
-//   }
-//   &-inner:after {
-//     content: "No";
-//     text-transform: uppercase;
-//     padding-right: 10px;
-//     background-color: #bbb;
-//     color: #fff;
-//     text-align: right;
-//   }
-//   &-switch {
-//     display: block;
-//     width: 24px;
-//     margin: 5px;
-//     background: #fff;
-//     position: absolute;
-//     top: 0;
-//     bottom: 0;
-//     right: 40px;
-//     border: 0 solid #bbb;
-//     border-radius: 20px;
-//     transition: all 0.3s ease-in 0s;
-//   }
-//   &-checkbox:checked + &-label {
-//     .toggle-switch-inner {
-//       margin-left: 0;
-//     }
-//     .toggle-switch-switch {
-//       right: 0px;
-//     }
-//   }
-// }

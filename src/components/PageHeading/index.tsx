@@ -13,7 +13,7 @@ const PageHeading: React.FC<PageHeadingProps> = ({
   isCreate,
   isTooltips,
   buttonCreateLabel,
-  buttonCreateMethod,
+  createMethod,
   exportPdfMethod,
   exportExcelMethod,
 }): React.ReactElement => {
@@ -47,14 +47,14 @@ const PageHeading: React.FC<PageHeadingProps> = ({
           />
         )}
       </div>
-      {isCreate && buttonCreateMethod && (
+      {isCreate && createMethod && (
         <div className={sts.pageHeading__actions}>
           <Button
             type='button'
             variant='outlined'
             icon={<PlusIcon width='13' height='13' />}
             color='default'
-            onClick={exportPdfMethod}
+            onClick={createMethod}
           >
             {buttonCreateLabel}
           </Button>

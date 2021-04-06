@@ -6,8 +6,9 @@ import { DateInputProps, EventValue, RangeValue } from './types';
 import sts from './styles.module.scss';
 
 const DateInput: React.FC<DateInputProps> = ({
-  label,
   value,
+  label,
+  placeholder = 'дд.мм.гггг',
   category = 'date-picker',
   picker = 'date',
   disabled,
@@ -62,7 +63,7 @@ const DateInput: React.FC<DateInputProps> = ({
             value={!Array.isArray(value) ? value : null}
             picker={picker}
             showToday={false}
-            placeholder="дд.мм.гггг"
+            placeholder={!Array.isArray(placeholder) ? placeholder : 'дд.мм.гггг'}
             format={dateFormat}
             disabled={disabled}
             dropdownClassName={sts.datePickerPopup}

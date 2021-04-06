@@ -2,7 +2,7 @@ import { IHeadingSettings } from 'route/types';
 
 export interface PageHeadingProps extends IHeadingSettings {
   buttonCreateLabel?: string;
-  buttonCreateMethod?: () => void;
+  createMethod?: () => void;
   exportPdfMethod?: () => void;
   exportExcelMethod?: () => void;
   tooltips?: React.ReactNode[];

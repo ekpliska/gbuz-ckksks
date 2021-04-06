@@ -25,8 +25,9 @@ import {
   TypicalFormsIcon,
 } from 'ui/IconsSvg';
 import Tiles from 'components/Tiles';
-import { ChildPages, IRoutes, ParentPages, iconProps } from './types';
+import { ChildPages, IRoutes, ParentPages, ActionPage, iconProps } from './types';
 import { MeasuringInstruments } from 'pageComponents/equipments/main';
+import { MeasuringInstrumentsForm } from 'pageComponents/equipments/form';
 
 export const tempProps: React.ReactNode = null;
 
@@ -107,6 +108,17 @@ export const appRoutes: IRoutes[] = [
           isExportExcel: true,
           isCreate: true,
         },
+        childRoutes: [
+          {
+            id: ActionPage.CREATE,
+            path: `/${ParentPages.EQUIPMENTS}/${ChildPages.MEASURING_INSTRUMENTS}/${ActionPage.CREATE}`,
+            exact: true,
+            Component: MeasuringInstrumentsForm,
+            headingSettings: {
+              heading: 'Создание стредства измерения',
+            },
+          },
+        ],
       },
       {
         id: ChildPages.TEST_EQUIPMENTS,

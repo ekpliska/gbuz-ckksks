@@ -97,11 +97,13 @@
   }
 
   &__label {
+    display: none;
     opacity: 0;
     width: 0;
     transition: opacity 50ms linear;
     
     &.showing {
+      display: block;
       opacity: 1;
       width: auto;
       transition: all 150ms linear;

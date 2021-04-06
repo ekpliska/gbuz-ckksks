@@ -1,9 +1,10 @@
 import { IconsSvgProps } from 'ui/IconsSvg/types';
 
-export enum KeyPage {
-  ROOT = 'root',
-  APP_ROOT = 'app_root',
-  APP_PAGE = 'app_page',
+export enum ActionPage {
+  CREATE = 'create',
+  READ = 'read',
+  UPDATE = 'edit',
+  DELETE = 'delete',
 };
 
 export enum ParentPages {
@@ -49,12 +50,13 @@ export interface IHeadingSettings {
 };
 
 export interface IRouteItem {
-  id: ParentPages | ChildPages;
+  id: ParentPages | ChildPages | ActionPage;
   path: string;
   exact?: boolean;
   // eslint-disable-next-line
   Component?: any;
   headingSettings: IHeadingSettings;
+  childRoutes?: IRouteItem[];
 };
 
 export interface IRoutes extends IRouteItem {

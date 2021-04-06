@@ -8,11 +8,12 @@
   min-width: 40px;
   max-width: 90px;
   border-radius: 8px;
-  position: absolute;
+  position: fixed;
   transform: translateX(-50%);
   background-color: #FFF;
   animation: visibled .3s ease-in-out;
   box-shadow: 0 3px 6px -4px rgba($color_placeholder, .8), 0 6px 16px 0 rgba($color_placeholder, .5), 0 9px 28px 8px rgba($color_placeholder, .3);
+  z-index: 1010;
 
   &.right {}
 

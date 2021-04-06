@@ -13,7 +13,7 @@ const statuses: IOptionType[] = [
   },
   {
     id: 2,
-    value: 'В лаборатории',
+    value: 'В эксплуатации',
   },
 ];
 

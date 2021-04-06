@@ -11,6 +11,7 @@ type TPickerTypes = 'date' | 'month' | 'year';
 export interface DateInputProps {
   value: EventValue<Moment> | RangeValue<Moment> | null;
   label?: string;
+  placeholder?: string | [string, string];
   category?: TPickerCategories;
   picker?: TPickerTypes;
   disabled?: boolean;

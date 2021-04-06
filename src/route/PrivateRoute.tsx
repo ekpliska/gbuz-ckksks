@@ -14,7 +14,7 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({
           isAuthenticated ? (
             <routeProps.Component headingSettings={routeProps.headingSettings} {...props} />
           ) : (
-            <Redirect to="/sign-in" />
+            <Redirect to='/sign-in' />
           )
         }
       />

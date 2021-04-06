@@ -6,20 +6,28 @@ import sts from './styles.module.scss';
 const Switch: React.FC<SwitchProps> = ({
   id,
   name,
+  labels,
   checked,
   disabled,
   classNameContainer,
   onChange,
 }): React.ReactElement => {
-  
   const taggleSwitch = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(event);
     }
   };
-
   return (
     <div className={clsn(sts.switchContainer, classNameContainer)}>
+      {labels?.length && (
+        <span
+          className={clsn(sts.switchContainer__label, {
+            [sts['--on']]: checked,
+          })}
+        >
+          {labels[0]}
+        </span>
+      )}
       <label htmlFor={name} className={sts.switch}>
         <input
           id={id}
@@ -32,6 +40,15 @@ const Switch: React.FC<SwitchProps> = ({
         />
         <span className={sts.switch__toggle}></span>
       </label>
+      {labels?.length && (
+        <span
+          className={clsn(sts.switchContainer__label, {
+            [sts['--on']]: !checked,
+          })}
+        >
+          {labels[1]}
+        </span>
+      )}
     </div>
   );
 };
