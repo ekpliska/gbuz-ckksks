@@ -22,7 +22,7 @@ const Switch: React.FC<SwitchProps> = ({
       {labels?.length && (
         <span
           className={clsn(sts.switchContainer__label, {
-            [sts['--on']]: checked,
+            [sts['--off']]: checked,
           })}
         >
           {labels[0]}
@@ -43,7 +43,7 @@ const Switch: React.FC<SwitchProps> = ({
       {labels?.length && (
         <span
           className={clsn(sts.switchContainer__label, {
-            [sts['--on']]: !checked,
+            [sts['--off']]: !checked,
           })}
         >
           {labels[1]}

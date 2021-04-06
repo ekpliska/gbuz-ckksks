@@ -1,9 +1,9 @@
 import React from 'react';
 import PageHeading from 'components/PageHeading';
-import { MeasuringInstrumentsProps } from '../main/types';
+import { PageMainProps } from '../main/types';
 import { GF_MeasuringInstrument } from 'components/Forms/General';
 
-const MeasuringInstrumentsForm: React.FC<MeasuringInstrumentsProps> = ({ headingSettings }): React.ReactElement => {
+const MeasuringInstrumentsForm: React.FC<PageMainProps> = ({ headingSettings }): React.ReactElement => {
   return (
     <>
       <PageHeading {...headingSettings} />

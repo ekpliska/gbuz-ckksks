@@ -1,5 +1,5 @@
 import { IHeadingSettings } from 'route/types';
 
-export interface MeasuringInstrumentsProps {
+export interface PageMainProps {
   headingSettings: IHeadingSettings;
 };

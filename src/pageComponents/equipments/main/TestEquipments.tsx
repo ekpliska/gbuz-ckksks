@@ -2,33 +2,13 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import PageHeading from 'components/PageHeading';
 import ControlPanel from 'components/ControlPanel';
-import { VerificationEquipmentItemProps } from 'components/VerificationEquipments/types';
+import { SF_TestEquipments } from 'components/Forms/Search';
 import VerificationEquipments from 'components/VerificationEquipments';
-import { SF_MeasuringInstruments } from 'components/Forms/Search';
 import GeneralTable from 'ui/GeneralTable';
 import { PageMainProps } from './types';
 
-const tempData: VerificationEquipmentItemProps[] = [
-  {
-    id: 0,
-    nameEquipment: 'Анализатор жидкости “Флюорат-01-3М”',
-    dateVerification: '2021-03-17',
-  },
-  {
-    id: 1,
-    nameEquipment: 'Анализатор жидкости кондуктометрический HI98308',
-    dateVerification: '2021-03-31',
-  },
-  {
-    id: 2,
-    nameEquipment: 'Вакуумметр “ВПЗ-УУ2”',
-    dateVerification: '2021-03-10',
-  },
-];
+const TestEquipments: React.FC<PageMainProps> = ({ headingSettings, ...props }): React.ReactElement => {
 
-const MeasuringInstruments: React.FC<PageMainProps> = ({
-  headingSettings, ...props
-}): React.ReactElement => {
   const handleClickExportToPdf = (): void => {
     return;
   };
@@ -52,12 +32,12 @@ const MeasuringInstruments: React.FC<PageMainProps> = ({
         {...headingSettings}
       />
       <ControlPanel
-        searchFormComponent={<SF_MeasuringInstruments />}
-        verificationComponent={<VerificationEquipments items={tempData} />}
+        searchFormComponent={<SF_TestEquipments />}
+        verificationComponent={<VerificationEquipments items={[]} />}
       />
       <GeneralTable />
     </>
   );
 };
 
-export default MeasuringInstruments;
+export default TestEquipments;

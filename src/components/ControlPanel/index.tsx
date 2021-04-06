@@ -2,22 +2,28 @@ import React from 'react';
 import clsn from 'classnames';
 import { ControlPanelProps } from './types';
 import sts from './styles.module.scss';
-import { SF_MeasuringInstruments } from 'components/Forms/Search';
-import VerificationEquipments from 'components/VerificationEquipments';
+// import { SF_MeasuringInstruments } from 'components/Forms/Search';
+// import VerificationEquipments from 'components/VerificationEquipments';
 
 const ControlPanel: React.FC<ControlPanelProps> = ({
-  verificationItems,
+  searchFormComponent,
+  verificationComponent,
 }): React.ReactElement => {
   return (
     <div className={sts.controlPanel}>
-      <div className={clsn(sts.search, { [sts.fullWidth]: !verificationItems?.length })}>
-        <SF_MeasuringInstruments />
+      <div
+        className={clsn(sts.search, {
+          [sts.fullWidth]: !verificationComponent,
+        })}
+      >
+        {searchFormComponent}
       </div>
-      {verificationItems?.length && (
+      {verificationComponent ? (
         <div className={sts.additional}>
-          <VerificationEquipments items={verificationItems} />
+          {verificationComponent}
+          {/* <VerificationEquipments items={verificationItems} /> */}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

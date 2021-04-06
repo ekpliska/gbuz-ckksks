@@ -3,7 +3,7 @@ import clsn from 'classnames';
 import { InputText, Select } from 'ui/Inputs';
 import Button from 'ui/Button';
 import { IOptionType } from 'ui/Inputs/Select/types';
-import { MeasuringInstrumentModel } from 'models/equipments/measuringInstrument';
+import { TestEquipmentsModel } from 'models/equipments/testEquipments';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 
@@ -18,8 +18,8 @@ const statuses: IOptionType[] = [
   },
 ];
 
-const MeasuringInstrumentsSearchFrom: React.FC<
-  SearchFormProps<MeasuringInstrumentModel>
+const TestEquipmentsSearchFrom: React.FC<
+  SearchFormProps<TestEquipmentsModel>
 > = (): React.ReactElement => {
 
   const handleSubmitForm = () => {
@@ -38,8 +38,8 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                   name='name'
                   value=''
                   type='text'
-                  label='Наименование средства измерения / марка'
-                  placeholder='Введите наименование средства измерения или марку'
+                  label='Наименование испытательного оборудования / марка'
+                  placeholder='Введите наименование испытательного оборудования или марку'
                 />
               </div>
               <div className={clsn(sts.form__inputs_column_cell, sts['--cell_6-6'])}>
@@ -52,24 +52,24 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                   placeholder='Введите инвентарный номер'
                 />
                 <InputText
-                  id='certificateNumber'
-                  name='certificateNumber'
+                  id='attestationDocument'
+                  name='attestationDocument'
                   value=''
                   type='text'
-                  label='Номер свидетельства о поверке'
-                  placeholder='Введите номер свидетельства о поверке'
+                  label='Номер документа об аттестации'
+                  placeholder='Введите номер документа об аттестации'
                 />
               </div>
             </div>
             <div className={clsn(sts.form__inputs_column, sts['--col_4'])}>
               <div className={sts.form__inputs_column_cell}>
                 <InputText
-                  id='verificationCertificate'
-                  name='verificationCertificate'
+                  id='factoryNumber'
+                  name='factoryNumber'
                   value=''
                   type='text'
-                  label='Номер свидетельства о поверке'
-                  placeholder='Введите номер свидетельства о поверке'
+                  label='Заводской номер'
+                  placeholder='Введите заводской номер'
                 />
               </div>
               <div className={sts.form__inputs_column_cell}>
@@ -90,4 +90,4 @@ const MeasuringInstrumentsSearchFrom: React.FC<
   );
 };
 
-export default MeasuringInstrumentsSearchFrom;
+export default TestEquipmentsSearchFrom;

@@ -26,8 +26,8 @@ import {
 } from 'ui/IconsSvg';
 import Tiles from 'components/Tiles';
 import { ChildPages, IRoutes, ParentPages, ActionPage, iconProps } from './types';
-import { MeasuringInstruments } from 'pageComponents/equipments/main';
-import { MeasuringInstrumentsForm } from 'pageComponents/equipments/form';
+import { MeasuringInstruments, TestEquipments } from 'pageComponents/equipments/main';
+import { MeasuringInstrumentsForm, TestEquipmentsForm } from 'pageComponents/equipments/form';
 
 export const tempProps: React.ReactNode = null;
 
@@ -115,7 +115,7 @@ export const appRoutes: IRoutes[] = [
             exact: true,
             Component: MeasuringInstrumentsForm,
             headingSettings: {
-              heading: 'Создание стредства измерения',
+              heading: 'Создание средства измерения',
             },
           },
         ],
@@ -124,11 +124,25 @@ export const appRoutes: IRoutes[] = [
         id: ChildPages.TEST_EQUIPMENTS,
         path: `/${ParentPages.EQUIPMENTS}/${ChildPages.TEST_EQUIPMENTS}`,
         exact: true,
-        Component: () => <div>Направления</div>,
+        Component: TestEquipments,
         headingSettings: {
           heading: 'Испытательное оборудование',
           iconHeading: <TestEquipmentsIcon {...iconProps} />,
+          isExportPdf: true,
+          isExportExcel: true,
+          isCreate: true,
         },
+        childRoutes: [
+          {
+            id: ActionPage.CREATE,
+            path: `/${ParentPages.EQUIPMENTS}/${ChildPages.TEST_EQUIPMENTS}/${ActionPage.CREATE}`,
+            exact: true,
+            Component: TestEquipmentsForm,
+            headingSettings: {
+              heading: 'Создание испытательного оборудования',
+            },
+          },
+        ],
       },
       {
         id: ChildPages.AUXILIARY_EQUIPMENT,
