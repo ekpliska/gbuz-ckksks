@@ -25,9 +25,29 @@ import {
   TypicalFormsIcon,
 } from 'ui/IconsSvg';
 import Tiles from 'components/Tiles';
-import { ChildPages, IRoutes, ParentPages, ActionPage, iconProps } from './types';
-import { MeasuringInstruments, TestEquipments, AuxiliaryEquipments, StandardSamples, IndustrialPremises } from 'pageComponents/equipments/main';
-import { MeasuringInstrumentsForm, TestEquipmentsForm, AuxiliaryEquipmentsForm, StandardSamplesForm, IndustrialPremisesForm } from 'pageComponents/equipments/form';
+import {
+  ChildPages,
+  IRoutes,
+  ParentPages,
+  ActionPage,
+  iconProps,
+} from './types';
+import {
+  MeasuringInstruments,
+  TestEquipments,
+  AuxiliaryEquipments,
+  StandardSamples,
+  IndustrialPremises,
+  Employees,
+} from 'pageComponents/equipments/main';
+import {
+  MeasuringInstrumentsForm,
+  TestEquipmentsForm,
+  AuxiliaryEquipmentsForm,
+  StandardSamplesForm,
+  IndustrialPremisesForm,
+  EmployeesForm,
+} from 'pageComponents/equipments/form';
 
 export const tempProps: React.ReactNode = null;
 
@@ -222,11 +242,25 @@ export const appRoutes: IRoutes[] = [
         id: ChildPages.EMPLOYEES,
         path: `/${ParentPages.EQUIPMENTS}/${ChildPages.EMPLOYEES}`,
         exact: true,
-        Component: () => <div>Протоколы</div>,
+        Component: Employees,
         headingSettings: {
-          heading: 'Сотрудники',
+          heading: 'Сотрудники лаборатории',
           iconHeading: <EmployeesIcon {...iconProps} />,
+          isExportPdf: true,
+          isExportExcel: true,
+          isCreate: true,
         },
+        childRoutes: [
+          {
+            id: ActionPage.CREATE,
+            path: `/${ParentPages.EQUIPMENTS}/${ChildPages.EMPLOYEES}/${ActionPage.CREATE}`,
+            exact: true,
+            Component: EmployeesForm,
+            headingSettings: {
+              heading: 'Новый сотрудник лаборатории',
+            },
+          },
+        ],
       },
     ],
   },

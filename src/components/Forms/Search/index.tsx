@@ -2,3 +2,4 @@ export { default as SF_MeasuringInstruments } from './MeasuringInstrumentsSearch
 export { default as SF_TestEquipments } from './TestEquipmentsSearchFrom';
 export { default as SF_AuxiliaryEquipments } from './AuxiliaryEquipmentsSearchFrom';
 export { default as SF_StandardSamples } from './StandardSamplesSearchFrom';
+export { default as SF_Employees } from './EmployeesSearchFrom';
