@@ -5,6 +5,7 @@ export interface PageHeadingProps extends IHeadingSettings {
   createMethod?: () => void;
   exportPdfMethod?: () => void;
   exportExcelMethod?: () => void;
+  uploadFileButton?: React.ReactNode[];
   tooltips?: React.ReactNode[];
   classNameContainer?: string;
 };

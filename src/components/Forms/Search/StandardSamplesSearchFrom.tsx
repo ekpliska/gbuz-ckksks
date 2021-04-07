@@ -1,6 +1,6 @@
 import React from 'react';
 import clsn from 'classnames';
-import { InputText, DateInput, Select } from 'ui/Inputs';
+import { InputText, DateInput, Select, Checkbox } from 'ui/Inputs';
 import Button from 'ui/Button';
 import { StandardSampleModel } from 'models/equipments/standardSample';
 import { SearchFormProps } from '../types';
@@ -71,6 +71,7 @@ const StandardSamplesSearchFrom: React.FC<
           <Button type='reset' variant='outlined'>
             Очистить
           </Button>
+          <Checkbox name='archive' label='Искать в архивных' />
         </div>
       </form>
     </div>

@@ -1,0 +1,72 @@
+@mixin label-color($color) {
+  & span:nth-of-type(2) {
+    color: $color;
+  }
+}
+
+.fileUploader {
+  margin: 0;
+  min-width: max-content;
+  position: relative;
+  
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+
+    &_icon {
+      margin-right: 5px;
+      line-height: 0;
+    }
+
+    &_text {
+      color: $color_blue_info;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    &:hover {
+      opacity: .7;
+      transition: opacity .3s ease-in;
+    }
+
+    &.--disabled {
+      border: 1px solid $color_placeholder;
+      background-color: $color_light_grey;
+      cursor: no-drop;
+      & span {
+        color: $color_disabled;
+        & svg {
+          fill: $color_disabled;
+        }
+      }
+    }
+
+    &.blue {
+      border: 1px solid $color_blue_info;
+      background-color: $color_light_blue_info;
+      @include label-color($color_blue_info);
+    }
+
+    &.orange {
+      border: 1px solid $color_orange;
+      background-color: $color_light_orange;
+      @include label-color($color_orange);
+    }
+
+    &.green {
+      border: 1px solid $color_green;
+      background-color: $color_light_green;
+      @include label-color($color_green);
+    }
+
+  }
+
+  &__input {
+    display: none;
+  }
+
+}

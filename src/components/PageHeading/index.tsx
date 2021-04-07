@@ -12,10 +12,12 @@ const PageHeading: React.FC<PageHeadingProps> = ({
   isExportExcel,
   isCreate,
   isTooltips,
+  isUploadButton,
   buttonCreateLabel,
   createMethod,
   exportPdfMethod,
   exportExcelMethod,
+  uploadFileButton,
 }): React.ReactElement => {
   return (
     <div className={sts.pageHeading}>
@@ -26,6 +28,11 @@ const PageHeading: React.FC<PageHeadingProps> = ({
         <h2>{fullHeading ?? heading}</h2>
       </div>
       {isTooltips && <div className={sts.pageHeading__tooltips}>tooltips</div>}
+      {isUploadButton && uploadFileButton?.length && (
+        <div className={sts.pageHeading__upload}>
+          {uploadFileButton.map((btnComp) => btnComp)}
+        </div>
+      )}
       {isExportPdf || isExportExcel}
       <div className={sts.pageHeading__exports}>
         {isExportPdf && exportPdfMethod && (

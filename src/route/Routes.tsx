@@ -258,6 +258,7 @@ export const appRoutes: IRoutes[] = [
             Component: EmployeesForm,
             headingSettings: {
               heading: 'Новый сотрудник лаборатории',
+              isUploadButton: true,
             },
           },
         ],

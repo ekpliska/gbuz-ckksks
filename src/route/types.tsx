@@ -47,6 +47,7 @@ export interface IHeadingSettings {
   isExportExcel?: boolean;
   isCreate?: boolean;
   isTooltips?: boolean;
+  isUploadButton?: boolean;
 };
 
 export interface IRouteItem {

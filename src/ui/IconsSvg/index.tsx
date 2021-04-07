@@ -46,3 +46,4 @@ export { SuccessIconFilled } from './icon-svg/AlertIcons';
 export { WarningIconFilled } from './icon-svg/AlertIcons';
 export { ErrorIconFilled } from './icon-svg/AlertIcons';
 export { CloseIcon } from './icon-svg/CloseIcon';
+export { WordIcon } from './icon-svg/WordIcon';
