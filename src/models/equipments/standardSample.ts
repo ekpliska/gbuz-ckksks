@@ -3,13 +3,13 @@ export interface StandardSampleModel {
   // Наименование средства измерения
   name: string;
   // Назначение
-  appointment: number;
+  functionId: number;
   // Тип, марка
   type: string;
   // Номер
   number: string;
   // Категория стандартного образца
-  category: number;
+  categoryId: number;
   // Наименование и аттестованное значение
   certifiedValue: string;
   // Погрешность аттестованного значения
@@ -23,7 +23,7 @@ export interface StandardSampleModel {
   // Страна
   country: string;
   // Дата выпуска экземпляра
-  yearOfIssue: string;
+  yearIssue: string;
   // Срок годности
   shelfLife: string;
   // Примечание

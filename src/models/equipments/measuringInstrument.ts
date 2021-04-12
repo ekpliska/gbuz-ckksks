@@ -3,7 +3,7 @@ export interface MeasuringInstrumentModel {
   // Наименование средства измерения
   name: string;
   // Наименование определяемых характеристик
-  function: number;
+  functionId: number;
   // Тип, марка
   type: string;
   // Заводской номер
@@ -33,9 +33,9 @@ export interface MeasuringInstrumentModel {
   // Год выпуска
   yearIssue: string;
   // Право собственности
-  typeOwn: number;
+  typeOwnId: number;
   // Место установки или хранения
-  placeLocation: number;
+  placementId: number;
   // Примечание
   note: string;
 };

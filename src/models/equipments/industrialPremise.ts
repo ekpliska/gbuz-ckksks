@@ -3,17 +3,17 @@ export interface IndustrialPremiseModel {
   // Наименование производственного помещения
   name: string;
   // Назначение
-  appointment: number;
+  functionId: number;
   // Тип помещения
-  type: string;
+  placementTypeId: string;
   // Площадь
   square: string;
   // Перечень контролируемых параметров в помещении
-  monitoredParameters: Array<number>;
+  monitoredParameterIds: Array<number>;
   // Перечень специального оборудования в помещении
-  specialEquipment: Array<number>;
+  specialEquipmentIds: Array<number>;
   // Нормативный документ, название
-  normativeDocument: string;
+  documentTypeId: number;
   // Серия
   series: string;
   // Номер

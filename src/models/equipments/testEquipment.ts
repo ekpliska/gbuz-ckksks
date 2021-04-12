@@ -3,7 +3,7 @@ export interface TestEquipmentModel {
   // Наименование средства измерения
   name: string;
   // Назначение
-  appointment: number;
+  functionId: number;
   // Наименование испытуемых групп объектов
   testGroupId: number;
   // Тип, марка
@@ -29,11 +29,11 @@ export interface TestEquipmentModel {
   // Страна
   country: string;
   // Год выпуска
-  yearOfIssue: string;
+  yearIssue: string;
   // Право собственности
-  ownership: number;
+  typeOwnId: number;
   // Место установки или хранения
-  placeOfLocation: number;
+  placementId: number;
   // Примечание
   note: string;
 };
