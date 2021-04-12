@@ -58,7 +58,11 @@
       transition: transform .3s ease-in;
       cursor: pointer;
 
-      &:hover svg > path {
+      & svg {
+        fill: rgba($color_deep_blue, 0.5);
+      }
+
+      &:hover svg {
         fill: $color_deep_blue;
       }
 

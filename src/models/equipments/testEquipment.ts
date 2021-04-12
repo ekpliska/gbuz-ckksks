@@ -4,6 +4,8 @@ export interface TestEquipmentModel {
   name: string;
   // Назначение
   appointment: number;
+  // Наименование испытуемых групп объектов
+  testGroupId: number;
   // Тип, марка
   type: string;
   // Заводской номер

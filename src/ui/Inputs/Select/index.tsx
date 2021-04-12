@@ -115,7 +115,7 @@ const Select: React.FC<SelectProps> = ({
                 [sts['--open']]: isOpen,
               })}
             >
-              <DownArrowIcon width='12' height='12' />
+              <DownArrowIcon width='10' height='10' />
             </div>
           </div>
           {isOpen && (
