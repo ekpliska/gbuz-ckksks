@@ -1,9 +1,15 @@
+import { EquipmentFunctionModel, TypeOwnModel, BaseDictionaryModel } from 'models/dictionaries';
+
+/**
+ * Вспомогательное оборудование
+ */
+
 export interface AuxiliaryEquipmentModel {
   id: number;
   // Наименование средства измерения
   name: string;
   // Назначение
-  functionId: number;
+  function: EquipmentFunctionModel;
   // Тип, марка
   type: string;
   // Заводской номер
@@ -19,9 +25,9 @@ export interface AuxiliaryEquipmentModel {
   // Год выпуска
   yearIssue: string;
   // Право собственности
-  typeOwnId: number;
+  typeOwn: TypeOwnModel;
   // Место установки или хранения
-  placementId: number;
+  industrialPremise: BaseDictionaryModel;
   // Примечание
   note: string;
-};
+}

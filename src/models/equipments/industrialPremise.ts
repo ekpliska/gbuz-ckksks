@@ -1,25 +1,31 @@
+import {
+  DocumentTypeModel,
+  EquipmentFunctionModel,
+  PlacementTypeModel,
+} from 'models/dictionaries';
+
+/**
+ * Производственные помещения
+ */
+
 export interface IndustrialPremiseModel {
   id: number;
   // Наименование производственного помещения
   name: string;
   // Назначение
-  functionId: number;
+  function: EquipmentFunctionModel;
   // Тип помещения
-  placementTypeId: string;
+  placementType: PlacementTypeModel;
   // Площадь
   square: string;
-  // Перечень контролируемых параметров в помещении
+  // TODO: Перечень контролируемых параметров в помещении
   monitoredParameterIds: Array<number>;
-  // Перечень специального оборудования в помещении
+  // TODO: Перечень специального оборудования в помещении
   specialEquipmentIds: Array<number>;
   // Нормативный документ, название
-  documentTypeId: number;
-  // Серия
-  series: string;
-  // Номер
-  number: string;
-  // Дата
-  date: string;
+  documentData: DocumentTypeModel;
   // Примечание
   note: string;
-};
+  // Адрес раположения помещения
+  location: string;
+}

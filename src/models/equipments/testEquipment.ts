@@ -1,11 +1,17 @@
+import { BaseDictionaryModel, DocumentTypeModel, EquipmentFunctionModel, TestGroupModel, TypeOwnModel } from 'models/dictionaries';
+
+/**
+ * Стандартные образцы
+ */
+
 export interface TestEquipmentModel {
   id: number;
   // Наименование средства измерения
   name: string;
   // Назначение
-  functionId: number;
+  function: EquipmentFunctionModel;
   // Наименование испытуемых групп объектов
-  testGroupId: number;
+  groups: TestGroupModel[];
   // Тип, марка
   type: string;
   // Заводской номер
@@ -17,11 +23,7 @@ export interface TestEquipmentModel {
   // Технические характеристики
   specifications: string;
   // Документ об аттестации, номер
-  attestationDocument: string;
-  // Срок действия (от)
-  validityDateFrom: string;
-  // Срок действия (до)
-  validityDateTo: string;
+  documentData: DocumentTypeModel;
   // Статус поверки
   statusVerification: boolean;
   // Производитель
@@ -31,9 +33,9 @@ export interface TestEquipmentModel {
   // Год выпуска
   yearIssue: string;
   // Право собственности
-  typeOwnId: number;
+  typeOwn: TypeOwnModel;
   // Место установки или хранения
-  placementId: number;
+  industrialPremise: BaseDictionaryModel;
   // Примечание
   note: string;
-};
+}

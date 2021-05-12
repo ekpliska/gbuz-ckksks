@@ -3,15 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "main": "index.tsx",
-  "dependencies": {
-    "@types/react-router-dom": "^5.1.7",
-    "antd": "^4.12.3",
-    "moment": "^2.29.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.2"
-  },
   "scripts": {
     "dev": "webpack serve --mode development",
     "build": "webpack --mode production",
@@ -37,6 +28,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
+    "@types/react-router-dom": "^5.1.7",
+    "antd": "^4.12.3",
+    "axios": "^0.21.1",
+    "moment": "^2.29.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.2",
+    "redux": "^4.1.0",
+    "redux-saga": "^1.1.3",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.1",

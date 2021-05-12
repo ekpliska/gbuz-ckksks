@@ -1,3 +1,9 @@
+import { DocumentTypeModel, PostModel } from 'models/dictionaries';
+
+/**
+ * Дополнительное образование
+ */
+
 interface AdditionalEducationModel {
   id: number;
   // Год окончания
@@ -7,6 +13,10 @@ interface AdditionalEducationModel {
   // Документ об образовании, учебное заведение
   educationDocument: string;
 };
+
+/**
+ * Сотрудники
+ */
 
 export interface EmployeesModel {
   id: number;
@@ -34,14 +44,10 @@ export interface EmployeesModel {
   qualification: string;
   // Реквизиты документа об образовании
   diplomaDetails: string;
-  // Нормативный документ
-  normativeDocument: number;
-  // Номер нормативного документа
-  documentMumber: string;
-  // Дата составления
-  datePreparation: string;
+  // Нормативный документ о трудоустройстве
+  document: DocumentTypeModel;
   // Должность
-  post: number;
+  post: PostModel;
   // Номер должностной инструкции
   descriptionNumber: string;
   // Дата приема на работу
@@ -54,4 +60,4 @@ export interface EmployeesModel {
   experience: string;
   // Дополнительное образование
   additionalEducation: AdditionalEducationModel[];
-};
+}

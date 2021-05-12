@@ -1,9 +1,15 @@
+import { BaseDictionaryModel, DocumentTypeModel, EquipmentFunctionModel, TypeOwnModel } from 'models/dictionaries';
+
+/**
+ * Средства измерений
+ */
+
 export interface MeasuringInstrumentModel {
   id: number;
   // Наименование средства измерения
   name: string;
   // Наименование определяемых характеристик
-  functionId: number;
+  function: EquipmentFunctionModel;
   // Тип, марка
   type: string;
   // Заводской номер
@@ -16,12 +22,8 @@ export interface MeasuringInstrumentModel {
   measuringRange: string;
   // Класс точности (разряд), погрешность
   accuracyClass: string;
-  // Свидетельство о поверке
-  verificationCertificate: string;
-  // Срок действия (от)
-  validityDateFrom: string;
-  // Срок действия (до)
-  validityDateTo: string;
+  // Нормативный документ, название
+  documentData: DocumentTypeModel;
   // Ежегодно
   annually: boolean;
   // Статус поверки
@@ -33,9 +35,9 @@ export interface MeasuringInstrumentModel {
   // Год выпуска
   yearIssue: string;
   // Право собственности
-  typeOwnId: number;
+  typeOwn: TypeOwnModel;
   // Место установки или хранения
-  placementId: number;
+  industrialPremise: BaseDictionaryModel;
   // Примечание
   note: string;
-};
+}
