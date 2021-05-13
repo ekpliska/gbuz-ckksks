@@ -5,7 +5,7 @@ import { EquipmentFunctionModel, TypeOwnModel, BaseDictionaryModel } from 'model
  */
 
 export interface AuxiliaryEquipmentModel {
-  id: number;
+  id?: number;
   // Наименование средства измерения
   name: string;
   // Назначение

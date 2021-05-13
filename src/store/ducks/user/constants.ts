@@ -1,0 +1,7 @@
+export enum UserActionsType {
+  SET_USER_DATA = 'user/SET_USER_DATA',
+  FETCH_USER_DATA = 'user/FETCH_USER_DATA',
+  SET_LOADING_STATE = 'user/SET_LOADING_STATE',
+  FETCH_SIGN_IN = 'user/FETCH_SIGN_IN',
+  FETCH_SIGN_OUT = 'user/FETCH_SIGN_OUT',
+};

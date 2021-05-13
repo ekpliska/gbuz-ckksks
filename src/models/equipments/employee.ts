@@ -5,7 +5,7 @@ import { DocumentTypeModel, PostModel } from 'models/dictionaries';
  */
 
 interface AdditionalEducationModel {
-  id: number;
+  id?: number;
   // Год окончания
   yearEnding: string;
   // Специальность, квалификация
@@ -19,7 +19,7 @@ interface AdditionalEducationModel {
  */
 
 export interface EmployeesModel {
-  id: number;
+  id?: number;
   // Фамилия
   lastname: string;
   // Имя

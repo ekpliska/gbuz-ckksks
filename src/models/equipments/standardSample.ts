@@ -5,7 +5,7 @@ import { DocumentTypeModel, EquipmentFunctionModel, SampleCategoryModel } from '
  */
 
 export interface StandardSampleModel {
-  id: number;
+  id?: number;
   // Наименование средства измерения
   name: string;
   // Назначение

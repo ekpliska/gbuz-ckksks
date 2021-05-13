@@ -5,7 +5,7 @@ import { BaseDictionaryModel, DocumentTypeModel, EquipmentFunctionModel, TypeOwn
  */
 
 export interface MeasuringInstrumentModel {
-  id: number;
+  id?: number;
   // Наименование средства измерения
   name: string;
   // Наименование определяемых характеристик

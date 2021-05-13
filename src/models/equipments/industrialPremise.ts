@@ -9,7 +9,7 @@ import {
  */
 
 export interface IndustrialPremiseModel {
-  id: number;
+  id?: number;
   // Наименование производственного помещения
   name: string;
   // Назначение

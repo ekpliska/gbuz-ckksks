@@ -5,7 +5,7 @@ import { BaseDictionaryModel, DocumentTypeModel, EquipmentFunctionModel, TestGro
  */
 
 export interface TestEquipmentModel {
-  id: number;
+  id?: number;
   // Наименование средства измерения
   name: string;
   // Назначение
