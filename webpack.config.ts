@@ -6,6 +6,8 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
+const getTargetApi = () => "http://api.gbuz-ckksks:81";
+
 const config: webpack.Configuration = {
   mode: "development",
   target: "web",
@@ -35,13 +37,20 @@ const config: webpack.Configuration = {
   devtool: "inline-source-map",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    port: 3000,
+    port: 3005,
     compress: true,
     inline: true,
     hot: true,
     open: true,
     watchContentBase: true,
     historyApiFallback: true,
+    proxy: {
+      "/v1/**": {
+        target: getTargetApi(),
+        secure: false,
+        changeOrigin: true,
+      },
+    },
   },
   module: {
     rules: [

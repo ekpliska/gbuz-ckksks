@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { TDateTimeFormat } from 'utils/constatnts';
+import { TDateTimeFormat } from 'utils/constants';
 
 export declare type EventValue<DateType> = DateType | null;
 export declare type RangeValue<DateType> = [EventValue<DateType>, EventValue<DateType>] | null;
