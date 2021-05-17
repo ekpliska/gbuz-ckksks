@@ -1,5 +1,8 @@
-import { LoadingState } from 'store/ducks/LoadingState';
+import { TokenModel } from './token';
 
 export interface ApiResponse {
-  status?: LoadingState;
-};
+  data: TokenModel;
+  success: boolean;
+  status: number;
+  error: string[];
+}
