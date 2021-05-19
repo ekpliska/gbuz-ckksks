@@ -7,7 +7,7 @@ import {
   ErrorIcon,
   CloseIcon,
 } from 'ui/IconsSvg';
-import { MessageProps, MessageType } from '../types';
+import { MessageProps } from '../types';
 import sts from './styles.module.scss';
 
 let timer: NodeJS.Timeout;
@@ -15,7 +15,7 @@ let timer: NodeJS.Timeout;
 const Alert: React.FC<MessageProps> = ({
   visible,
   message,
-  type = MessageType.INFO,
+  type = 'info',
   autoClose,
   onClose,
   classNameContainer,
@@ -42,16 +42,16 @@ const Alert: React.FC<MessageProps> = ({
   };
 
   const icon: React.ReactNode = React.useMemo(() => {
-    if (type === MessageType.INFO) {
+    if (type === 'info') {
       return <InfoIcon />;
     }
-    if (type === MessageType.SUCCESS) {
+    if (type === 'success') {
       return <SuccessIcon />;
     }
-    if (type === MessageType.WARNING) {
+    if (type === 'warning') {
       return <WarningIcon />;
     }
-    if (type === MessageType.ERROR) {
+    if (type === 'error') {
       return <ErrorIcon />;
     }
   }, [type]);

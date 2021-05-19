@@ -1,10 +1,14 @@
 import React from 'react';
 import clsn from 'classnames';
+import { useDispatch } from 'react-redux';
 import { LogoutIcon } from 'ui/IconsSvg';
 import { UserBarProps } from './types';
 import sts from './styles.module.scss';
+import Button from 'ui/Button';
+import { authLogout } from 'store/ducks/auth/thunks';
 
 const UserBar: React.FC<UserBarProps> = ({ userInfo }): React.ReactElement => {
+  const dispatch = useDispatch();
   const [isVisible, setIsVisible] = React.useState<boolean>(false);
   const divContainerRef = React.useRef<HTMLDivElement>(null);
 
@@ -17,6 +21,10 @@ const UserBar: React.FC<UserBarProps> = ({ userInfo }): React.ReactElement => {
       setIsVisible(false);
     }
   }, [divContainerRef, setIsVisible]);
+
+  const handleLogout = () => {
+    dispatch(authLogout());
+  };
 
   React.useEffect(() => {
     document.addEventListener('click', handleOutsideClick);
@@ -39,7 +47,15 @@ const UserBar: React.FC<UserBarProps> = ({ userInfo }): React.ReactElement => {
         <ul className={sts.dropdownMenu}>
           <li className={sts.dropdownMenu__item}>Профиль</li>
           <li className={sts.dropdownMenu__item}>
-            Выйти <LogoutIcon fill='#1A1A1A' />
+            <Button
+              type='button'
+              variant='text'
+              icon={<LogoutIcon />}
+              classNameButton={sts.dropdownMenu__item_logout}
+              onClick={handleLogout}
+            >
+              Выйти
+            </Button>
           </li>
         </ul>
       </div>

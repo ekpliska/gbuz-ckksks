@@ -1,4 +1,5 @@
-import { EquipmentFunctionModel, TypeOwnModel, BaseDictionaryModel } from 'models/dictionaries';
+import { EquipmentFunctionModel, TypeOwnModel } from 'models/dictionaries';
+import { IndustrialPremiseModel } from './industrialPremise';
 
 /**
  * Вспомогательное оборудование
@@ -27,7 +28,7 @@ export interface AuxiliaryEquipmentModel {
   // Право собственности
   typeOwn: TypeOwnModel;
   // Место установки или хранения
-  industrialPremise: BaseDictionaryModel;
+  industrialPremise: Partial<IndustrialPremiseModel>;
   // Примечание
   note: string;
 }

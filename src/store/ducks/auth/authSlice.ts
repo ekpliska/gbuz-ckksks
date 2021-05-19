@@ -23,6 +23,7 @@ export const authSlice = createSlice({
     authLogout(state: AuthState) {
       state.isAuthenticated = false;
       state.currentUser = null;
+      state.error = [];
     },
     setCurrentUser(state: AuthState, { payload }: PayloadAction<UserModel | null>) {
       state.currentUser = payload;

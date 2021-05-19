@@ -5,9 +5,13 @@ import * as Yup from 'yup';
 import Button from 'ui/Button';
 import { InputText } from 'ui/Inputs';
 import { LockIcon, UserIcon } from 'ui/IconsSvg';
+import { Alert } from 'ui/Message';
 import { SignInRequestModel } from 'models/api/api';
 import { fetchAuthSignIn } from 'store/ducks/auth/thunks';
-import { selectIsLoadingAuth } from 'store/ducks/auth/selectors';
+import {
+  selectErrorAuth,
+  selectIsLoadingAuth,
+} from 'store/ducks/auth/selectors';
 import sts from './styles.module.scss';
 
 const initialValues: SignInRequestModel = {
@@ -25,6 +29,8 @@ const SignInSchema = Yup.object().shape({
 const SignIn: React.FC = (): React.ReactElement => {
   const dispatch = useDispatch();
   const isLoadingAuth = useSelector(selectIsLoadingAuth);
+  const error = useSelector(selectErrorAuth);
+  const [visible, setVisible] = React.useState<boolean>(false);
 
   const { values, handleSubmit, handleChange, errors } = useFormik({
     initialValues: initialValues,
@@ -38,6 +44,12 @@ const SignIn: React.FC = (): React.ReactElement => {
     dispatch(fetchAuthSignIn(data));
   };
 
+  React.useEffect(() => {
+    if (error?.length) {
+      setVisible(true);
+    }
+  }, [error]);
+
   return (
     <div className={sts.authPage}>
       <div className={sts.container}>
@@ -46,7 +58,13 @@ const SignIn: React.FC = (): React.ReactElement => {
         </h1>
         <div className={sts.container__formWrapper}>
           <h3 className={sts.container__formWrapper_title}>Вход</h3>
-          <form onSubmit={handleSubmit}>
+          <Alert
+            visible={visible}
+            message={error?.join(', ')}
+            type="error"
+            onClose={() => setVisible(false)}
+          />
+          <form className={sts.authForm} onSubmit={handleSubmit}>
             <InputText
               name="username"
               placeholder="Логин"
@@ -77,6 +95,7 @@ const SignIn: React.FC = (): React.ReactElement => {
             </Button>
           </form>
         </div>
+        <div></div>
       </div>
     </div>
   );

@@ -85,6 +85,21 @@
 
     }
 
+    &_logout {
+      height: auto;
+      padding: 0;
+      color: $default_font_color;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      &:hover,
+      & svg path {
+        color: $default_font_color;
+        fill: $default_font_color;
+      }
+
+    }
+
   }
 
 }

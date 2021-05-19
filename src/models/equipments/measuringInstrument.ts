@@ -1,4 +1,5 @@
-import { BaseDictionaryModel, DocumentTypeModel, EquipmentFunctionModel, TypeOwnModel } from 'models/dictionaries';
+import { DocumentTypeModel, EquipmentFunctionModel, TypeOwnModel } from 'models/dictionaries';
+import { IndustrialPremiseModel } from './industrialPremise';
 
 /**
  * Средства измерений
@@ -37,7 +38,7 @@ export interface MeasuringInstrumentModel {
   // Право собственности
   typeOwn: TypeOwnModel;
   // Место установки или хранения
-  industrialPremise: BaseDictionaryModel;
+  industrialPremise: Partial<IndustrialPremiseModel>;
   // Примечание
   note: string;
 }

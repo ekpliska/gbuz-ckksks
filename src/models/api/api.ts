@@ -8,9 +8,14 @@ export interface SignInRequestModel {
   password: string;
 };
 
+export interface ApiError<T = string[]> {
+  errors: T;
+  success: boolean;
+};
+
 export interface ApiResponse {
   data: ResponseDataTypes;
   success: boolean;
   status: number;
-  error: string[];
+  error: ApiError;
 }

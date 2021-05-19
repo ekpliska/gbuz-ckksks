@@ -1,4 +1,5 @@
-import { BaseDictionaryModel, DocumentTypeModel, EquipmentFunctionModel, TestGroupModel, TypeOwnModel } from 'models/dictionaries';
+import { DocumentTypeModel, EquipmentFunctionModel, TestGroupModel, TypeOwnModel } from 'models/dictionaries';
+import { IndustrialPremiseModel } from './industrialPremise';
 
 /**
  * Стандартные образцы
@@ -35,7 +36,7 @@ export interface TestEquipmentModel {
   // Право собственности
   typeOwn: TypeOwnModel;
   // Место установки или хранения
-  industrialPremise: BaseDictionaryModel;
+  industrialPremise: Partial<IndustrialPremiseModel>;
   // Примечание
   note: string;
 }
