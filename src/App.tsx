@@ -1,17 +1,14 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
 import SignIn from 'pages/SignIn';
 import MainPage from 'pages/MainPage';
-
 import { appRoutes } from 'route/Routes';
 import { PrivateRoute } from 'route/PrivateRoute';
-
 import { selectCurrentUser, selectIsAuthenticated } from 'store/ducks/auth/selectors';
-
-import './styles/index.scss';
 import { fetchCurrentUser } from 'store/ducks/auth/thunks';
+import { fetchDictionaryList } from 'store/ducks/dictionaries/thunks';
+import './styles/index.scss';
 
 const App: React.FC = (): React.ReactElement => {
   const dispatch = useDispatch();
@@ -29,13 +26,14 @@ const App: React.FC = (): React.ReactElement => {
     ))
   ) : (
     <Route>
-      {isAuthenticated ? <span>Loadind...</span> : <Redirect to="/sign-in" />}
+      {isAuthenticated ? <span>Loading...</span> : <Redirect to="/sign-in" />}
     </Route>
   );
 
   React.useEffect(() => {
     if (isAuthenticated) {
       dispatch(fetchCurrentUser());
+      dispatch(fetchDictionaryList());
     }
   }, [isAuthenticated]);
 
@@ -47,13 +45,6 @@ const App: React.FC = (): React.ReactElement => {
         render={() => (!isAuthenticated ? <SignIn /> : <Redirect to="/" />)}
       />
       <MainPage>
-        {/* {appRoutes.map((routeProps) => (
-          <PrivateRoute
-            key={routeProps.id}
-            isAuthenticated={isAuthenticated}
-            {...routeProps}
-          />
-        ))} */}
         {routeComponents}
       </MainPage>
       <Route component={() => <div>not found</div>} />

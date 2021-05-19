@@ -1,7 +1,8 @@
 import { UserModel } from 'models/user';
+import { DictionariesState } from 'store/ducks/dictionaries/state';
 import { TokenModel } from './token';
 
-type ResponseDataTypes = UserModel | TokenModel | undefined;
+type ResponseDataTypes = UserModel | TokenModel | DictionariesState | undefined;
 
 export interface SignInRequestModel {
   username: string;
