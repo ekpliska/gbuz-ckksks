@@ -57,6 +57,19 @@
 
     }
 
+    &.disabled {
+      color: $color_disabled;
+      border-color: $color_disabled;
+      background-color: transparent;
+      box-shadow: none;
+      cursor: default;
+
+      & svg path {
+        fill: $color_disabled;
+      }
+
+    }
+
   }
 
   &_filled {
@@ -87,6 +100,19 @@
 
       & svg path {
         fill: #FFF;
+      }
+
+    }
+
+    &.disabled {
+      color: #FFF;
+      background-color: $color_disabled;
+      border: none;
+      box-shadow: none;
+      cursor: default;
+
+      & svg path {
+        fill: $color_disabled;
       }
 
     }

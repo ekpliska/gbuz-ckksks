@@ -1,7 +1,13 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
-import LocalStorageService from '../utils/LocalStorageService';
+import { store } from 'store/store';
+import { setCurrentUser, setIsAuthenticated } from 'store/ducks/auth/authSlice';
 import { ApiResponse } from 'models/api/api';
-import { fetchRefreshToken } from './auth';
+import LocalStorageService from 'utils/LocalStorageService';
+
+const logout = (): void => {
+  store.dispatch(setCurrentUser(null));
+  store.dispatch(setIsAuthenticated(false));
+};
 
 const token = LocalStorageService.getAccessToken();
 
@@ -38,23 +44,8 @@ axiosRequest.interceptors.response.use(
     return response;
   },
   async (error: AxiosError) => {
-    const originalRequest = error.config;
-    const refreshToken = LocalStorageService.getRefreshToken();
-
-    if (
-      error.response?.status === 401 &&
-      originalRequest.url === '/v1/auth/token'
-    ) {
-      return Promise.reject(error);
-    }
-
-    if (error.response?.status === 401 && refreshToken) {
-      const response = await fetchRefreshToken({ refresh_token: refreshToken });
-      if (response.status === 201) {
-        LocalStorageService.setToken(response.data);
-        axios.defaults.headers.common['Authorization'] = `Bearer ${LocalStorageService.getAccessToken()}`;
-        return axios(originalRequest);
-      }
+    if (error.response && error.response.status === 401) {
+      logout();
     }
     return Promise.reject(error);
   },

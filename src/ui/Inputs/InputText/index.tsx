@@ -14,9 +14,17 @@ const InputText: React.FC<InputTextProps> = ({
   startIcon,
   endIcon,
   сontainerClassName,
+  validateText,
+  onChange,
   onClickStartIcon,
   onClickEndIcon,
 }): React.ReactElement => {
+  const handleChange = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      onChange && onChange(event);
+    },
+    [onChange],
+  );
 
   const handleClickStartIcon = React.useCallback((): void => {
     if (Boolean(startIcon) && onClickStartIcon) {
@@ -37,12 +45,18 @@ const InputText: React.FC<InputTextProps> = ({
           {label}
         </label>
       )}
-      <div className={sts.input}>
+      <div
+        className={clsn(sts.input, {
+          [sts.input__error]: Boolean(validateText),
+        })}
+      >
         {Boolean(startIcon) && (
           <div className={sts.input__icon} onClick={handleClickStartIcon}>
-            <span className={clsn(sts.input__icon_start, {
-              [sts.cursor]: handleClickStartIcon,
-            })}>
+            <span
+              className={clsn(sts.input__icon_start, {
+                [sts.cursor]: handleClickStartIcon,
+              })}
+            >
               {startIcon}
             </span>
           </div>
@@ -50,11 +64,13 @@ const InputText: React.FC<InputTextProps> = ({
         <div className={sts.input__wrapper}>
           <input
             id={id}
-            // value={value}
+            name={name}
+            value={value}
             placeholder={placeholder}
             type={type}
-            autoComplete='false'
+            autoComplete="false"
             className={sts.input__wrapper_element}
+            onChange={handleChange}
           />
         </div>
         {Boolean(value) && (
@@ -66,12 +82,13 @@ const InputText: React.FC<InputTextProps> = ({
         )}
         {Boolean(endIcon) && (
           <div className={sts.input__icon} onClick={handleClickEndIcon}>
-            <span className={sts.input__icon_end}>
-              {startIcon}
-            </span>
+            <span className={sts.input__icon_end}>{startIcon}</span>
           </div>
         )}
       </div>
+      {validateText ? (
+        <div className={sts.error_label}>{validateText}</div>
+      ) : null}
     </div>
   );
 };

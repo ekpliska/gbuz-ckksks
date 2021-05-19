@@ -9,8 +9,7 @@ export interface InputTextProps {
   label?: string;
   disabled?: boolean;
   required?: boolean;
-  isValidate?: boolean;
-  validateText?: string;
+  validateText?: string | null;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   onClickStartIcon?: () => void;

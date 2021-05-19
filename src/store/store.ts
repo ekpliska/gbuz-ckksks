@@ -1,24 +1,17 @@
 import {
+  Action,
   configureStore,
-  combineReducers,
   getDefaultMiddleware,
+  ThunkAction,
 } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
-import userSliceReducer from './ducks/user/userSlice';
-import { rootSaga } from './sagas';
+import { rootReducer, RootState } from './rootReducer';
 
-const rootReducer = combineReducers({
-  user: userSliceReducer,
-});
-
-const sagaMiddleware = createSagaMiddleware();
 const middleware = [
   ...getDefaultMiddleware({
-    thunk: false,
+    thunk: true,
     immutableCheck: false,
     serializableCheck: false,
   }), 
-  sagaMiddleware,
 ];
 
 export const store = configureStore({
@@ -27,6 +20,8 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV !== 'production',
 });
 
-sagaMiddleware.run(rootSaga);
+export type AppDispatch = typeof store.dispatch;
+
+export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;
 
 export default store;
