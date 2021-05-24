@@ -9,10 +9,11 @@ import { Alert } from 'ui/Message';
 import { SignInRequestModel } from 'models/api/api';
 import { fetchAuthSignIn } from 'store/ducks/auth/thunks';
 import {
-  selectErrorAuth,
-  selectIsLoadingAuth,
+  selectorErrorAuth,
+  selectorLoadingStatus,
 } from 'store/ducks/auth/selectors';
 import sts from './styles.module.scss';
+import { LoadingState } from 'store/loadingState';
 
 const initialValues: SignInRequestModel = {
   username: '',
@@ -28,8 +29,8 @@ const SignInSchema = Yup.object().shape({
 
 const SignIn: React.FC = (): React.ReactElement => {
   const dispatch = useDispatch();
-  const isLoadingAuth = useSelector(selectIsLoadingAuth);
-  const error = useSelector(selectErrorAuth);
+  const loadingStatus = useSelector(selectorLoadingStatus);
+  const error = useSelector(selectorErrorAuth);
   const [visible, setVisible] = React.useState<boolean>(false);
 
   const { values, handleSubmit, handleChange, errors } = useFormik({
@@ -89,7 +90,7 @@ const SignIn: React.FC = (): React.ReactElement => {
               type="submit"
               variant="filled"
               classNameButton={sts.authForm__button}
-              disabled={isLoadingAuth}
+              disabled={loadingStatus === LoadingState.LOADING}
             >
               Вход
             </Button>

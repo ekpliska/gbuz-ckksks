@@ -14,21 +14,22 @@ import {
   setIsAuthenticated,
 } from './authSlice';
 import actionsType from './constants';
+import { LoadingState } from 'store/loadingState';
 
 export const fetchAuthSignIn = createAsyncThunk(
   actionsType.SET_IS_AUTHENTICATED,
   async (authPost: SignInRequestModel, { dispatch }) => {
     try {
-      dispatch(setAuthLoading(true));
+      dispatch(setAuthLoading(LoadingState.LOADING));
       const { data } = await fetchSignIn(authPost);
       LocalStorageService.clearToken();
       LocalStorageService.setToken(data as TokenModel);
+      dispatch(setAuthLoading(LoadingState.LOADED));
       dispatch(setIsAuthenticated(true));
     } catch (error) {
       const err: AxiosError<ApiError> = error;
+      dispatch(setAuthLoading(LoadingState.ERROR));
       dispatch(setAuthError(err.response?.data.errors as string[]));
-    } finally {
-      dispatch(setAuthLoading(false));
     }
   },
 );
@@ -40,6 +41,7 @@ export const authLogout = (): AppThunk => async (dispatch: AppDispatch) => {
     LocalStorageService.clearToken();
   } catch (error) {
     const err: AxiosError<ApiError> = error;
+    dispatch(setAuthLoading(LoadingState.ERROR));
     dispatch(setAuthError(err.response?.data.errors as string[]));
   }
 };
@@ -48,14 +50,14 @@ export const fetchCurrentUser = createAsyncThunk(
   actionsType.SET_CURRENT_USER,
   async (_, { dispatch }) => {
     try {
-      dispatch(setAuthLoading(true));
+      dispatch(setAuthLoading(LoadingState.LOADING));
       const { data } = await fetchUserProfile();
       dispatch(setCurrentUser(data as UserModel));
+      dispatch(setAuthLoading(LoadingState.LOADED));
     } catch (error) {
       const err: AxiosError<ApiError> = error;
+      dispatch(setAuthLoading(LoadingState.ERROR));
       dispatch(setAuthError(err.response?.data.errors as string[]));
-    } finally {
-      dispatch(setAuthLoading(false));
     }
   },
 );

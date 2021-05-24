@@ -6,8 +6,8 @@ import MainPage from 'pages/MainPage';
 import { appRoutes } from 'route/Routes';
 import { PrivateRoute } from 'route/PrivateRoute';
 import {
-  selectCurrentUser,
-  selectIsAuthenticated,
+  selectorCurrentUser,
+  selectorIsAuthenticated,
 } from 'store/ducks/auth/selectors';
 import { fetchCurrentUser } from 'store/ducks/auth/thunks';
 import './styles/index.scss';
@@ -15,8 +15,8 @@ import Spinner from 'ui/Spinner';
 
 const App: React.FC = (): React.ReactElement => {
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector(selectIsAuthenticated);
-  const currentUser = useSelector(selectCurrentUser);
+  const isAuthenticated = useSelector(selectorIsAuthenticated);
+  const currentUser = useSelector(selectorCurrentUser);
 
   const routeComponents =
     isAuthenticated && currentUser ? (
