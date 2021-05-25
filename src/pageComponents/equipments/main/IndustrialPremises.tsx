@@ -1,7 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import PageHeading from 'components/PageHeading';
-import GeneralTable from 'ui/GeneralTable';
 import { PageMainProps } from './types';
 
 const IndustrialPremises: React.FC<PageMainProps> = ({
@@ -29,7 +28,6 @@ const IndustrialPremises: React.FC<PageMainProps> = ({
         createMethod={handleClickCreate}
         {...headingSettings}
       />
-      <GeneralTable />
     </>
   );
 };

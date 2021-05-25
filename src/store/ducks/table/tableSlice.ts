@@ -9,7 +9,7 @@ import { fetchTableData } from './thunks';
 
 const initialState: TableState = {
   entity: null,
-  items: null,
+  items: undefined,
   pagination: {
     pageSize: 0,
     pageNumber: 0,

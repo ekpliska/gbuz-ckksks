@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
-import { MI_Api } from 'api/equipments';
+import { MI_Api } from 'api/services/equipments';
 import { EquipmentsResponse } from 'models/api/equipments';
 import { ApiError } from 'models/api/api';
 import { TableSectionEntity } from './state';

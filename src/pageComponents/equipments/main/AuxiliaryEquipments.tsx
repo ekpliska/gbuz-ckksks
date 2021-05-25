@@ -3,7 +3,6 @@ import { RouteComponentProps } from 'react-router';
 import PageHeading from 'components/PageHeading';
 import ControlPanel from 'components/ControlPanel';
 import { SF_AuxiliaryEquipments } from 'components/Forms/Search';
-import GeneralTable from 'ui/GeneralTable';
 import { PageMainProps } from './types';
 
 const AuxiliaryEquipments: React.FC<PageMainProps> = ({
@@ -32,7 +31,6 @@ const AuxiliaryEquipments: React.FC<PageMainProps> = ({
         {...headingSettings}
       />
       <ControlPanel searchFormComponent={<SF_AuxiliaryEquipments />} />
-      <GeneralTable />
     </>
   );
 };

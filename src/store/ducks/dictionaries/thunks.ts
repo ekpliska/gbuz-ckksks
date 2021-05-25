@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchDictionaries } from 'api/dictionaries';
+import { fetchDictionaries } from 'api/services/dictionaries';
 import { setDictionaries } from './dictionariesSlice';
 import { DictionariesState } from './state';
 import actionsType from './constants';

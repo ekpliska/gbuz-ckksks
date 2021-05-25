@@ -1,15 +1,24 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+
+import GeneralTable from 'ui/GeneralTable';
+
 import PageHeading from 'components/PageHeading';
 import ControlPanel from 'components/ControlPanel';
 import { VerificationEquipmentItemProps } from 'components/VerificationEquipments/types';
 import VerificationEquipments from 'components/VerificationEquipments';
 import { SF_MeasuringInstruments } from 'components/Forms/Search';
-import GeneralTable from 'ui/GeneralTable';
-import { PageMainProps } from './types';
-import { useDispatch } from 'react-redux';
+
 import { fetchTableData } from 'store/ducks/table/thunks';
 import { TableSectionEntity } from 'store/ducks/table/state';
+import {
+  selectorTableIsLoading,
+  selectorTableItems,
+} from 'store/ducks/table/selectors';
+
+import { MI_tableProps } from './tableProps';
+import { PageMainProps } from './types';
 
 const tempData: VerificationEquipmentItemProps[] = [
   {
@@ -30,9 +39,12 @@ const tempData: VerificationEquipmentItemProps[] = [
 ];
 
 const MeasuringInstruments: React.FC<PageMainProps> = ({
-  headingSettings, ...props
+  headingSettings,
+  ...props
 }): React.ReactElement => {
   const dispatch = useDispatch();
+  const tableItems = useSelector(selectorTableItems);
+  const isLoadingStatus = useSelector(selectorTableIsLoading);
 
   React.useEffect(() => {
     dispatch(fetchTableData(TableSectionEntity.measuringInstrument));
@@ -54,7 +66,7 @@ const MeasuringInstruments: React.FC<PageMainProps> = ({
   return (
     <>
       <PageHeading
-        buttonCreateLabel='Добавить оборудование'
+        buttonCreateLabel="Добавить оборудование"
         exportPdfMethod={handleClickExportToPdf}
         exportExcelMethod={handleClickExportToExcel}
         createMethod={handleClickCreate}
@@ -64,7 +76,11 @@ const MeasuringInstruments: React.FC<PageMainProps> = ({
         searchFormComponent={<SF_MeasuringInstruments />}
         verificationComponent={<VerificationEquipments items={tempData} />}
       />
-      <GeneralTable />
+      <GeneralTable
+        columns={MI_tableProps}
+        dataSourse={tableItems}
+        loading={isLoadingStatus}
+      />
     </>
   );
 };

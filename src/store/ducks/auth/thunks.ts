@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 import { AppDispatch, AppThunk } from 'store/store';
-import { fetchSignIn } from 'api/auth';
-import { fetchUserProfile } from 'api/user';
+import { fetchSignIn } from 'api/services/auth';
+import { fetchUserProfile } from 'api/services/user';
 import { ApiError, SignInRequestModel } from 'models/api/api';
 import { TokenModel } from 'models/api/token';
 import { UserModel } from 'models/user';

@@ -4,7 +4,6 @@ import PageHeading from 'components/PageHeading';
 import ControlPanel from 'components/ControlPanel';
 import { SF_TestEquipments } from 'components/Forms/Search';
 import VerificationEquipments from 'components/VerificationEquipments';
-import GeneralTable from 'ui/GeneralTable';
 import { PageMainProps } from './types';
 
 const TestEquipments: React.FC<PageMainProps> = ({ headingSettings, ...props }): React.ReactElement => {
@@ -35,7 +34,6 @@ const TestEquipments: React.FC<PageMainProps> = ({ headingSettings, ...props }):
         searchFormComponent={<SF_TestEquipments />}
         verificationComponent={<VerificationEquipments items={[]} />}
       />
-      <GeneralTable />
     </>
   );
 };

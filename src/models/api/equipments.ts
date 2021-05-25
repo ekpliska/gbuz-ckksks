@@ -1,4 +1,4 @@
-import { TableContentDataTypes } from 'store/ducks/table/state';
+import { TableRecordTypes } from 'store/ducks/table/state';
 import { PaginationModel } from 'models/pagination';
 import { OrderRequest, SearchRequest } from './filters';
 
@@ -9,7 +9,7 @@ export interface EquipmentsRequest {
 };
 
 export interface EquipmentsResponse {
-  items: TableContentDataTypes | null;
+  items: TableRecordTypes[] | undefined;
   page_number: number;
   page_size: number | null;
   total_count: number | null;

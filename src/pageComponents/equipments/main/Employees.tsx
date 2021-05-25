@@ -3,7 +3,6 @@ import { RouteComponentProps } from 'react-router';
 import PageHeading from 'components/PageHeading';
 import ControlPanel from 'components/ControlPanel';
 import { SF_Employees } from 'components/Forms/Search';
-import GeneralTable from 'ui/GeneralTable';
 import { PageMainProps } from './types';
 
 const Employees: React.FC<PageMainProps> = ({
@@ -32,7 +31,6 @@ const Employees: React.FC<PageMainProps> = ({
         {...headingSettings}
       />
       <ControlPanel searchFormComponent={<SF_Employees />} />
-      <GeneralTable />
     </>
   );
 };

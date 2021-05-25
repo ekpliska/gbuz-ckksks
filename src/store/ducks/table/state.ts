@@ -8,6 +8,14 @@ import { PaginationModel } from 'models/pagination';
 import { LoadingState } from 'store/loadingState';
 import { OrderRequest } from 'models/api/filters';
 
+export type TableRecordTypes =
+  | MeasuringInstrumentModel
+  | TestEquipmentModel
+  | AuxiliaryEquipmentModel
+  | StandardSampleModel
+  | IndustrialPremiseModel
+  | EmployeesModel;
+
 export type TableContentDataTypes =
   | MeasuringInstrumentModel[]
   | TestEquipmentModel[]
@@ -28,7 +36,7 @@ export enum TableSectionEntity {
 
 export interface TableState {
   entity: TableSectionEntity | null,
-  items: TableContentDataTypes;
+  items: TableRecordTypes[] | undefined;
   order: OrderRequest | null,
   pagination: PaginationModel;
   loadingStatus: LoadingState;
