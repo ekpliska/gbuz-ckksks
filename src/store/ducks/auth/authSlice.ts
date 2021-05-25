@@ -6,7 +6,7 @@ import { AuthState } from './state';
 
 const initialState: AuthState = {
   isAuthenticated: !!localStorage.getItem(LOCAL_STORAGE_TOKEN),
-  LoadingStatus: LoadingState.NEVER,
+  loadingStatus: LoadingState.NEVER,
   error: [],
   currentUser: null,
 };
@@ -16,14 +16,14 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     setAuthLoading(state: AuthState, { payload }: PayloadAction<LoadingState>) {
-      state.LoadingStatus = payload;
+      state.loadingStatus = payload;
     },
     setAuthError(state: AuthState, { payload }: PayloadAction<string[]>) {
       state.error = payload;
     },
     authLogout(state: AuthState) {
       state.isAuthenticated = false;
-      state.LoadingStatus = LoadingState.NEVER;
+      state.loadingStatus = LoadingState.NEVER;
       state.error = [];
       state.currentUser = null;
     },

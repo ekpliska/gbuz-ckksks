@@ -7,11 +7,11 @@ export const selectorAuth = (state: RootState): AuthState => state.auth;
 
 export const selectorIsAuthenticated = (state: RootState): AuthState['isAuthenticated'] => state.auth.isAuthenticated;
 
-export const selectorIsLoading = (state: RootState): boolean => state.auth.LoadingStatus === LoadingState.LOADING;
+export const selectorIsLoading = (state: RootState): boolean => state.auth.loadingStatus === LoadingState.LOADING;
 
-export const selectorIsLoaded = (state: RootState): boolean => state.auth.LoadingStatus === LoadingState.LOADED;
+export const selectorIsLoaded = (state: RootState): boolean => state.auth.loadingStatus === LoadingState.LOADED;
 
-export const selectorLoadingStatus = (state: RootState): AuthState['LoadingStatus'] => state.auth.LoadingStatus;
+export const selectorLoadingStatus = (state: RootState): AuthState['loadingStatus'] => state.auth.loadingStatus;
 
 export const selectorErrorAuth = (state: RootState): AuthState['error'] => state.auth.error;
 

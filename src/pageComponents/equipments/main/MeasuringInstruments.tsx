@@ -7,6 +7,9 @@ import VerificationEquipments from 'components/VerificationEquipments';
 import { SF_MeasuringInstruments } from 'components/Forms/Search';
 import GeneralTable from 'ui/GeneralTable';
 import { PageMainProps } from './types';
+import { useDispatch } from 'react-redux';
+import { fetchTableData } from 'store/ducks/table/thunks';
+import { TableSectionEntity } from 'store/ducks/table/state';
 
 const tempData: VerificationEquipmentItemProps[] = [
   {
@@ -29,6 +32,12 @@ const tempData: VerificationEquipmentItemProps[] = [
 const MeasuringInstruments: React.FC<PageMainProps> = ({
   headingSettings, ...props
 }): React.ReactElement => {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(fetchTableData(TableSectionEntity.measuringInstrument));
+  }, []);
+
   const handleClickExportToPdf = (): void => {
     return;
   };
