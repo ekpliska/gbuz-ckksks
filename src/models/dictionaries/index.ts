@@ -32,10 +32,15 @@ export interface SampleCategoryModel {
 export interface DocumentTypeModel {
   id?: number;
   name: string;
+};
+
+export interface DocumentModel {
+  id?: number;
+  name: DocumentTypeModel;
   number?: string;
   series?: string;
-  dateFrom?: string;
-  dateTo?: string;
+  date_from?: string;
+  date_to?: string;
 };
 
 export interface PostModel {

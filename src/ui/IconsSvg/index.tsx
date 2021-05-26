@@ -48,3 +48,4 @@ export { ErrorIconFilled } from './icon-svg/AlertIcons';
 export { CloseIcon } from './icon-svg/CloseIcon';
 export { WordIcon } from './icon-svg/WordIcon';
 export { SpinIcon } from './icon-svg/SpinIcon';
+export { VerificationInfoIcon } from './icon-svg/VerificationInfoIcon';

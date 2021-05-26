@@ -8,7 +8,7 @@ export enum PlacementTypes {
 };
 
 export interface TooltipProps {
-  title: string;
+  title: string | React.ReactNode;
   children: React.ReactNode;
   placement?: PlacementTypes;
   classNameContainer?: string;
@@ -22,7 +22,7 @@ export interface ITooltipPopupStyle extends CSSProperties {
 };
 
 export interface TooltipPopupProps {
-  title: string;
+  title: string | React.ReactNode;
   initialStyle: ITooltipPopupStyle | undefined;
   placement?: string;
 };

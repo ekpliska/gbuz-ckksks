@@ -14,11 +14,12 @@ const GeneralTable: React.FC<GeneralTableProps<TableRecordTypes>> = ({
   return (
     <div className={clsn(sts.generalTableWrapper, classNameTableWrapper)}>
       <Table
+        rowKey='id'
+        tableLayout='auto'
         columns={columns}
         dataSource={dataSourse}
-        tableLayout="auto"
         loading={loading}
-        pagination={{ pageSize: 1 }}
+        pagination={{ pageSize: 14 }}
       />
     </div>
   );

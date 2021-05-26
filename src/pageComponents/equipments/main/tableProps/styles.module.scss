@@ -1,0 +1,42 @@
+.documentDataIcon {
+  width: 18px;
+  height: 18px;
+  background-color: $color_deep_blue;
+  border-radius: 50%;
+  cursor: pointer;
+  @include flexbox();
+  @include flex-aling(center, center);
+}
+
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  @include flex-aling(end, left);
+
+  & > span {
+    display: inline-block;
+    color: $color_dark_blue;
+    padding: 3px 0;
+    text-align: left;
+
+    &:nth-child(1):before {
+      color: $color_disabled;
+      font-weight: 500;
+      content: "\Нормативный документ: ";
+    }
+
+    &:nth-child(2):before {
+      color: $color_disabled;
+      font-weight: 500;
+      content: "\Номер, серия: ";
+    }
+
+    &:nth-child(3):before {
+      color: $color_disabled;
+      font-weight: 500;
+      content: "\Дата: ";
+    }
+
+  }
+
+}
