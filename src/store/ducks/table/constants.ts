@@ -1,4 +1,4 @@
-enum tableActionsType {
+enum tableActionsTypes {
   SET_TABLE_ENTITY = 'table/SET_TABLE_ENTITY',
   SET_LOADIN_STATUS = 'table/SET_LOADIN_STATUS',
   SET_DATA = 'table/SET_DATA',
@@ -7,4 +7,4 @@ enum tableActionsType {
   SET_PAGE_NUMBER = 'table/SET_PAGE_NUMBER',
 };
 
-export default tableActionsType;
+export default tableActionsTypes;

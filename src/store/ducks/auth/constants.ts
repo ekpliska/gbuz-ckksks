@@ -1,4 +1,4 @@
-enum authActionsType {
+enum authActionsTypes {
   SET_AUTH_IS_LOADIN = 'auth/SET_AUTH_IS_LOADIN',
   SET_AUTH_ERROR = 'auth/SET_AUTH_ERROR',
   AUTH_LOGOUT = 'auth/AUTH_LOGOUT',
@@ -6,4 +6,4 @@ enum authActionsType {
   SET_IS_AUTHENTICATED = 'auth/SET_IS_AUTHENTICATED',
 };
 
-export default authActionsType;
+export default authActionsTypes;

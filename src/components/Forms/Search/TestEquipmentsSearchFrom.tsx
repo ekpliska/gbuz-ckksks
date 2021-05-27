@@ -10,11 +10,11 @@ import sts from '../styles.module.scss';
 const statuses: IOptionType[] = [
   {
     id: 1,
-    value: 'На поверке',
+    name: 'На поверке',
   },
   {
     id: 2,
-    value: 'В эксплуатации',
+    name: 'В эксплуатации',
   },
 ];
 
@@ -74,6 +74,7 @@ const TestEquipmentsSearchFrom: React.FC<
               </div>
               <div className={sts.form__inputs_column_cell}>
                 <Select
+                  name='change_name_field'
                   label='Статус поверки'
                   options={statuses}
                 />

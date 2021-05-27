@@ -45,11 +45,13 @@ const StandardSampleFrom: React.FC<
                 )}
               >
                 <Select
+                  name='change_name_field'
                   label='Назначение'
                   options={[]}
                   value={null}
                 />
                 <Select
+                  name='change_name_field'
                   label='Категория стандартного образца'
                   options={[]}
                   value={null}

@@ -30,7 +30,7 @@ export const tableSlice = createSlice({
     setTableEntity(state: TableState, { payload }: PayloadAction<TableSectionEntity>) {
       state.entity = payload;
     },
-    setTableError(state: TableState, { payload }: PayloadAction<string[]>) {
+    setTableError(state: TableState, { payload }: PayloadAction<TableState['error']>) {
       state.error = payload;
     },
   },

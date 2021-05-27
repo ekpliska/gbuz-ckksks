@@ -6,6 +6,7 @@ import { IOptionType, SelectProps } from './types';
 import sts from './styles.module.scss';
 
 const Select: React.FC<SelectProps> = ({
+  name,
   label,
   placeholder = 'Выбрать из списка',
   options,
@@ -15,7 +16,7 @@ const Select: React.FC<SelectProps> = ({
 }): React.ReactElement => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [isResetOptions, setIsResetOptions] = React.useState<boolean>(false);
-  const [searchValue, setSearchValue] = React.useState<string>(value?.value || '');
+  const [searchValue, setSearchValue] = React.useState<string>(value?.name || '');
   const [cloneOptions, setCloneOptions] = React.useState<IOptionType[] | null>(options);
   const divContainerRef = React.useRef<HTMLDivElement>(null);
 
@@ -36,8 +37,8 @@ const Select: React.FC<SelectProps> = ({
 
   const handleSelectOption = (option: IOptionType) => () => {
     if (onSelect) {
-      onSelect(option);
-      setSearchValue(option.value);
+      onSelect(option, name);
+      setSearchValue(option.name);
       setIsResetOptions(true);
       setCloneOptions(options);
     }
@@ -46,7 +47,7 @@ const Select: React.FC<SelectProps> = ({
   const handleClickClear = (event: { stopPropagation: () => void }) => {
     event.stopPropagation();
     if (onSelect) {
-      onSelect(null);
+      onSelect(null, name);
       setSearchValue('');
     }
   };
@@ -58,12 +59,12 @@ const Select: React.FC<SelectProps> = ({
   };
 
   const handleBlurInput = () => {
-    const option: IOptionType | undefined = options?.find((option) => option.value.toLowerCase() === searchValue.toLowerCase());
+    const option: IOptionType | undefined = options?.find((option) => option.name.toLowerCase() === searchValue.toLowerCase());
     if (onSelect && option) {
-      onSelect(option);
-      setSearchValue(option.value);
+      onSelect(option, name);
+      setSearchValue(option.name);
     } else if (value && !option) {
-      setSearchValue(value.value);
+      setSearchValue(value.name);
     } else {
       setSearchValue('');
     }
@@ -79,7 +80,7 @@ const Select: React.FC<SelectProps> = ({
 
   React.useEffect(() => {
     if (!isResetOptions && options && searchValue.length) {
-      setCloneOptions(options.filter(({ value }) => value.toLowerCase().indexOf(searchValue.toLowerCase()) > -1));
+      setCloneOptions(options.filter(({ name }) => name.toLowerCase().indexOf(searchValue.toLowerCase()) > -1));
     } else {
       setCloneOptions(options);
     }
@@ -96,6 +97,7 @@ const Select: React.FC<SelectProps> = ({
           <div className={sts.select__inputWrapper} onClick={handleOpenClick}>
             <input
               type='text'
+              name={name}
               className={sts.select__inputWrapper_input}
               placeholder={placeholder}
               value={searchValue}
@@ -126,11 +128,11 @@ const Select: React.FC<SelectProps> = ({
                     key={option.id}
                     className={clsn(sts.select__popup_item, {
                       [sts['--selected']]:
-                        String(option.value) === String(value?.value),
+                        String(option.name) === String(value?.name),
                     })}
                     onClick={handleSelectOption(option)}
                   >
-                    {option.value}
+                    {option.name}
                   </div>
                 ))
               ) : (

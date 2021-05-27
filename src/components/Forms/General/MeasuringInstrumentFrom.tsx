@@ -17,38 +17,38 @@ import sts from '../styles.module.scss';
 const appointments: IOptionType[] = [
   {
     id: 1,
-    value: 'Исследование флюоресценции',
+    name: 'Исследование флюоресценции',
   },
   {
     id: 2,
-    value: 'Определение электропроводности',
+    name: 'Определение электропроводности',
   },
   {
     id: 3,
-    value: 'Определение плотности',
+    name: 'Определение плотности',
   },
   {
     id: 4,
-    value: 'Контроль разряжения вакуум-сущильного шкафа',
+    name: 'Контроль разряжения вакуум-сущильного шкафа',
   },
   {
     id: 5,
-    value: 'Определение массы',
+    name: 'Определение массы',
   },
 ];
 
 const locations: IOptionType[] = [
   {
     id: 1,
-    value: 'Оптическая',
+    name: 'Оптическая',
   },
   {
     id: 2,
-    value: 'Сероводородная',
+    name: 'Сероводородная',
   },
   {
     id: 3,
-    value: 'Термостатная',
+    name: 'Термостатная',
   },
 ];
 
@@ -81,6 +81,7 @@ const MeasuringInstrumentFrom: React.FC<
               </div>
               <div className={sts.form__inputs_column_cell}>
                 <Select
+                  name='change_name_field'
                   label='Наименование определяемых характеристик'
                   options={appointments}
                   value={null}
@@ -242,11 +243,13 @@ const MeasuringInstrumentFrom: React.FC<
                 className={clsn(sts.form__inputs_column_cell, sts['--cell_7-5'])}
               >
                 <Select
+                  name='change_name_field'
                   label='Право собсвенности'
                   options={locations}
                   value={null}
                 />
                 <Select
+                  name='change_name_field'
                   label='Место установки или хранения'
                   options={locations}
                   value={null}

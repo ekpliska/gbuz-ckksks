@@ -111,6 +111,7 @@ const EmployeeFrom: React.FC<
                 )}
               >
                 <Select
+                  name='change_name_field'
                   label='Нормативный документ'
                   options={[]}
                   value={null}
@@ -135,6 +136,7 @@ const EmployeeFrom: React.FC<
                 )}
               >
                 <Select
+                  name='change_name_field'
                   label='Должность'
                   options={[]}
                   value={null}

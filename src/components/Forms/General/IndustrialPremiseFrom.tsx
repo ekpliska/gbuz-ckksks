@@ -40,6 +40,7 @@ const IndustrialPremiseFrom: React.FC<
               </div>
               <div className={sts.form__inputs_column_cell}>
                 <Select
+                  name='change_name_field'
                   label='Назначение, в том числе виды проводимых испытаний для приемки и хранения образцов'
                   options={[]}
                   value={null}
@@ -52,6 +53,7 @@ const IndustrialPremiseFrom: React.FC<
                 )}
               >
                 <Select
+                  name='change_name_field'
                   label='Тип помещения'
                   options={[]}
                   value={null}
@@ -67,6 +69,7 @@ const IndustrialPremiseFrom: React.FC<
               </div>
               <div className={sts.form__inputs_column_cell}>
                 <Select
+                  name='change_name_field'
                   label='Перечень контролируемых параметров в помещении'
                   options={[]}
                   value={null}
@@ -74,6 +77,7 @@ const IndustrialPremiseFrom: React.FC<
               </div>
               <div className={sts.form__inputs_column_cell}>
                 <Select
+                  name='change_name_field'
                   label='Перечень специального оборудования в помещении'
                   options={[]}
                   value={null}

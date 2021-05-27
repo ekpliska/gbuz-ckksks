@@ -56,6 +56,7 @@ const StandardSamplesSearchFrom: React.FC<
             <div className={clsn(sts.form__inputs_column, sts['--col_2'])}>
               <div className={sts.form__inputs_column_cell}>
                 <Select
+                  name='change_name_field'
                   value={null}
                   options={[]}
                   label='Производитель'

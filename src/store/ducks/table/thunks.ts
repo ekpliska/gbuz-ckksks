@@ -5,10 +5,10 @@ import { EquipmentsResponse } from 'models/api/equipments';
 import { ApiError } from 'models/api/api';
 import { TableSectionEntity } from './state';
 import { setTableData, setTableEntity, setTableError } from './tableSlice';
-import actionsType from './constants';
+import actionsTypes from './constants';
 
 export const fetchTableData = createAsyncThunk(
-  actionsType.SET_DATA,
+  actionsTypes.SET_DATA,
   async (tableEntity: TableSectionEntity, { dispatch }) => {
     try {
       dispatch(setTableEntity(tableEntity));

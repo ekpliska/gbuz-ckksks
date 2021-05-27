@@ -46,11 +46,13 @@ const TestEquipmentFrom: React.FC<
                 )}
               >
                 <Select
+                  name='change_name_field'
                   label='Наименование определяемых характеристик'
                   options={[]}
                   value={null}
                 />
                 <Select
+                  name='change_name_field'
                   label='Наименование испытуемых групп объектов'
                   options={[]}
                   value={null}
@@ -199,11 +201,13 @@ const TestEquipmentFrom: React.FC<
                 className={clsn(sts.form__inputs_column_cell, sts['--cell_7-5'])}
               >
                 <Select
+                  name='change_name_field'
                   label='Право собсвенности'
                   options={[]}
                   value={null}
                 />
                 <Select
+                  name='change_name_field'
                   label='Место установки или хранения'
                   options={[]}
                   value={null}

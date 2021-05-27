@@ -2,10 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchDictionaries } from 'api/services/dictionaries';
 import { setDictionaries } from './dictionariesSlice';
 import { DictionariesState } from './state';
-import actionsType from './constants';
+import actionsTypes from './constants';
 
 export const fetchDictionaryList = createAsyncThunk(
-  actionsType.SET_DICTIONARIES,
+  actionsTypes.SET_DICTIONARIES,
   async (_, { dispatch }) => {
     try {
       const { data } = await fetchDictionaries();

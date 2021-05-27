@@ -28,7 +28,7 @@
     &:nth-child(2):before {
       color: $color_disabled;
       font-weight: 500;
-      content: "\Номер, серия: ";
+      content: "\Серия, номер: ";
     }
 
     &:nth-child(3):before {

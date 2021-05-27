@@ -40,6 +40,7 @@ const AuxiliaryEquipmentFrom: React.FC<
               </div>
               <div className={sts.form__inputs_column_cell}>
                 <Select
+                  name='change_name_field'
                   label='Назначение'
                   options={[]}
                   value={null}
@@ -143,11 +144,13 @@ const AuxiliaryEquipmentFrom: React.FC<
                 className={clsn(sts.form__inputs_column_cell, sts['--cell_7-5'])}
               >
                 <Select
+                  name='change_name_field'
                   label='Право собсвенности'
                   options={[]}
                   value={null}
                 />
                 <Select
+                  name='change_name_field'
                   label='Место установки или хранения'
                   options={[]}
                   value={null}

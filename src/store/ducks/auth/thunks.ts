@@ -13,11 +13,11 @@ import {
   setCurrentUser,
   setIsAuthenticated,
 } from './authSlice';
-import actionsType from './constants';
+import actionsTypes from './constants';
 import { LoadingState } from 'store/loadingState';
 
 export const fetchAuthSignIn = createAsyncThunk(
-  actionsType.SET_IS_AUTHENTICATED,
+  actionsTypes.SET_IS_AUTHENTICATED,
   async (authPost: SignInRequestModel, { dispatch }) => {
     try {
       dispatch(setAuthLoading(LoadingState.LOADING));
@@ -47,7 +47,7 @@ export const authLogout = (): AppThunk => async (dispatch: AppDispatch) => {
 };
 
 export const fetchCurrentUser = createAsyncThunk(
-  actionsType.SET_CURRENT_USER,
+  actionsTypes.SET_CURRENT_USER,
   async (_, { dispatch }) => {
     try {
       dispatch(setAuthLoading(LoadingState.LOADING));

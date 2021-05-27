@@ -1,5 +1,5 @@
-enum dictionariesActionsType {
+enum dictionariesActionsTypes {
   SET_DICTIONARIES = 'dictionaries/SET_DICTIONARIES',
 };
 
-export default dictionariesActionsType;
+export default dictionariesActionsTypes;
