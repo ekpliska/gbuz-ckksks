@@ -3,9 +3,9 @@ import { PaginationModel } from 'models/pagination';
 import { OrderRequest, SearchRequest } from './filters';
 
 export interface EquipmentsRequest {
-  search: SearchRequest | null;
-  order: OrderRequest | null;
-  page: PaginationModel | null;
+  search?: SearchRequest | null;
+  order?: OrderRequest | null;
+  page?: PaginationModel | null;
 };
 
 export interface EquipmentsResponse {

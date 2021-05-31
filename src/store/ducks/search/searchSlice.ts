@@ -1,49 +1,59 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { EquipmentEntity } from 'models/equipments';
 import { LoadingState } from 'store/loadingState';
+import { SelectValue } from 'ui/Inputs/Select/types';
 import { SearchState } from './state';
 
 const initialState: SearchState = {
-  entity: null,
-  fields: null,
+  fields: [],
   statusLoading: LoadingState.NEVER,
-  error: [],
 };
 
-interface Input {
+interface FieldPayload {
+  entity: EquipmentEntity;
   name: string;
-  value: string | number | { id: number, name: string } | null;
-};
+  value: string | number | SelectValue | null;
+}
 
 export const searchSlice = createSlice({
   name: 'search',
   initialState,
   reducers: {
-    setSearchField(state: SearchState, { payload }: PayloadAction<Input>) {
-      state.fields = {
-        ...state.fields,
-        [payload.name]: payload.value,
-      };
+    setSearchField(
+      state: SearchState,
+      { payload }: PayloadAction<FieldPayload>,
+    ) {
+      const { entity, name, value } = payload;
+      const indexFields = state.fields.findIndex((f) => f.entity === entity);
+
+      if (indexFields >= 0) {
+        const updFieldValues = {
+          ...state.fields[indexFields],
+          values: { ...state.fields[indexFields].values, [name]: value },
+        };
+        state.fields = [
+          ...state.fields.slice(0, indexFields),
+          updFieldValues,
+          ...state.fields.slice(indexFields + 1),
+        ];
+      } else {
+        state.fields = [...state.fields, { entity, values: { [name]: value } }];
+      }
     },
-    setSearchEntity(state: SearchState, { payload }: PayloadAction<SearchState['entity']>) {
-      state.entity = payload;
-    },
-    setSearchError(state: SearchState, { payload }: PayloadAction<SearchState['error']>) {
-      state.error = payload;
-    },
-    resetSearchFields(state: SearchState) {
-      state.fields = null;
-      state.statusLoading = LoadingState.NEVER;
-      state.error = [];
+    resetSearchFields(
+      state: SearchState,
+      { payload }: PayloadAction<EquipmentEntity>,
+    ) {
+      const indexFields = state.fields.findIndex((f) => f.entity === payload);
+      state.fields = [
+        ...state.fields.slice(0, indexFields),
+        ...state.fields.slice(indexFields + 1),
+      ];
     },
   },
   extraReducers: {},
 });
 
-export const {
-  setSearchField,
-  setSearchEntity,
-  setSearchError,
-  resetSearchFields,
-} = searchSlice.actions;
+export const { setSearchField, resetSearchFields } = searchSlice.actions;
 
 export default searchSlice.reducer;

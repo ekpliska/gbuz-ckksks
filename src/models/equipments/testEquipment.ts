@@ -1,11 +1,11 @@
 import { DocumentTypeModel, EquipmentFunctionModel, TestGroupModel, TypeOwnModel } from 'models/dictionaries';
-import { IndustrialPremiseModel } from './industrialPremise';
+import { IndustrialPremiseModel } from './';
 
 /**
  * Стандартные образцы
  */
 
-export interface TestEquipmentModel {
+interface TestEquipmentModel {
   id?: number;
   // Наименование средства измерения
   name: string;
@@ -39,4 +39,6 @@ export interface TestEquipmentModel {
   industrialPremise: Partial<IndustrialPremiseModel>;
   // Примечание
   note: string;
-}
+};
+
+export default TestEquipmentModel;

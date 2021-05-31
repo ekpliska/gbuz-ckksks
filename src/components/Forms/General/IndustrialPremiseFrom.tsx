@@ -7,7 +7,7 @@ import {
   DateInput,
   Textarea,
 } from 'ui/Inputs';
-import { IndustrialPremiseModel } from 'models/equipments/industrialPremise';
+import { IndustrialPremiseModel } from 'models/equipments';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 

@@ -8,7 +8,7 @@ import {
   Switch,
   Textarea,
 } from 'ui/Inputs';
-import { TestEquipmentModel } from 'models/equipments/testEquipment';
+import { TestEquipmentModel } from 'models/equipments';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 

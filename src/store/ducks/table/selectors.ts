@@ -12,3 +12,10 @@ export const selectorTableLoadingStatus = (
 export const selectorTableIsLoading = (state: RootState): boolean =>
   state.table.loadingStatus === LoadingState.LOADED ||
   state.table.loadingStatus === LoadingState.ERROR;
+
+export const selectorTablePagination = (
+  state: RootState,
+): TableState['pagination'] => state.table.pagination;
+
+export const selectorTableOrder = (state: RootState): TableState['order'] =>
+  state.table.order;

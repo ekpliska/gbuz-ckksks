@@ -2,7 +2,7 @@ import React from 'react';
 import clsn from 'classnames';
 import EmptyLabel from 'ui/EmptyLabel';
 import { ClearIcon, DownArrowIcon } from 'ui/IconsSvg';
-import { IOptionType, SelectProps } from './types';
+import { SelectValue, SelectProps } from './types';
 import sts from './styles.module.scss';
 
 const Select: React.FC<SelectProps> = ({
@@ -17,7 +17,7 @@ const Select: React.FC<SelectProps> = ({
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [isResetOptions, setIsResetOptions] = React.useState<boolean>(false);
   const [searchValue, setSearchValue] = React.useState<string>(value?.name || '');
-  const [cloneOptions, setCloneOptions] = React.useState<IOptionType[] | null>(options);
+  const [cloneOptions, setCloneOptions] = React.useState<SelectValue[] | null>(options);
   const divContainerRef = React.useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -35,7 +35,7 @@ const Select: React.FC<SelectProps> = ({
     }
   };
 
-  const handleSelectOption = (option: IOptionType) => () => {
+  const handleSelectOption = (option: SelectValue) => () => {
     if (onSelect) {
       onSelect(option, name);
       setSearchValue(option.name);
@@ -59,7 +59,7 @@ const Select: React.FC<SelectProps> = ({
   };
 
   const handleBlurInput = () => {
-    const option: IOptionType | undefined = options?.find((option) => option.name.toLowerCase() === searchValue.toLowerCase());
+    const option: SelectValue | undefined = options?.find((option) => option.name.toLowerCase() === searchValue.toLowerCase());
     if (onSelect && option) {
       onSelect(option, name);
       setSearchValue(option.name);

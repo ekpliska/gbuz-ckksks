@@ -3,8 +3,9 @@ import {
   createSlice,
   PayloadAction,
 } from '@reduxjs/toolkit';
+import { EquipmentEntity } from 'models/equipments';
 import { LoadingState } from 'store/loadingState';
-import { TableSectionEntity, TableState } from './state';
+import { TableState } from './state';
 import { fetchTableData } from './thunks';
 
 const initialState: TableState = {
@@ -27,7 +28,7 @@ export const tableSlice = createSlice({
     setTableData(state: TableState, { payload }: PayloadAction<TableState['items']>) {
       state.items = payload;
     },
-    setTableEntity(state: TableState, { payload }: PayloadAction<TableSectionEntity>) {
+    setTableEntity(state: TableState, { payload }: PayloadAction<EquipmentEntity>) {
       state.entity = payload;
     },
     setTableError(state: TableState, { payload }: PayloadAction<TableState['error']>) {

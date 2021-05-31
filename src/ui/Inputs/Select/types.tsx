@@ -1,4 +1,4 @@
-export interface IOptionType {
+export interface SelectValue {
   id: number;
   name: string;
 };
@@ -7,8 +7,8 @@ export interface SelectProps {
   name: string;
   label?: string;
   placeholder?: string;
-  options: IOptionType[] | null;
-  value?: IOptionType | null;
+  options: SelectValue[] | null;
+  value?: SelectValue | null;
   classNameContainer?: string;
-  onSelect?: (option: IOptionType | null, inputName: string) => void;
+  onSelect?: (option: SelectValue | null, inputName: string) => void;
 };

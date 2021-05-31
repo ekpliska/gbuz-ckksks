@@ -11,7 +11,6 @@ import VerificationEquipments from 'components/VerificationEquipments';
 import { SF_MeasuringInstruments } from 'components/Forms/Search';
 
 import { fetchTableData } from 'store/ducks/table/thunks';
-import { TableSectionEntity } from 'store/ducks/table/state';
 import {
   selectorTableIsLoading,
   selectorTableItems,
@@ -19,6 +18,7 @@ import {
 
 import { MI_tableProps } from './tableProps';
 import { PageMainProps } from './types';
+import { EquipmentEntity } from 'models/equipments';
 
 const tempData: VerificationEquipmentItemProps[] = [
   {
@@ -47,7 +47,7 @@ const MeasuringInstruments: React.FC<PageMainProps> = ({
   const isLoadingStatus = useSelector(selectorTableIsLoading);
 
   React.useEffect(() => {
-    dispatch(fetchTableData(TableSectionEntity.measuringInstrument));
+    dispatch(fetchTableData(EquipmentEntity.measuringInstrument));
   }, []);
 
   const handleClickExportToPdf = (): void => {

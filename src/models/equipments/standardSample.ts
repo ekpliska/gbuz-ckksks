@@ -4,7 +4,7 @@ import { DocumentTypeModel, EquipmentFunctionModel, SampleCategoryModel } from '
  * Стандартные образцы
  */
 
-export interface StandardSampleModel {
+interface StandardSampleModel {
   id?: number;
   // Наименование средства измерения
   name: string;
@@ -37,3 +37,5 @@ export interface StandardSampleModel {
   // Архив
   isArchive: boolean;
 };
+
+export default StandardSampleModel;

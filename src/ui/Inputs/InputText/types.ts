@@ -14,7 +14,7 @@ export interface InputTextProps {
   endIcon?: React.ReactNode;
   onClickStartIcon?: () => void;
   onClickEndIcon?: () => void;
-  onClearInput?: () => void;
+  onClearInput?: (fieldKey: string) => void;
   сontainerClassName?: string;
   tabindex?: number;
   readonly?:boolean;

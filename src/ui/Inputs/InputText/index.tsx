@@ -16,9 +16,12 @@ const InputText: React.FC<InputTextProps> = ({
   сontainerClassName,
   validateText,
   onChange,
+  onClearInput,
   onClickStartIcon,
   onClickEndIcon,
 }): React.ReactElement => {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
   const handleChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       onChange && onChange(event);
@@ -37,6 +40,10 @@ const InputText: React.FC<InputTextProps> = ({
       onClickEndIcon();
     }
   }, [endIcon, onClickEndIcon]);
+
+  const handleClickClearInput = React.useCallback(() => {
+    onClearInput && onClearInput(name);
+  }, [name]);
 
   return (
     <div className={clsn(sts.сontainer, сontainerClassName)}>
@@ -63,6 +70,7 @@ const InputText: React.FC<InputTextProps> = ({
         )}
         <div className={sts.input__wrapper}>
           <input
+            ref={inputRef}
             id={id}
             name={name}
             value={value}
@@ -74,7 +82,7 @@ const InputText: React.FC<InputTextProps> = ({
           />
         </div>
         {Boolean(value) && (
-          <div className={sts.input__icon}>
+          <div className={sts.input__icon} onClick={handleClickClearInput}>
             <span className={sts.input__icon_clear}>
               <ClearIcon />
             </span>

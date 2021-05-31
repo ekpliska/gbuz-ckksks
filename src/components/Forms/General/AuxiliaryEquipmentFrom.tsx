@@ -7,7 +7,7 @@ import {
   DateInput,
   Textarea,
 } from 'ui/Inputs';
-import { AuxiliaryEquipmentModel } from 'models/equipments/auxiliaryEquipment';
+import { AuxiliaryEquipmentModel } from 'models/equipments';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 

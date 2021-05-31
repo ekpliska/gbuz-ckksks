@@ -9,12 +9,12 @@ import {
   Switch,
   Textarea,
 } from 'ui/Inputs';
-import { IOptionType } from 'ui/Inputs/Select/types';
-import { MeasuringInstrumentModel } from 'models/equipments/measuringInstrument';
+import { SelectValue } from 'ui/Inputs/Select/types';
+import { MeasuringInstrumentModel } from 'models/equipments';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 
-const appointments: IOptionType[] = [
+const appointments: SelectValue[] = [
   {
     id: 1,
     name: 'Исследование флюоресценции',
@@ -37,7 +37,7 @@ const appointments: IOptionType[] = [
   },
 ];
 
-const locations: IOptionType[] = [
+const locations: SelectValue[] = [
   {
     id: 1,
     name: 'Оптическая',

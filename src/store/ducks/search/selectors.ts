@@ -1,8 +1,7 @@
 import { RootState } from 'store/rootReducer';
-import { SearchState } from './state';
+import { FieldSearchProps } from './state';
 
-export const selectorSearchFields = (state: RootState): SearchState['fields'] =>
-  state.search.fields;
-
-export const selectorSearchEntity = (state: RootState): SearchState['entity'] =>
-  state.search.entity;
+export const selectorSearchFields = (state: RootState): FieldSearchProps | undefined => {
+  const entity = state.table.entity;
+  return entity ? state.search.fields.find((f) => f.entity === entity) : {} as FieldSearchProps;
+};

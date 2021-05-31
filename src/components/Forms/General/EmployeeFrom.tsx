@@ -8,7 +8,7 @@ import {
   Textarea,
   Checkbox,
 } from 'ui/Inputs';
-import { EmployeesModel } from 'models/equipments/employee';
+import { EmployeesModel } from 'models/equipments';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 

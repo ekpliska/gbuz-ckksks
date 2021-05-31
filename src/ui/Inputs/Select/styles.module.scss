@@ -58,12 +58,8 @@
       transition: transform .3s ease-in;
       cursor: pointer;
 
-      & svg {
-        fill: rgba($color_deep_blue, 0.5);
-      }
-
       &:hover svg {
-        fill: $color_deep_blue;
+        fill: $color_light_blue;
       }
 
       &.--open {

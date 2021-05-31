@@ -1,4 +1,4 @@
-import { EmployeesModel } from './equipments/employee';
+import { EmployeesModel } from './equipments';
 import { RoleModel } from './role';
 
 export interface UserModel {

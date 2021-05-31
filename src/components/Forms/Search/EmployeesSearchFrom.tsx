@@ -2,7 +2,7 @@ import React from 'react';
 import clsn from 'classnames';
 import { InputText } from 'ui/Inputs';
 import Button from 'ui/Button';
-import { EmployeesModel } from 'models/equipments/employee';
+import { EmployeesModel } from 'models/equipments';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 

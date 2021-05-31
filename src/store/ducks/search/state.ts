@@ -1,13 +1,16 @@
 import { LoadingState } from 'store/loadingState';
-import { TableSectionEntity } from '../table/state';
+import { EquipmentEntity } from 'models/equipments';
 
 export interface Field {
   [name: string]: string | number | { id: number, name: string } | null;
 };
 
+export interface FieldSearchProps {
+  entity: EquipmentEntity;
+  values: Field | null;
+};
+
 export interface SearchState {
-  entity: TableSectionEntity | null;
-  fields: Field | null;
+  fields: FieldSearchProps[];
   statusLoading: LoadingState;
-  error: string[];
 };

@@ -2,12 +2,12 @@ import React from 'react';
 import clsn from 'classnames';
 import { InputText, Select } from 'ui/Inputs';
 import Button from 'ui/Button';
-import { IOptionType } from 'ui/Inputs/Select/types';
-import { TestEquipmentModel } from 'models/equipments/testEquipment';
+import { SelectValue } from 'ui/Inputs/Select/types';
+import { TestEquipmentModel } from 'models/equipments';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 
-const statuses: IOptionType[] = [
+const statuses: SelectValue[] = [
   {
     id: 1,
     name: 'На поверке',

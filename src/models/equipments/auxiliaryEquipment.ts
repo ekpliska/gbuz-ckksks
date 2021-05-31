@@ -1,11 +1,11 @@
 import { EquipmentFunctionModel, TypeOwnModel } from 'models/dictionaries';
-import { IndustrialPremiseModel } from './industrialPremise';
+import { IndustrialPremiseModel } from './';
 
 /**
  * Вспомогательное оборудование
  */
 
-export interface AuxiliaryEquipmentModel {
+interface AuxiliaryEquipmentModel {
   id?: number;
   // Наименование средства измерения
   name: string;
@@ -31,4 +31,6 @@ export interface AuxiliaryEquipmentModel {
   industrialPremise: Partial<IndustrialPremiseModel>;
   // Примечание
   note: string;
-}
+};
+
+export default AuxiliaryEquipmentModel;

@@ -1,11 +1,11 @@
 import { DocumentTypeModel, EquipmentFunctionModel, TypeOwnModel } from 'models/dictionaries';
-import { IndustrialPremiseModel } from './industrialPremise';
+import { IndustrialPremiseModel } from './';
 
 /**
  * Средства измерений
  */
 
-export interface MeasuringInstrumentModel {
+interface MeasuringInstrumentModel {
   id?: number;
   // Наименование средства измерения
   name: string;
@@ -41,4 +41,6 @@ export interface MeasuringInstrumentModel {
   industrialPremise: Partial<IndustrialPremiseModel>;
   // Примечание
   note: string;
-}
+};
+
+export default MeasuringInstrumentModel;

@@ -18,7 +18,7 @@ interface AdditionalEducationModel {
  * Сотрудники
  */
 
-export interface EmployeesModel {
+interface EmployeesModel {
   id?: number;
   // Фамилия
   lastname: string;
@@ -60,4 +60,6 @@ export interface EmployeesModel {
   experience: string;
   // Дополнительное образование
   additionalEducation: AdditionalEducationModel[];
-}
+};
+
+export default EmployeesModel;

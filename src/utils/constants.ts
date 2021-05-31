@@ -1,3 +1,5 @@
+import { SelectValue } from 'ui/Inputs/Select/types';
+
 export const LOCAL_STORAGE_TOKEN = 'access_token';
 export const LOCAL_STORAGE_REFRESH_TOKEN = 'refresh_token';
 
@@ -7,6 +9,17 @@ export const DATE_FORMAT_UI = {
   ONLY_TIME: 'HH:mm',
   ONLY_YEAR: 'YYYY',
 };
+
+export const verificationStatuses: SelectValue[] = [
+  {
+    id: 1,
+    name: 'На поверке',
+  },
+  {
+    id: 2,
+    name: 'В эксплуатации',
+  },
+];
 
 export type TDateTimeFormat =
   | 'DD.MM.YYYY'
