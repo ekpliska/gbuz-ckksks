@@ -47,7 +47,9 @@ const MeasuringInstruments: React.FC<PageMainProps> = ({
   const isLoadingStatus = useSelector(selectorTableIsLoading);
 
   React.useEffect(() => {
-    dispatch(fetchTableData(EquipmentEntity.measuringInstrument));
+    dispatch(fetchTableData({
+      entity: EquipmentEntity.measuringInstrument,
+    }));
   }, []);
 
   const handleClickExportToPdf = (): void => {

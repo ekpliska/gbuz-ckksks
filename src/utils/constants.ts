@@ -14,6 +14,7 @@ export const verificationStatuses: SelectValue[] = [
   {
     id: 1,
     name: 'На поверке',
+    valueCode: 1,
   },
   {
     id: 2,

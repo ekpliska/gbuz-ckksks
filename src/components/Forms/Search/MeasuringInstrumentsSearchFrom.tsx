@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import clsn from 'classnames';
 import Button from 'ui/Button';
 import { InputText, Select } from 'ui/Inputs';
@@ -10,11 +10,17 @@ import { verificationStatuses } from 'utils/constants';
 import { SearchFormProps } from '../types';
 import sts from '../styles.module.scss';
 import { useChangeSearchForm } from 'hooks/useChangeSearchForm';
+import { fetchTableData, FetchTableDataProps } from 'store/ducks/table/thunks';
+import { normalizedObject } from 'utils/helpers';
+import { selectorTableOrder, selectorTablePagination } from 'store/ducks/table/selectors';
 
 const MeasuringInstrumentsSearchFrom: React.FC<
   SearchFormProps<MeasuringInstrumentModel>
 > = (): React.ReactElement => {
+  const dispatch = useDispatch();
   const searchFields = useSelector(selectorSearchFields);
+  const order = useSelector(selectorTableOrder);
+  const page = useSelector(selectorTablePagination);
 
   const {
     handleChangeInput,
@@ -25,6 +31,17 @@ const MeasuringInstrumentsSearchFrom: React.FC<
 
   const handleSubmitForm = (event: React.SyntheticEvent) => {
     event.preventDefault();
+
+    const dataRequest: FetchTableDataProps = {
+      entity: EquipmentEntity.measuringInstrument,
+      requestParams: {
+        search: normalizedObject(searchFields),
+        ...(order && { order: order }),
+        ...(page && { page: page }),
+      },
+    };
+    
+    dispatch(fetchTableData(dataRequest));
   };
 
   return (
@@ -37,7 +54,7 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                 <InputText
                   id="name_mi"
                   name="name_mi"
-                  value={(searchFields?.values?.name_mi as string) || ''}
+                  value={(searchFields?.name_mi as string) || ''}
                   type="text"
                   label="Наименование средства измерения / марка"
                   placeholder="Введите наименование средства измерения или марку"
@@ -55,7 +72,7 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                   id="inventory_number_mi"
                   name="inventory_number_mi"
                   value={
-                    (searchFields?.values?.inventory_number_mi as string) || ''
+                    (searchFields?.inventory_number_mi as string) || ''
                   }
                   type="text"
                   label="Инвентарный номер"
@@ -67,7 +84,7 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                   id="factory_number_mi"
                   name="factory_number_mi"
                   value={
-                    (searchFields?.values?.factory_number_mi as string) || ''
+                    (searchFields?.factory_number_mi as string) || ''
                   }
                   type="text"
                   label="Заводской номер"
@@ -82,7 +99,7 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                 <InputText
                   id="certificate_mi"
                   name="certificate_mi"
-                  value={(searchFields?.values?.certificate_mi as string) || ''}
+                  value={(searchFields?.certificate_mi as string) || ''}
                   type="text"
                   label="Серия/Номер свидетельства о поверке"
                   placeholder="Введите серию/номер свидетельства о поверке"
@@ -94,7 +111,7 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                 <Select
                   name="status_mi"
                   label="Статус поверки"
-                  value={(searchFields?.values?.status_mi as SelectValue) || ''}
+                  value={(searchFields?.status_mi as SelectValue) || ''}
                   options={verificationStatuses}
                   onSelect={handleChangeSelect}
                 />

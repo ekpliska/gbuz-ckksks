@@ -23,7 +23,7 @@ export interface TableState {
   entity: EquipmentEntity | null;
   items: TableRecordTypes[] | undefined;
   order: OrderRequest | null;
-  pagination: PaginationModel;
+  pagination: PaginationModel | null;
   loadingStatus: LoadingState;
   error: string[];
 }

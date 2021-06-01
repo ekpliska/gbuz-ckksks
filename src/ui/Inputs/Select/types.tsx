@@ -1,6 +1,7 @@
 export interface SelectValue {
   id: number;
   name: string;
+  valueCode?: string | number | boolean | null;
 };
 
 export interface SelectProps {
