@@ -1,5 +1,5 @@
 .spinner {
   position: absolute;
-  top: 50%;
+  top: calc(100% - 50% - 20px);
   left: 50%;
 }

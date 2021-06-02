@@ -5,15 +5,18 @@ import {
   resetSearchFields,
   setSearchField,
 } from 'store/ducks/search/searchSlice';
+import { fetchTableData } from 'store/ducks/table/thunks';
 
 interface useChangeSearchFormProps {
   handleChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleChangeSelect: (value: SelectValue | null, inputName: string) => void;
   handleClearInput: (fieldKey: string) => void;
   handleResetForm: () => void;
-};
+}
 
-export const useChangeSearchForm = (entity: EquipmentEntity): useChangeSearchFormProps => {
+export const useChangeSearchForm = (
+  entity: EquipmentEntity,
+): useChangeSearchFormProps => {
   const dispatch = useDispatch();
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,6 +34,7 @@ export const useChangeSearchForm = (entity: EquipmentEntity): useChangeSearchFor
 
   const handleResetForm = () => {
     dispatch(resetSearchFields(entity));
+    dispatch(fetchTableData({ entity }));
   };
 
   return {

@@ -1,6 +1,7 @@
 .generalTableWrapper {
   width: 100%;
   margin-top: 33px;
+  position: relative;
 
   :global {
 
@@ -16,10 +17,10 @@
       word-break: break-all;
       box-shadow: 0px 3px 3px -2px rgba($color_placeholder, 1);
 
-      &>tr {
+      & > tr {
         box-sizing: border-box;
 
-        &>th.ant-table-cell {
+        & > th.ant-table-cell {
           padding: 16px 9px;
           text-align: left;
           vertical-align: middle;
@@ -37,10 +38,10 @@
       color: $default_font_color;
       word-break: break-all;
 
-      &>tr.ant-table-row {
+      & > tr.ant-table-row {
         box-shadow: 0px 3px 3px -2px rgba($color_placeholder, .5);
 
-        &>td.ant-table-cell {
+        & > td.ant-table-cell {
           padding: 16px 9px;
         }
 
@@ -48,6 +49,10 @@
           background-color: rgba($color_light_blue_info, .5);
         }
 
+      }
+
+      & > tr.ant-table-placeholder > td {
+        padding: 40px 0;
       }
 
     }
@@ -58,7 +63,7 @@
       align-items: center;
       justify-content: flex-end;
       
-      & > li {
+      & > li:not(.ant-pagination-total-text) {
         margin: 0 5px;
         display: inline-block;
         height: 22px;
@@ -99,6 +104,12 @@
 
         }
 
+      }
+
+      & > li.ant-pagination-total-text {
+        margin: 0 15px;
+        font-size: 12px;
+        color: $color_placeholder;
       }
 
     }

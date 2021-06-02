@@ -1,12 +1,12 @@
 import React from 'react';
 import { IconsSvgProps } from '../types';
 
-export const SpinIcon: React.FC<IconsSvgProps> = (): React.ReactElement => {
+export const SpinIcon: React.FC<IconsSvgProps> = ({ width, height }): React.ReactElement => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      width='24'
-      height='24'
+      width={width || '24'}
+      height={height || '24'}
       version='1'
       viewBox='0 0 128 128'
     >

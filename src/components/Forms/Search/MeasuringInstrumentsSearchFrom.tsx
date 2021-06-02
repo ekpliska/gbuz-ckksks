@@ -29,6 +29,13 @@ const MeasuringInstrumentsSearchFrom: React.FC<
     handleResetForm,
   } = useChangeSearchForm(EquipmentEntity.measuringInstrument);
 
+  const isDisabled = React.useMemo<boolean>(() => {
+    if (searchFields) {
+      return Object.keys(searchFields).filter((key) => searchFields[key]).length ? false : true;
+    }
+    return true;
+  }, [searchFields]);
+
   const handleSubmitForm = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
@@ -52,12 +59,12 @@ const MeasuringInstrumentsSearchFrom: React.FC<
             <div className={clsn(sts.form__inputs_column, sts['--col_8'])}>
               <div className={sts.form__inputs_column_cell}>
                 <InputText
-                  id="name_mi"
-                  name="name_mi"
+                  id='name_mi'
+                  name='name_mi'
                   value={(searchFields?.name_mi as string) || ''}
-                  type="text"
-                  label="Наименование средства измерения / марка"
-                  placeholder="Введите наименование средства измерения или марку"
+                  type='text'
+                  label='Наименование средства измерения / марка'
+                  placeholder='Введите наименование средства измерения или марку'
                   onChange={handleChangeInput}
                   onClearInput={handleClearInput}
                 />
@@ -69,26 +76,26 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                 )}
               >
                 <InputText
-                  id="inventory_number_mi"
-                  name="inventory_number_mi"
+                  id='inventory_number_mi'
+                  name='inventory_number_mi'
                   value={
                     (searchFields?.inventory_number_mi as string) || ''
                   }
-                  type="text"
-                  label="Инвентарный номер"
-                  placeholder="Введите инвентарный номер"
+                  type='text'
+                  label='Инвентарный номер'
+                  placeholder='Введите инвентарный номер'
                   onChange={handleChangeInput}
                   onClearInput={handleClearInput}
                 />
                 <InputText
-                  id="factory_number_mi"
-                  name="factory_number_mi"
+                  id='factory_number_mi'
+                  name='factory_number_mi'
                   value={
                     (searchFields?.factory_number_mi as string) || ''
                   }
-                  type="text"
-                  label="Заводской номер"
-                  placeholder="Введите заводской номер"
+                  type='text'
+                  label='Заводской номер'
+                  placeholder='Введите заводской номер'
                   onChange={handleChangeInput}
                   onClearInput={handleClearInput}
                 />
@@ -97,21 +104,21 @@ const MeasuringInstrumentsSearchFrom: React.FC<
             <div className={clsn(sts.form__inputs_column, sts['--col_4'])}>
               <div className={sts.form__inputs_column_cell}>
                 <InputText
-                  id="certificate_mi"
-                  name="certificate_mi"
+                  id='certificate_mi'
+                  name='certificate_mi'
                   value={(searchFields?.certificate_mi as string) || ''}
-                  type="text"
-                  label="Серия/Номер свидетельства о поверке"
-                  placeholder="Введите серию/номер свидетельства о поверке"
+                  type='text'
+                  label='Серия/Номер свидетельства о поверке'
+                  placeholder='Введите серию/номер свидетельства о поверке'
                   onChange={handleChangeInput}
                   onClearInput={handleClearInput}
                 />
               </div>
               <div className={sts.form__inputs_column_cell}>
                 <Select
-                  name="status_mi"
-                  label="Статус поверки"
-                  value={(searchFields?.status_mi as SelectValue) || ''}
+                  name='status_mi'
+                  label='Статус поверки'
+                  value={(searchFields?.status_mi as SelectValue) || null}
                   options={verificationStatuses}
                   onSelect={handleChangeSelect}
                 />
@@ -121,12 +128,13 @@ const MeasuringInstrumentsSearchFrom: React.FC<
         </div>
         <div className={sts.form__buttons}>
           <Button
-            type="submit"
-            variant="filled"
+            type='submit'
+            variant='filled'
+            disabled={isDisabled}
           >
             Найти
           </Button>
-          <Button type="reset" variant="outlined" onClick={handleResetForm}>
+          <Button type='reset' variant='outlined' onClick={handleResetForm}>
             Очистить
           </Button>
         </div>

@@ -12,9 +12,8 @@ const initialState: TableState = {
   entity: null,
   items: undefined,
   pagination: {
-    pageSize: 0,
-    pageNumber: 0,
-    totalCount: 0,
+    page_size: 0,
+    page_number: 0,
   },
   order: null,
   loadingStatus: LoadingState.NEVER,

@@ -4,11 +4,15 @@ import { SpinIcon } from 'ui/IconsSvg';
 import { SpinnerProps } from './types';
 import sts from './styles.module.scss';
 
-const Spinner: React.FC<SpinnerProps> = ({ wrapperClassName }): React.ReactElement => {
+const Spinner: React.FC<SpinnerProps> = ({
+  width,
+  height,
+  wrapperClassName,
+}): React.ReactElement => {
   return (
     <div className={clsn(sts.spinner, wrapperClassName)}>
       <span>
-        <SpinIcon />
+        <SpinIcon width={width || '15'} height={height || '15'} />
       </span>
     </div>
   );

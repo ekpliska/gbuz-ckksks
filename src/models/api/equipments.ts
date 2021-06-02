@@ -11,8 +11,8 @@ export interface EquipmentsRequest {
 export interface EquipmentsResponse {
   items: TableRecordTypes[] | undefined;
   page_number: number;
-  page_size: number | null;
-  total_count: number | null;
+  page_size: number;
+  total_count: number;
 };
 
 export const initialEquipmentsRequest: EquipmentsRequest = {

@@ -1,5 +1,5 @@
 export interface PaginationModel {
-  pageSize: number;
-  pageNumber: number;
-  totalCount: number;
+  page_size: number;
+  page_number: number;
+  total_count?: number;
 };
