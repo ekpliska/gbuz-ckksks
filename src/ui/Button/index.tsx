@@ -8,6 +8,7 @@ const Button: React.FC<ButtonProps> = ({
   variant,
   type,
   color,
+  tooltip,
   classNameContainer,
   classNameButton,
   disabled,
@@ -37,6 +38,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <div className={clsn(sts.container, classNameContainer)}>
       <button
+        data-tooltip={tooltip}
         type={type}
         className={buttonClassName}
         disabled={disabled}

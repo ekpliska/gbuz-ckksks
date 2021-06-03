@@ -27,9 +27,6 @@
 
   &_outlined {
     text-transform: uppercase;
-    // background-color: #FFF;
-    // border-color: $color_light_blue;
-    // box-shadow: none;
 
     &:active {
       color: #FFF;
@@ -52,9 +49,7 @@
         & svg path {
           fill: #FFF;
         }
-
       }
-
     }
 
     &.disabled {
@@ -155,6 +150,22 @@
   &__icon {
     display: flex;
     margin: 0 8px;
+  }
+
+  &[data-tooltip]:hover:after {
+    content: attr(data-tooltip);
+    padding: 5px;
+    max-width: 120px;
+    width: max-content;
+    position: absolute;
+    top: calc(0 + 2px);
+    left: 100%;
+    background-color: $color_light_grey;
+    border-radius: 8px;
+    color: $default_font_color;
+    font-size: 10px;
+    text-transform: capitalize;
+    z-index: 10;
   }
 
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import clsn from 'classnames';
 import { ConfigProvider, Table } from 'antd';
+import Spinner from 'ui/Spinner';
 import EmptyLabel from 'ui/EmptyLabel';
 import { EmptyLabelTypes } from 'ui/EmptyLabel/types';
 import { TableRecordTypes } from 'store/ducks/table/state';
 import sts from './styles.module.scss';
 import { GeneralTableProps, initialPaginationConfig, setPaginationConfig } from './types';
-import Spinner from 'ui/Spinner';
 
 const GeneralTable: React.FC<GeneralTableProps<TableRecordTypes>> = ({
   columns,

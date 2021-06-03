@@ -40,3 +40,29 @@
   }
 
 }
+
+.actions {
+  display: inline-flex;
+  width: 100%;
+  justify-content: flex-end;
+
+  &__buttonWrap {
+    width: unset;
+  }
+
+  &__button {
+    width: auto;
+    height: auto;
+
+    & > span {
+      margin: 0;
+
+      & > svg > path {
+        fill: $color_placeholder;
+      }
+
+    }
+
+  }
+  
+}

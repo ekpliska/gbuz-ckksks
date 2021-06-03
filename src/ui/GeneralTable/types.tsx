@@ -6,12 +6,12 @@ export interface GeneralTableProps<T> {
   columns: ColumnsType<T>;
   dataSourse?: T[];
   loading?: boolean;
-  pagination?: PaginationModel,
+  pagination?: PaginationModel;
   // rowSelection?: object[];
   // onRow?: (record: object, index?: number) => string;
   // pagination?: false | TablePaginationConfig;
   classNameTableWrapper?: string;
-};
+}
 
 export const initialPaginationConfig: PaginationModel = {
   page_number: 0,
@@ -19,7 +19,9 @@ export const initialPaginationConfig: PaginationModel = {
   total_count: 0,
 };
 
-export const setPaginationConfig = (options: PaginationModel): PaginationProps => {
+export const setPaginationConfig = (
+  options: PaginationModel,
+): PaginationProps => {
   return {
     total: options.total_count,
     current: options.page_number || 1,

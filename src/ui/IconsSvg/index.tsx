@@ -49,3 +49,5 @@ export { CloseIcon } from './icon-svg/CloseIcon';
 export { WordIcon } from './icon-svg/WordIcon';
 export { SpinIcon } from './icon-svg/SpinIcon';
 export { VerificationInfoIcon } from './icon-svg/VerificationInfoIcon';
+export { EditIcon } from './icon-svg/EditIcon';
+export { DeleteIcon } from './icon-svg/DeleteIcon';

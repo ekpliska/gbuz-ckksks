@@ -3,6 +3,7 @@ export interface ButtonProps {
   variant?: 'filled' | 'outlined' | 'text';
   type?: 'button' | 'submit' | 'reset';
   color?: 'default' | 'light',
+  tooltip?: string;
   classNameContainer?: string;
   classNameButton?: string;
   disabled?: boolean;
