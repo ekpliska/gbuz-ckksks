@@ -22,7 +22,7 @@ export const initialPaginationConfig: PaginationModel = {
 export const setPaginationConfig = (options: PaginationModel): PaginationProps => {
   return {
     total: options.total_count,
-    current: options.page_number,
+    current: options.page_number || 1,
     pageSize: options.page_size,
     showSizeChanger: false,
     // hideOnSinglePage: true,

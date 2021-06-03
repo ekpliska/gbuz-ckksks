@@ -14,6 +14,7 @@ import { fetchTableData } from 'store/ducks/table/thunks';
 import {
   selectorTableIsLoading,
   selectorTableItems,
+  selectorTablePagination,
 } from 'store/ducks/table/selectors';
 
 import { MI_tableProps } from './tableProps';
@@ -45,6 +46,7 @@ const MeasuringInstruments: React.FC<PageMainProps> = ({
   const dispatch = useDispatch();
   const tableItems = useSelector(selectorTableItems);
   const isLoadingStatus = useSelector(selectorTableIsLoading);
+  const pagination = useSelector(selectorTablePagination);
 
   React.useEffect(() => {
     dispatch(fetchTableData({
@@ -82,6 +84,7 @@ const MeasuringInstruments: React.FC<PageMainProps> = ({
         columns={MI_tableProps}
         dataSourse={tableItems}
         loading={isLoadingStatus}
+        pagination={pagination}
       />
     </>
   );

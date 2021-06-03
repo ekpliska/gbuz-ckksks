@@ -18,8 +18,11 @@ export const fetchTableData = createAsyncThunk(
     try {
       dispatch(setTableEntity(params.entity));
       const { data } = await MI_Api.fetchAllData(params.requestParams);
-      const { items } = data as EquipmentsResponse;
-      dispatch(setTableData(items));
+      const { items, page_number, page_size, total_count } = data as EquipmentsResponse;
+      dispatch(setTableData({
+        items,
+        pagination: { page_number, page_size, total_count },
+      }));
     } catch (error) {
       const err: AxiosError<ApiError> = error;
       dispatch(setTableError(err.response?.data.errors as string[]));

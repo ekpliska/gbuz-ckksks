@@ -24,8 +24,9 @@ export const tableSlice = createSlice({
   name: 'table',
   initialState,
   reducers: {
-    setTableData(state: TableState, { payload }: PayloadAction<TableState['items']>) {
-      state.items = payload;
+    setTableData(state: TableState, { payload }: PayloadAction<Partial<TableState>>) {
+      state.items = payload.items;
+      state.pagination = payload.pagination;
     },
     setTableEntity(state: TableState, { payload }: PayloadAction<EquipmentEntity>) {
       state.entity = payload;

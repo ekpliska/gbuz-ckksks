@@ -12,7 +12,10 @@ import sts from '../styles.module.scss';
 import { useChangeSearchForm } from 'hooks/useChangeSearchForm';
 import { fetchTableData, FetchTableDataProps } from 'store/ducks/table/thunks';
 import { normalizedObject } from 'utils/helpers';
-import { selectorTableOrder, selectorTablePagination } from 'store/ducks/table/selectors';
+import {
+  selectorTableOrder,
+  selectorTablePagination,
+} from 'store/ducks/table/selectors';
 
 const MeasuringInstrumentsSearchFrom: React.FC<
   SearchFormProps<MeasuringInstrumentModel>
@@ -31,7 +34,9 @@ const MeasuringInstrumentsSearchFrom: React.FC<
 
   const isDisabled = React.useMemo<boolean>(() => {
     if (searchFields) {
-      return Object.keys(searchFields).filter((key) => searchFields[key]).length ? false : true;
+      return Object.keys(searchFields).filter((key) => searchFields[key]).length
+        ? false
+        : true;
     }
     return true;
   }, [searchFields]);
@@ -44,10 +49,12 @@ const MeasuringInstrumentsSearchFrom: React.FC<
       requestParams: {
         search: normalizedObject(searchFields),
         ...(order && { order: order }),
-        ...(page && { page: page }),
+        ...(page && {
+          page: { page_number: page.page_number, page_size: page.page_size },
+        }),
       },
     };
-    
+
     dispatch(fetchTableData(dataRequest));
   };
 
@@ -78,9 +85,7 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                 <InputText
                   id='inventory_number_mi'
                   name='inventory_number_mi'
-                  value={
-                    (searchFields?.inventory_number_mi as string) || ''
-                  }
+                  value={(searchFields?.inventory_number_mi as string) || ''}
                   type='text'
                   label='Инвентарный номер'
                   placeholder='Введите инвентарный номер'
@@ -90,9 +95,7 @@ const MeasuringInstrumentsSearchFrom: React.FC<
                 <InputText
                   id='factory_number_mi'
                   name='factory_number_mi'
-                  value={
-                    (searchFields?.factory_number_mi as string) || ''
-                  }
+                  value={(searchFields?.factory_number_mi as string) || ''}
                   type='text'
                   label='Заводской номер'
                   placeholder='Введите заводской номер'
@@ -127,11 +130,7 @@ const MeasuringInstrumentsSearchFrom: React.FC<
           </div>
         </div>
         <div className={sts.form__buttons}>
-          <Button
-            type='submit'
-            variant='filled'
-            disabled={isDisabled}
-          >
+          <Button type='submit' variant='filled' disabled={isDisabled}>
             Найти
           </Button>
           <Button type='reset' variant='outlined' onClick={handleResetForm}>

@@ -15,7 +15,7 @@ export const selectorTableIsLoading = (state: RootState): boolean =>
 
 export const selectorTablePagination = (
   state: RootState,
-): TableState['pagination'] | undefined => state.table.pagination;
+): TableState['pagination'] => state.table.pagination;
 
 export const selectorTableOrder = (state: RootState): TableState['order'] | undefined =>
   state.table.order;
