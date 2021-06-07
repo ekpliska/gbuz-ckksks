@@ -17,12 +17,16 @@ const MI_tableProps: ColumnsType<TableRecordTypes> = [
     dataIndex: 'id',
     width: '5%',
     render: (value) => `СИ-${value}`,
+    sorter: true,
+    showSorterTooltip: false,
   },
   {
     key: 'name',
     title: 'Наименование средства измерения',
     dataIndex: 'name',
     width: '15%',
+    sorter: true,
+    showSorterTooltip: false,
   },
   {
     key: 'factory_number',

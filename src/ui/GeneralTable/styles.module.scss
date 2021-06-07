@@ -5,6 +5,23 @@
 
   :global {
 
+    .ant-table-wrapper {
+
+      & > .ant-spin-nested-loading {
+        position: relative;
+
+        & > .ant-spin-blur {
+          clear: both;
+          overflow: hidden;
+          opacity: 0.5;
+          user-select: none;
+          pointer-events: none;
+        }
+
+      }
+
+    }
+
     .ant-table table {
       width: 100%;
     }

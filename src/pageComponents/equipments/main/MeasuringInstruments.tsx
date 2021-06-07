@@ -20,6 +20,7 @@ import {
 import { MI_tableProps } from './tableProps';
 import { PageMainProps } from './types';
 import { EquipmentEntity } from 'models/equipments';
+import { useChangeTable } from 'hooks/table/useChangeTable';
 
 const tempData: VerificationEquipmentItemProps[] = [
   {
@@ -47,6 +48,8 @@ const MeasuringInstruments: React.FC<PageMainProps> = ({
   const tableItems = useSelector(selectorTableItems);
   const isLoadingStatus = useSelector(selectorTableIsLoading);
   const pagination = useSelector(selectorTablePagination);
+
+  const { handleChange } = useChangeTable();
 
   React.useEffect(() => {
     dispatch(fetchTableData({
@@ -85,6 +88,7 @@ const MeasuringInstruments: React.FC<PageMainProps> = ({
         dataSourse={tableItems}
         loading={isLoadingStatus}
         pagination={pagination}
+        onChange={handleChange}
       />
     </>
   );

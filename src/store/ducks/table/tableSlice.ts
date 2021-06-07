@@ -5,6 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 import { EquipmentEntity } from 'models/equipments';
 import { LoadingState } from 'store/loadingState';
+import { initialPaginationConfig } from 'ui/GeneralTable/types';
 import { TableState } from './state';
 import { fetchTableData } from './thunks';
 
@@ -34,6 +35,15 @@ export const tableSlice = createSlice({
     setTableError(state: TableState, { payload }: PayloadAction<TableState['error']>) {
       state.error = payload;
     },
+    setOrderValue(state: TableState, { payload }: PayloadAction<TableState['order']>) {
+      state.order = payload;
+    },
+    setCurrentPage(state: TableState, { payload }: PayloadAction<number>) {
+      state.pagination = {
+        ...(state.pagination || initialPaginationConfig),
+        page_number: payload || 0,
+      };
+    },
   },
   extraReducers: (builder: ActionReducerMapBuilder<TableState>) => {
     builder.addCase(fetchTableData.pending, (state) => {
@@ -52,6 +62,8 @@ export const {
   setTableData,
   setTableEntity,
   setTableError,
+  setOrderValue,
+  setCurrentPage,
 } = tableSlice.actions;
 
 export default tableSlice.reducer;

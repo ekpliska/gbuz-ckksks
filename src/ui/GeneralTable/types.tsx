@@ -1,4 +1,9 @@
 import { PaginationProps } from 'antd/es/pagination';
+import {
+  TablePaginationConfig,
+  Key,
+  SorterResult,
+} from 'antd/lib/table/interface';
 import { ColumnsType } from 'antd/lib/table';
 import { PaginationModel } from 'models/pagination';
 
@@ -7,6 +12,11 @@ export interface GeneralTableProps<T> {
   dataSourse?: T[];
   loading?: boolean;
   pagination?: PaginationModel;
+  onChange?: (
+    pagination: TablePaginationConfig,
+    filters: Record<string, (Key | boolean)[] | null>,
+    sorter: SorterResult<T> | SorterResult<T>[],
+  ) => void;
   // rowSelection?: object[];
   // onRow?: (record: object, index?: number) => string;
   // pagination?: false | TablePaginationConfig;

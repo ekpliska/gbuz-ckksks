@@ -8,5 +8,5 @@ export interface SearchRequest {
 
 export interface OrderRequest {
   field: string;
-  type: 'ASC' | 'DESC' | null,
+  order: 'ASC' | 'DESC' | null,
 };
