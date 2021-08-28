@@ -1,83 +1,69 @@
 import React from 'react';
-import clsn from 'classnames';
-import { InputText } from 'ui/Inputs';
-import Button from 'ui/Button';
-import { EmployeesModel } from 'models/equipments';
+import { useDispatch } from 'react-redux';
+import { EquipmentEntity, EmployeesModel } from 'models/equipments';
+import Filter from 'ui/Filter';
+import { Field } from 'store/ducks/search/state';
+import { setSearchFields } from 'store/ducks/search/searchSlice';
 import { SearchFormProps } from '../types';
-import sts from '../styles.module.scss';
+
+const initialValues: Field = {
+  lastname_e: '',
+  firstname_e: '',
+  middlename_e: '',
+  document_e: '',
+};
 
 const EmployeesSearchFrom: React.FC<
   SearchFormProps<EmployeesModel>
 > = (): React.ReactElement => {
-  const handleSubmitForm = () => {
-    return;
-  };
+  const dispatch = useDispatch();
+
+  const handleSubmit = React.useCallback((values) => {
+    dispatch(setSearchFields({
+      entity: EquipmentEntity.employee,
+      fields: values,
+    }));
+  }, [dispatch]);
 
   return (
-    <div className={sts.formWrapper}>
-      <form className={sts.form} onSubmit={handleSubmitForm}>
-        <div className={sts.form__inputs}>
-          <div className={sts.form__inputs_row}>
-            <div className={clsn(sts.form__inputs_column, sts['--col_4'])}>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='lastname'
-                  name='lastname'
-                  value=''
-                  type='text'
-                  label='Фамилия'
-                  placeholder='Введите фамилию сотрудника'
-                />
-              </div>
-            </div>
-            <div className={clsn(sts.form__inputs_column, sts['--col_2'])}>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='firstname'
-                  name='firstname'
-                  value=''
-                  type='text'
-                  label='Имя'
-                  placeholder='Введите имя сотрудника'
-                />
-              </div>
-            </div>
-            <div className={clsn(sts.form__inputs_column, sts['--col_3'])}>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='middlename'
-                  name='middlename'
-                  value=''
-                  type='text'
-                  label='Отчество'
-                  placeholder='Введите отчество сотрудника'
-                />
-              </div>
-            </div>
-            <div className={clsn(sts.form__inputs_column, sts['--col_3'])}>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='documentMumber'
-                  name='documentMumber'
-                  value=''
-                  type='text'
-                  label='Номер трудового договора'
-                  placeholder='Введите номер трудового договора'
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={sts.form__buttons}>
-          <Button type='submit' variant='filled'>
-            Найти
-          </Button>
-          <Button type='reset' variant='outlined'>
-            Очистить
-          </Button>
-        </div>
-      </form>
-    </div>
+    <>
+      <Filter
+        initialValues={initialValues}
+        fields={[
+          [
+            {
+              label: 'Фамилия',
+              type: 'TEXT',
+              name: 'lastname_e',
+              placeholder: 'Введите фамилию сотрудника',
+              colWidth: '--col_4',
+            },
+            {
+              label: 'Имя',
+              type: 'TEXT',
+              name: 'firstname_e',
+              placeholder: 'Введите имя сотрудника',
+              colWidth: '--col_2',
+            },
+            {
+              label: 'Отчество',
+              type: 'TEXT',
+              name: 'middlename_e',
+              placeholder: 'Введите отчество сотрудника',
+              colWidth: '--col_3',
+            },
+            {
+              label: 'Номер трудового договора',
+              type: 'TEXT',
+              name: 'document_e',
+              placeholder: 'Введите номер трудового договора',
+              colWidth: '--col_3',
+            },
+          ],
+        ]}
+        onSubmit={handleSubmit}
+      />
+    </>
   );
 };
 

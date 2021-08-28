@@ -6,12 +6,12 @@ export interface Field {
   [name: string]: string | number | boolean | SelectValue | null;
 };
 
-export interface FieldSearchProps {
+export interface FieldSearch {
   entity: EquipmentEntity;
-  values: Field | null;
+  fields: Field[] | null;
 };
 
 export interface SearchState {
-  fields: FieldSearchProps[];
+  forms: Array<FieldSearch>;
   statusLoading: LoadingState;
 };

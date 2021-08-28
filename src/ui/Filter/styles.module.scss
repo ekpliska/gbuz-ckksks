@@ -1,0 +1,83 @@
+@mixin paddings {
+  & > div {
+    padding: 0 15px;
+    &:nth-of-type(1) {
+      padding-right: 15px;
+      padding-left: 0;
+    }
+    &:not(:first-child):last-child {
+      padding-left: 15px;
+      padding-right: 0;
+    }
+  }
+}
+
+.formWrapper {
+
+  &.--general-form {
+    margin-top: 35px;
+  }
+
+  .form {
+    display: flex;
+    flex-flow: column nowrap;
+
+    &__inputs {
+      box-sizing: border-box;
+
+      &_heading {
+        color: $color_medium_blue;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        margin-bottom: 15px;
+      }
+
+      &_row {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-bottom: 15px;
+
+        &:not(:first-child) h3 {
+          margin-top: 46px;
+        }
+
+        &_wrapper {
+          display: inline-flex;
+        }
+
+        & > div {
+          @include paddings();
+        }
+
+      }
+
+      &_column {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: stretch;
+
+      }
+
+    }
+
+    &__buttons {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & > * {
+        flex-basis: 140px;
+        margin: 0 16px;
+      }
+
+      &.--general-form {
+        justify-content: flex-end;
+      }
+
+    }
+
+  }
+
+}

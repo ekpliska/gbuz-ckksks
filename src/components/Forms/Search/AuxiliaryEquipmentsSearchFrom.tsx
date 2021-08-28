@@ -1,71 +1,62 @@
 import React from 'react';
-import clsn from 'classnames';
-import { InputText } from 'ui/Inputs';
-import Button from 'ui/Button';
-import { AuxiliaryEquipmentModel } from 'models/equipments';
+import { useDispatch } from 'react-redux';
+import { EquipmentEntity, AuxiliaryEquipmentModel } from 'models/equipments';
+import Filter from 'ui/Filter';
+import { Field } from 'store/ducks/search/state';
+import { setSearchFields } from 'store/ducks/search/searchSlice';
 import { SearchFormProps } from '../types';
-import sts from '../styles.module.scss';
+
+const initialValues: Field = {
+  name_ae: '',
+  inventory_number_ae: '',
+  factory_number_ae: '',
+};
 
 const AuxiliaryEquipmentsSearchFrom: React.FC<
   SearchFormProps<AuxiliaryEquipmentModel>
 > = (): React.ReactElement => {
-  const handleSubmitForm = () => {
-    return;
-  };
+  const dispatch = useDispatch();
+
+  const handleSubmit = React.useCallback((values) => {
+    dispatch(setSearchFields({
+      entity: EquipmentEntity.auxiliaryEquipment,
+      fields: values,
+    }));
+  }, [dispatch]);
+
 
   return (
-    <div className={sts.formWrapper}>
-      <form className={sts.form} onSubmit={handleSubmitForm}>
-        <div className={sts.form__inputs}>
-          <div className={sts.form__inputs_row}>
-            <div className={clsn(sts.form__inputs_column, sts['--col_6'])}>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='name'
-                  name='name'
-                  value=''
-                  type='text'
-                  label='Наименование вспомогательного оборудования / марка'
-                  placeholder='Введите наименование вспомогательного оборудования или марку'
-                />
-              </div>
-            </div>
-            <div className={clsn(sts.form__inputs_column, sts['--col_3'])}>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='inventoryNumber'
-                  name='inventoryNumber'
-                  value=''
-                  type='text'
-                  label='Инвентарный номер'
-                  placeholder='Введите инвентарный номер'
-                />
-              </div>
-            </div>
-            <div className={clsn(sts.form__inputs_column, sts['--col_3'])}>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='factoryNumber'
-                  name='factoryNumber'
-                  value=''
-                  type='text'
-                  label='Заводской номер'
-                  placeholder='Введите заводской номер'
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={sts.form__buttons}>
-          <Button type='submit' variant='filled'>
-            Найти
-          </Button>
-          <Button type='reset' variant='outlined'>
-            Очистить
-          </Button>
-        </div>
-      </form>
-    </div>
+    <>
+      <Filter
+        initialValues={initialValues}
+        fields={[
+          [
+            {
+              label: 'Наименование вспомогательного оборудования / марка',
+              type: 'TEXT',
+              name: 'name_ae',
+              placeholder: 'Введите наименование вспомогательного оборудования или марку',
+              colWidth: '--col_6',
+            },
+            {
+              label: 'Инвентарный номер',
+              type: 'TEXT',
+              name: 'inventory_number_ae',
+              placeholder: 'Введите инвентарный номер',
+              colWidth: '--col_3',
+            },
+            {
+              label: 'Заводской номер',
+              type: 'TEXT',
+              name: 'factory_number_ae',
+              placeholder: 'Введите заводской номер',
+              colWidth: '--col_3',
+            },
+          ],
+        ]}
+        onSubmit={handleSubmit}
+      />
+    </>
   );
 };
 

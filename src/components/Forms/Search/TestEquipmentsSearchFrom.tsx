@@ -1,93 +1,90 @@
 import React from 'react';
-import clsn from 'classnames';
-import { InputText, Select } from 'ui/Inputs';
-import Button from 'ui/Button';
-import { SelectValue } from 'ui/Inputs/Select/types';
-import { TestEquipmentModel } from 'models/equipments';
+import { useDispatch } from 'react-redux';
+import Filter from 'ui/Filter';
+import { Field } from 'store/ducks/search/state';
+import { setSearchFields } from 'store/ducks/search/searchSlice';
+import { EquipmentEntity, TestEquipmentModel } from 'models/equipments';
 import { SearchFormProps } from '../types';
-import sts from '../styles.module.scss';
 
-const statuses: SelectValue[] = [
-  {
-    id: 1,
-    name: 'На поверке',
-  },
-  {
-    id: 2,
-    name: 'В эксплуатации',
-  },
-];
+const initialValues: Field = {
+  name_te: '',
+  factory_number_te: '',
+  inventory_number_te: '',
+  attestation_document_te: '',
+  status_te: '',
+};
 
 const TestEquipmentsSearchFrom: React.FC<
   SearchFormProps<TestEquipmentModel>
 > = (): React.ReactElement => {
+  const dispatch = useDispatch();
 
-  const handleSubmitForm = () => {
-    return;
-  };
+  const handleSubmit = React.useCallback((values) => {
+    dispatch(setSearchFields({
+      entity: EquipmentEntity.testEquipment,
+      fields: values,
+    }));
+  }, [dispatch]);
 
   return (
-    <div className={sts.formWrapper}>
-      <form className={sts.form} onSubmit={handleSubmitForm}>
-        <div className={sts.form__inputs}>
-          <div className={sts.form__inputs_row}>
-            <div className={clsn(sts.form__inputs_column, sts['--col_8'])}>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='name'
-                  name='name'
-                  value=''
-                  type='text'
-                  label='Наименование испытательного оборудования / марка'
-                  placeholder='Введите наименование испытательного оборудования или марку'
-                />
-              </div>
-              <div className={clsn(sts.form__inputs_column_cell, sts['--cell_6-6'])}>
-                <InputText
-                  id='inventoryNumber'
-                  name='inventoryNumber'
-                  value=''
-                  type='text'
-                  label='Инвентарный номер'
-                  placeholder='Введите инвентарный номер'
-                />
-                <InputText
-                  id='attestationDocument'
-                  name='attestationDocument'
-                  value=''
-                  type='text'
-                  label='Номер документа об аттестации'
-                  placeholder='Введите номер документа об аттестации'
-                />
-              </div>
-            </div>
-            <div className={clsn(sts.form__inputs_column, sts['--col_4'])}>
-              <div className={sts.form__inputs_column_cell}>
-                <InputText
-                  id='factoryNumber'
-                  name='factoryNumber'
-                  value=''
-                  type='text'
-                  label='Заводской номер'
-                  placeholder='Введите заводской номер'
-                />
-              </div>
-              <div className={sts.form__inputs_column_cell}>
-                <Select
-                  name='change_name_field'
-                  label='Статус поверки'
-                  options={statuses}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={sts.form__buttons}>
-          <Button type='submit' variant='filled'>Найти</Button>
-          <Button type='reset' variant='outlined'>Очистить</Button>
-        </div>
-      </form>
-    </div>
+    <>
+      <Filter
+        initialValues={initialValues}
+        fields={[
+          [
+            {
+              label: 'Наименование испытательного оборудования / марка',
+              type: 'TEXT',
+              name: 'name_te',
+              placeholder: 'Введите наименование испытательного оборудования или марку',
+              colWidth: '--col_8',
+            },
+            {
+              label: 'Заводской номер',
+              type: 'TEXT',
+              name: 'factory_number_te',
+              placeholder: 'Введите заводской номер',
+              colWidth: '--col_4',
+            },
+          ],
+          [
+            {
+              label: 'Инвентарный номер',
+              type: 'TEXT',
+              name: 'inventory_number_te',
+              placeholder: 'Введите инвентарный номер',
+              colWidth: '--col_4',
+            },
+            {
+              label: 'Номер документа об аттестации',
+              type: 'TEXT',
+              name: 'certificate_te',
+              placeholder: 'Введите номер документа об аттестации',
+              colWidth: '--col_4',
+            },
+            {
+              label: 'Статус поверки',
+              type: 'SELECT',
+              name: 'status_te',
+              options: [
+                {
+                  id: 1,
+                  name: 'Test 1',
+                },
+                {
+                  id: 2,
+                  name: 'Test 2',
+                },
+              ],
+              colWidth: '--col_4',
+            },
+          ],
+        ]}
+        isLoading={true}
+        isDisabled={false}
+        onSubmit={handleSubmit}
+      />
+    </>
   );
 };
 

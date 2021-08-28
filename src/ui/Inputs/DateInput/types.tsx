@@ -6,7 +6,7 @@ export declare type RangeValue<DateType> = [EventValue<DateType>, EventValue<Dat
 
 type TPickerCategories = 'date-picker' | 'date-range';
 
-type TPickerTypes = 'date' | 'month' | 'year';
+export type TPickerTypes = 'date' | 'month' | 'year';
 
 export interface DateInputProps {
   value: EventValue<Moment> | RangeValue<Moment> | null;
